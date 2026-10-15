@@ -3,6 +3,8 @@
 const R = window.REVEAL;
 const meta = await (await fetch('shots/meta.json')).json();
 const srcHTML = await (await fetch('../index.html')).text();
+const SRC = new DOMParser().parseFromString(srcHTML, 'text/html');
+const srcFix = h => h.replace(/src="assets\//g, 'src="../assets/').replace(/ loading="lazy"/g, '');
 const WM = srcHTML.match(/<svg class="wordmark"[\s\S]*?<\/svg>/)[0].replace('class="wordmark"', 'class="wm"');
 const A = p => '../assets/' + p;
 const SHORT = 'a|e|o|à|é|as|os|ao|de|do|da|em|no|na|um|se|A|E|O|À|É|As|Os|Ao|De|Do|Da|Em|No|Na|Um';
@@ -30,7 +32,7 @@ const fig = (src, style = '', extra = '', cls = '') => `<figure class="fig ${cls
 const pageRef = id => `<a class="ref" data-ref="${id}" href="#${id}"></a>`;
 
 /* ---------- planta em SVG (recortes congelados) ---------- */
-const LBL = { terraco: 'Terraço', backdrop: 'Backdrop', housemix: 'Housemix', palco: 'Palco · Carro', pista: 'Pista & bistrôs', led: 'Painéis de LED', instalacao: 'Instalação cartões', bancos: 'Lounge', bar: 'Bar', totem: 'Totem', photo: 'Photo Opp + VM', deckA: 'Deck Bar', deckB: 'Deck Lounge', chapelaria: 'Chapelaria' };
+const LBL = { terraco: 'Terraço', backdrop: 'Check-in', housemix: 'House técnica', palco: 'Palco · Carro', pista: 'Pista & bistrôs', led: 'Painéis de LED', instalacao: 'Instalação cartões', bancos: 'Lounge', bar: 'Bar', totem: 'Totem', photo: 'VM · Adidas', deckA: 'Deck Bar', deckB: 'Deck Lounge', chapelaria: 'Chapelaria' };
 const NUMPOS = { bancos: [1180, 492], instalacao: [1080, 650], led: [790, 420], palco: [700, 515], housemix: [465, 520], backdrop: [438, 700], totem: [918, 775] };
 function planSVG({ focus = [], split = false, flow = false, numbers = false, labels = false, svc = false, aspect = null, pad = 70, dimAll = false, sel = null }) {
   let x0 = 40, y0 = 40, x1 = 1600, y1 = 1052;
@@ -58,9 +60,9 @@ function planSVG({ focus = [], split = false, flow = false, numbers = false, lab
    ========================================================= */
 page({ cls: 'cover', foot: false, bleed: `<img class="bg" src="img/cover-hero.jpg" alt=""><div class="veil"></div>`, body: `
   <div class="in">
-    <div style="display:flex;justify-content:space-between;align-items:center">${WM}<span class="cap" style="color:var(--t2)">Moodboard de cenografia e luz · out/2026</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center">${WM}<span class="cap" style="color:var(--t2)">Moodboard de cenografia e luz · revisão de 15/10/2026</span></div>
     <div>
-      <p class="eyebrow" style="font-size:10pt">Revolut F1 Team · Casa Fasano · São Paulo</p>
+      <p class="eyebrow" style="font-size:10pt">Revolut F1 Team · Casa Fasano · São Paulo · revisão 15/10</p>
       <h1 class="display">The Reveal</h1>
       <p class="lead" style="max-width:120mm;margin-top:5mm;font-size:14pt">${tx('Cenografia e luz para a noite da revelação. Um amanhecer em São Paulo, do verde ao âmbar.')}</p>
       <div class="foot2" style="margin-top:9mm"><p class="lbl" style="color:var(--t2);max-width:150mm"><b style="color:#fff">Versão em PDF</b> ${tx('Os módulos interativos do site aparecem aqui congelados em momentos-chave, lado a lado, para comparar e aprovar.')}</p><span class="cap">Montagem e lançamento · 2 a 4/11/2026</span></div>
@@ -68,7 +70,7 @@ page({ cls: 'cover', foot: false, bleed: `<img class="bg" src="img/cover-hero.jp
   </div>` });
 
 const TOC = [
-  ['01', 'Conceito', 'Um novo amanhecer na cidade · quatro atos de luz', 'sec-conceito'],
+  ['01', 'Conceito', 'Um novo amanhecer na cidade · a luz da noite', 'sec-conceito'],
   ['02', 'Revelação do carro', 'O palco em 30 segundos · Opção 1 × Opção 2 · key light', 'sec-revelacao'],
   ['03', 'Espaços', 'Moodboard por espaço · referências originais e na paleta', 'sec-espacos'],
   ['04', 'Reunião com cliente', 'As 10 diretrizes de 13/10 e a nossa proposta', 'sec-reuniao'],
@@ -103,22 +105,6 @@ page({ sec: 'conceito', id: 'sec-conceito', bg: '#0A1D1A', bleed: `<img src="img
     </div>
   </div>` });
 
-const ACTS = [
-  ['Chegada', 'loop ambiente', 'luz/luz-04.jpg', 'var(--petrol)', '#0A1D1A', '89,144,135', 'Verde petróleo e teal. Luz baixa, mistério, silhuetas. O terraço recebe e o backdrop reage a quem passa.'],
-  ['Revelação do carro', '~30 segundos', 'luz/luz-07.jpg', 'linear-gradient(90deg,var(--teal),var(--cream),var(--amber))', '#0B1311', '220,209,177', 'Blackout, pulso verde, speed lines, beat drop e amanhecer. Transformação total da luz, com o carro sempre em luz branca neutra.'],
-  ['Revelação do cartão', 'instalação', 'expo/expo-02.jpg', 'var(--cream)', '#12110C', '220,209,177', 'O cartão como protagonista: volumes tridimensionais, profundidade infinita, nada de vitrine convencional.'],
-  ['Pós-revelação', 'loop ambiente', 'luz/luz-06.jpg', 'linear-gradient(90deg,var(--amber),var(--burnt))', '#170E05', '247,132,0', 'Âmbar dourado e laranja queimado. Pista aberta, varanda e salão na mesma temperatura de luz.']
-];
-page({ sec: 'conceito', bg: '#0A1D1A', body: `
-  ${head('Narrativa', 'Quatro atos de luz', 'Cada ato tem a sua cor. No site, ela acende ao passar o cursor; aqui, cada ato aparece no seu próprio tom.', false)}
-  <ol style="list-style:none;flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);gap:4mm;align-items:center">
-    ${ACTS.map(([n, s, img, sw, bg, gl, t], i) => `<li style="display:flex;flex-direction:column;gap:2.6mm;padding:3.4mm;border-radius:2mm;background:radial-gradient(90% 60% at 50% 0%, rgba(${gl},.28), transparent 75%), ${bg};border:.25mm solid var(--line);min-height:0">
-      <p class="lbl"><b>${pad2(i + 1)} · ${n}</b><span style="color:var(--t3)">${s}</span></p>
-      ${fig(A('img/' + img), 'aspect-ratio:4/5;flex:none')}
-      <span style="display:block;height:1.2mm;border-radius:1mm;background:${sw};flex:none"></span>
-      <p class="sm" style="flex:none">${tx(t)}</p></li>`).join('')}
-  </ol>` });
-
 /* =========================================================
    02 REVELAÇÃO
    ========================================================= */
@@ -126,14 +112,14 @@ const ST = meta.stage;
 const meters = st => `<div class="meters"><div class="meter"><span>Ambiente</span><i style="--v:${st.house};--mc:#F3E6CC"></i></div><div class="meter"><span>Cena</span><i style="--v:${st.scene};--mc:${st.sceneCol}"></i></div><div class="meter"><span>Key carro</span><i style="--v:${st.key};--mc:#fff"></i></div></div>`;
 const OPT = { 1: ['Opção 1', 'Como está na planta · laterais recuados'], 2: ['Opção 2', 'Laterais a 45° · encaixados no central'] };
 page({ sec: 'revelacao', id: 'sec-revelacao', bg: '#050706', body: `
-  ${head('02 · Revelação do carro', 'O palco em 30 segundos', 'Modelo em escala com as cotas da planta v01: palco de 12,00 × 5,00 m, LED de 4 + 12 + 4 m e carro de 4,58 × 2,00 m a 23,6°, sob pé-direito de 3,95 m. Vista aérea das duas configurações dos painéis laterais.')}
+  ${head('02 · Revelação do carro', 'O palco em 30 segundos', 'Modelo em escala: palco de 12,00 × 5,00 m com 0,70 m de altura (previsão), LED de 4 + 12 + 4 m e carro de 4,58 × 2,00 m a 23,6°, centralizado, sob pé-direito de 3,95 m. Vista aérea das duas configurações dos painéis laterais.')}
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:7mm;flex:none">
     ${[1, 2].map(o => `<div style="display:grid;gap:2.4mm">${fig(`img/stage-o${o}-top.jpg`, 'aspect-ratio:16/9', `<span class="pill ${o === 2 ? '' : ''} badge">${OPT[o][0]}</span>`)}<p class="lbl"><b>${OPT[o][0]}</b><span style="color:var(--t2)">${OPT[o][1]}</span></p></div>`).join('')}
   </div>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7mm;flex:none">
     <div class="rule"><p class="lbl" style="margin-bottom:1.4mm"><b>Opção 1</b> como está na planta</p><p class="sm">${tx('Três painéis paralelos. Os laterais de 4,00 m ficam recuados 1,00 m, encostados nas quinas do central. A cidade é lida de frente, como uma tela única.')}</p></div>
     <div class="rule"><p class="lbl" style="margin-bottom:1.4mm"><b>Opção 2</b> laterais a 45°</p><p class="sm">${tx('Os painéis 1 e 3 giram 45° a partir das quinas do painel 2 e se encaixam nele. Avançam cerca de 2,83 m para os lados do palco, sem ocupar o palco. A imagem abraça o carro e a cidade abre em perspectiva.')}</p></div>
-    <div class="rule"><p class="lbl" style="margin-bottom:1.4mm"><b>Premissas</b> a confirmar</p><p class="sm">${tx('A planta não cota a altura do LED (adotamos 3,50 m) nem a do palco (0,40 m). O carro segue o retângulo da planta (4,58 × 2,00 m): vale confirmar a medida real. O balcão de DJ saiu do palco. A opção escolhida entra na planta v02.')}</p></div>
+    <div class="rule"><p class="lbl" style="margin-bottom:1.4mm"><b>Premissas</b> a confirmar</p><p class="sm">${tx('Palco e carro centralizados, palco a 0,70 m (previsão) e LED a 3,50 m. Medida real do carro e sistema de retirada do tecido a confirmar. O DJ sai do palco.')}</p></div>
   </div>` });
 
 page({ sec: 'revelacao', bg: '#050706', body: `
@@ -151,7 +137,7 @@ const CUEDESC = {
   'tl-01': 'Cena desce para 0. Luz ambiente cai para 15%, nunca apaga.',
   'tl-02': 'LED e washes pulsam em petróleo e teal, com o motor no som.',
   'tl-03': 'Conteúdo do LED corre pelos 3 painéis. Moving heads varrem a sala.',
-  'tl-04': 'Strobe branco sincronizado ao drop (timecode).',
+  'tl-04': 'Strobe branco sincronizado ao drop (timecode). O tecido sai do carro (sistema a definir).',
   'tl-05': 'Wash sobe do piso. O LED vira o nascer do sol sobre a cidade.',
   'tl-06': 'Elipsoidais 5600K com recorte acendem só no carro.',
   'tl-07': 'Ambiente volta a 60%. Salão, deck e varanda entram juntos.'
@@ -181,7 +167,7 @@ const SP = R.spaces;
 page({ sec: 'espacos', id: 'sec-espacos', bg: '#0B100E', glow: '220,209,177', bleed: `<img src="img/chapter-conceito.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scaleX(-1);filter:sepia(.5) saturate(1.4) hue-rotate(-12deg);opacity:.9"><div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.2) 70%)"></div>`, body: `
   <div style="flex:1;display:grid;grid-template-columns:1fr 104mm;gap:14mm;align-items:end">
     <div><p class="eyebrow">03 · Espaços</p><h2 class="display" style="font-size:52pt;letter-spacing:-.04em">Moodboard<br>por espaço</h2>
-      <p class="lead" style="margin-top:6mm;max-width:120mm">${tx('Sete espaços, na ordem do fluxo do convidado. Cada referência leva um número; a legenda fica ao lado das imagens.')}</p></div>
+      <p class="lead" style="margin-top:6mm;max-width:120mm">${tx('Seis espaços, na ordem do fluxo do convidado. Cada referência leva um número; a legenda fica ao lado das imagens.')}</p></div>
     <ol class="toc">${SP.map((s, i) => `<li><a href="#space-${s.id}"><span class="k">${pad2(i + 1)}</span><span class="t" style="font-size:11.5pt">${s.name}<small>${s.imgs.length} ${s.imgs.length > 1 ? 'referências' : 'referência'} · pico na noite: ${momentOf(s.t)}</small></span><span class="p" data-ref="space-${s.id}"></span></a></li>`).join('')}</ol>
   </div>` });
 
@@ -192,7 +178,7 @@ const spaceSide = (sp, i, imgs, part = '') => `
   <div><div class="bar" style="height:1.4mm;border-radius:1mm"><i style="position:absolute;top:50%;left:${sp.t * 100}%;width:3mm;height:3mm;border-radius:50%;background:#fff;transform:translate(-50%,-50%);box-shadow:0 0 0 .6mm #000,0 0 2mm rgba(${sp.glow},1)"></i></div><p class="cap" style="margin-top:1.6mm">Pico na noite: ${momentOf(sp.t)}</p></div>
   <div class="tags">${sp.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>`;
 const capList = (imgs, start = 0) => `<ol class="caplist">${imgs.map((im, k) => `<li><span class="num">${start + k + 1}</span><span>${tx(im[1])}</span></li>`).join('')}</ol>`;
-const jg = (sp, imgs, start = 0) => `<div class="jg" data-items='${JSON.stringify(imgs.map((im, k) => ({ src: A(`img/${sp.id}/${im[0]}`), n: start + k + 1 })))}'></div>`;
+const jg = (sp, imgs, start = 0) => `<div class="jg" data-items='${JSON.stringify(imgs.map((im, k) => im[0] ? { src: A(`img/${sp.id}/${im[0]}`), n: start + k + 1 } : { ph: 1, n: start + k + 1 }))}'></div>`;
 function spacePage(sp, i, imgs, start, part, id) {
   page({ sec: 'espacos', id, bg: sp.bg, glow: sp.glow, body: `
     <div style="flex:1;min-height:0;display:grid;grid-template-columns:78mm 1fr;gap:8mm">
@@ -216,7 +202,7 @@ SP.forEach((sp, i) => {
     </div>` });
 }
 // Original × na paleta (o botão de tratamento das imagens, congelado)
-const GR = [['luz', 'luz-04.jpg', 'Luz · Fórmula 1 / 01'], ['espaco', 'espaco-03.jpg', 'Entrada & Espaço / 05'], ['dj', 'dj-04.jpg', 'DJ & Palco / 04'], ['bar', 'bar-04.jpg', 'Bar / 01']];
+const GR = [['dj', 'dj-02.jpg', 'DJ & Palco / 03'], ['dj', 'dj-04.jpg', 'DJ & Palco / 04'], ['bar', 'bar-04.jpg', 'Bar / 01'], ['bar', 'bar-01.jpg', 'Bar / 04']];
 page({ sec: 'espacos', bg: '#0B100E', glow: '220,209,177', body: `
   ${head('03 · Espaços · tratamento das imagens', 'Original × na paleta', 'No site, um botão passa todas as referências para a paleta do cartão. Aqui, quatro delas nos dois estados.', false)}
   <div style="flex:1;min-height:0;display:grid;grid-template-columns:30mm repeat(4,1fr);grid-template-rows:auto 1fr 1fr;gap:3mm 5mm">
@@ -226,6 +212,21 @@ page({ sec: 'espacos', bg: '#0B100E', glow: '220,209,177', body: `
     <div class="rule" style="align-self:start"><p class="lbl"><b>Na paleta</b></p><p class="cap" style="margin-top:1mm">${tx('Do petróleo ao laranja queimado')}</p></div>
     ${GR.map(g => fig(A(`img/${g[0]}/${g[1]}`), 'min-height:0', '', 'graded')).join('')}
   </div>` });
+
+// Pranchas novas da revisão 15/10 (o conteúdo vem do site: #board-*)
+const BOARD = (id, glow, bg) => {
+  const el = SRC.getElementById(id), side = el.querySelector('.board__side'), main = el.querySelector('.board__main');
+  const title = side.querySelector('h3').textContent, lead = side.querySelector('.body').textContent;
+  const tags = [...side.querySelectorAll('.space__tags li')].map(li => `<span class="tag">${li.textContent}</span>`).join('');
+  page({ sec: 'espacos', id: 'pdf-' + id, bg, glow, body: `
+    <div style="flex:1;min-height:0;display:grid;grid-template-columns:78mm 1fr;gap:9mm">
+      <div style="display:flex;flex-direction:column;gap:3mm"><p class="eyebrow"><i>Prancha nova</i> · revisão 15/10</p><h2 class="h1" style="font-size:24pt">${title}</h2><p class="txt">${tx(lead)}</p><div class="tags">${tags}</div></div>
+      <div class="board" style="min-height:0">${srcFix(main.innerHTML)}</div>
+    </div>` });
+};
+BOARD('board-externa', '89,144,135', '#0A1D1A');
+BOARD('board-led-varanda', '220,209,177', '#0B1311');
+BOARD('board-mobiliario', '255,182,42', '#1A1208');
 
 /* =========================================================
    04 REUNIÃO
@@ -239,9 +240,10 @@ page({ sec: 'reuniao', id: 'sec-reuniao', bg: '#0A1D1A', body: `
   </div>` });
 
 const LINKID = { planta: 'sec-planta', revelacao: 'sec-revelacao', entrada: 'sec-espacos', 'space-bar': 'space-bar', 'space-expo': 'space-expo', 'space-espaco': 'space-espaco', 'space-photo-op': 'space-photo-op', 'space-mobiliario': 'space-mobiliario' };
-const LINKTXT = { planta: 'Planta', revelacao: 'Palco 3D', entrada: 'Espaços', 'space-bar': 'Referências de bar', 'space-expo': 'Referências de expo', 'space-espaco': 'Referências de entrada', 'space-photo-op': 'Photo Op', 'space-mobiliario': 'Mobiliário' };
+const LINKTXT = { planta: 'Planta', revelacao: 'Palco 3D', entrada: 'Espaços', 'space-bar': 'Referências de bar', 'space-expo': 'Referências de expo', 'space-espaco': 'Referências de entrada', 'space-photo-op': 'VM · Branding', 'space-mobiliario': 'Mobiliário' };
 function media(g) {
   const m = g.media;
+  if (m.type === 'ph') return `<figure class="fig fig--ph" style="flex:1;min-height:0"><span class="ph__lbl">Imagem a enviar</span></figure>`;
   if (m.type === 'img') return fig(A(m.src.replace('assets/', '')), 'flex:1;min-height:0');
   if (m.type === 'fins') return fig('img/meet-08.jpg', 'flex:1;min-height:0');
   if (m.type === 'plan') return `<figure class="fig" style="flex:1;min-height:0">${planSVG({ focus: m.zones, split: m.split, flow: m.flow, labels: true, aspect: 1.36, pad: m.flow ? 120 : 90 })}</figure>`;
@@ -274,8 +276,8 @@ const r02row = ([f, title, now, next, link], i, iw) => `<article class="r02" sty
 </article>`;
 const STEPS = `<ol class="steps" style="list-style:none">
   <li class="step on"><span class="cap">Agora</span><b>Aprovação do moodboard</b><span>Luz, palco e referências por espaço</span></li>
-  <li class="step"><span class="cap">Depois</span><b>Revisão da planta</b><span>${tx('Terraço como acesso, deck em 2 ambientes, opção de LED')}</span></li>
-  <li class="step"><span class="cap">Depois</span><b>Renders R03</b><span>${tx('Estados verde e âmbar, carro em key light neutra')}</span></li>
+  <li class="step"><span class="cap">Depois</span><b>Planta revisada</b><span>${tx('Entrada sem pórtico, palco e carro centralizados, DJ 3 × 6 m, varanda')}</span></li>
+  <li class="step"><span class="cap">Depois</span><b>Renders R03</b><span>${tx('Entrada, palco, VM, bar, lounge e vista geral na nova planta')}</span></li>
   <li class="step"><span class="cap">Depois</span><b>Projeto de luz e cue list</b><span>${tx('Revelação de 30 s em timecode')}</span></li></ol>`;
 for (let p = 0; p < RR.length; p += 2) {
   const rows = RR.slice(p, p + 2);
@@ -297,15 +299,15 @@ page({ sec: 'planta', id: 'sec-planta', bg: '#120C06', glow: '255,182,42', body:
     <figure class="fig" style="aspect-ratio:1560/1012;align-self:start;max-height:100%">${planSVG({ dimAll: true, flow: true, numbers: true, svc: true })}</figure>
     <div style="display:flex;flex-direction:column;gap:3mm;min-height:0">
       <ol class="legend">${R.zones.map((z, i) => `<li><span class="num">${i + 1}</span><span>${z.name}<span>${tx(z.dims)}</span></span></li>`).join('')}</ol>
-      <p class="cap rule" style="margin-top:auto"><span style="display:inline-block;width:9mm;border-top:.6mm dotted var(--surface-a);vertical-align:middle;margin-right:2mm"></span>${tx('Fluxo do convidado: terraço, backdrop, salão, e daí bar, Photo Opp e deck.')}</p>
+      <p class="cap rule" style="margin-top:auto"><span style="display:inline-block;width:9mm;border-top:.6mm dotted var(--surface-a);vertical-align:middle;margin-right:2mm"></span>${tx('Fluxo do convidado: terraço, recepção e check-in, salão, e daí bar, VM e varanda. Planta v01, a revisar na v02.')}</p>
     </div>
   </div>` });
 
 const MOM = [
-  ['chegada', 'Chegada', 'Verde petróleo e teal em todos os ambientes. Ambiente quente a 70%, LED em teal e carro no escuro.'],
-  ['aquecimento', 'Aquecimento', 'A onda de cor começa no terraço e avança pelo salão, do teal ao creme.'],
-  ['revelacao', 'Revelação', 'Ambiente cai para 45% e a cena chega ao creme. Os 30 s da revelação acontecem aqui.'],
-  ['pos', 'Pós-revelação', 'Âmbar e laranja queimado no salão, no deck e na varanda. LED no nascer do sol e key light branca no carro.']
+  ['chegada', 'Chegada', 'Verde petróleo e teal em todos os ambientes, varanda incluída. Ambiente quente a 70%, LEDs em teal e carro no escuro.'],
+  ['aquecimento', 'Aquecimento', 'A onda de cor começa no terraço e avança pelo salão até a varanda, do teal ao creme.'],
+  ['revelacao', 'Revelação', 'Ambiente cai para 45%. Os 30 s da revelação passam pelo LED do palco e pelos painéis transparentes da varanda.'],
+  ['pos', 'Pós-revelação', 'Âmbar e laranja queimado no salão e na varanda, integrados pelos LEDs. Nascer do sol no palco e key light branca no carro.']
 ];
 page({ sec: 'planta', bg: '#120C06', glow: '255,182,42', body: `
   ${head('06 · Planta · a luz pela noite', 'Quatro momentos, a mesma planta', '', false)}
@@ -315,7 +317,7 @@ page({ sec: 'planta', bg: '#120C06', glow: '255,182,42', body: `
 
 const ZP = [R.zones.slice(0, 7), R.zones.slice(7)];
 ZP.forEach((zs, pi) => page({ sec: 'planta', bg: '#120C06', glow: '255,182,42', body: `
-  ${head(`06 · Planta · ambientes ${pi + 1}/2`, pi ? 'Lounge, bar, Photo Opp e varanda' : 'Da entrada ao palco', '', false)}
+  ${head(`06 · Planta · ambientes ${pi + 1}/2`, pi ? 'Lounge, bar, VM e varanda' : 'Da entrada ao palco', '', false)}
   <div style="flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:4mm">
     ${zs.map(z => { const i = ZI[z.id]; return `<article class="zc">
       <div class="zc__loc">${planSVG({ sel: z.id, aspect: 62 / 24, focus: [], pad: 0 })}</div>
@@ -324,6 +326,16 @@ ZP.forEach((zs, pi) => page({ sec: 'planta', bg: '#120C06', glow: '255,182,42', 
       <div class="tags" style="margin-top:auto">${z.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div></article>`; }).join('')}
   </div>` }));
 
+{
+  const pn = SRC.querySelector('.plan-next');
+  const items = [...pn.querySelectorAll('.board__list li')].map(li => { const st = li.querySelector('.status'); const t = li.querySelector('span').cloneNode(true); t.querySelector('.status')?.remove(); return { k: li.querySelector('b').textContent, t: t.textContent.trim(), st: st.textContent, ok: st.classList.contains('status--ok') }; });
+  const half = Math.ceil(items.length / 2);
+  const col = list => `<ul class="board__list board__list--st">${list.map(it => `<li><b>${it.k}</b><span>${tx(it.t)}</span><i class="status ${it.ok ? 'status--ok' : 'status--wait'}">${it.st}</i></li>`).join('')}</ul>`;
+  page({ sec: 'planta', id: 'sec-planta-v02', bg: '#120C06', glow: '255,182,42', body: `
+    ${head('06 · Planta revisada', 'O que muda na v02', 'A planta destas páginas é a v01. Estes pontos entram na versão revisada do Studio Sarrafo; o que não está decidido aparece como tal.')}
+    <div style="flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:10mm">${col(items.slice(0, half))}${col(items.slice(half))}</div>` });
+}
+
 /* =========================================================
    07 PRÓXIMOS PASSOS
    ========================================================= */
@@ -331,14 +343,14 @@ page({ sec: 'fim', id: 'sec-fim', bg: '#0A1D1A', body: `
   ${head('07 · Próximos passos', 'O que precisamos aprovar e confirmar', 'Com estas respostas, a planta v02 do Studio Sarrafo e os renders R03 seguem nesta direção.')}
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:10mm;flex:none">
     <div class="rule"><p class="lbl" style="margin-bottom:3mm"><b>Aprovar</b></p><ol class="caplist" style="gap:2.6mm">
-      ${['O moodboard: luz, palco e referências por espaço.', 'As respostas às 10 diretrizes da reunião de 13/10.', 'A configuração do LED: Opção 1 (laterais recuados) ou Opção 2 (laterais a 45°).'].map((t, i) => `<li><span class="num">${i + 1}</span><span style="font-size:8.6pt">${tx(t)}</span></li>`).join('')}</ol></div>
+      ${['O moodboard revisado: luz, palco e referências por espaço.', 'A configuração do LED: Opção 1 (laterais recuados) ou Opção 2 (laterais a 45°).', 'A setorização da varanda: duas zonas ou área reduzida.', 'Letras espelhadas como branding e o banco Paulistano no terraço.'].map((t, i) => `<li><span class="num">${i + 1}</span><span style="font-size:8.6pt">${tx(t)}</span></li>`).join('')}</ol></div>
     <div class="rule"><p class="lbl" style="margin-bottom:3mm"><b>Confirmar</b></p><ol class="caplist" style="gap:2.6mm">
-      ${['Altura do LED (adotamos 3,50 m) e do palco (0,40 m).', 'Medida real do carro (a planta usa 4,58 × 2,00 m).', 'Nova posição do DJ, fora do palco do carro.', 'Terraço como entrada principal, varanda como deck coberto e passagem do terraço para o salão.'].map((t, i) => `<li><span class="num">${i + 4}</span><span style="font-size:8.6pt">${tx(t)}</span></li>`).join('')}</ol></div>
+      ${['Altura do palco (prevista 0,70 m) e medida real do carro.', 'Sistema de retirada do tecido na revelação.', 'Posição do DJ (3 × 6 m) e da house técnica (5 ou 6 m).', 'Dimensões dos LEDs da varanda e área mínima de 200 m².', 'Saída de serviço de 1,58 m e área de fumantes.'].map((t, i) => `<li><span class="num">${i + 4}</span><span style="font-size:8.6pt">${tx(t)}</span></li>`).join('')}</ol></div>
   </div>
   <div style="flex:none">${STEPS}</div>
   <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:10mm" class="rule">
     <div>${WM.replace('class="wm"', 'class="wm" style="height:9mm"')}<p class="cap" style="margin-top:3mm;max-width:150mm">${tx('The Reveal · Revolut F1 Team · Casa Fasano, São Paulo · moodboard de cenografia e luz, out/2026. Planta: Studio Sarrafo (ante-projeto) · Paleta: BR_ARF1_Activation_Creative · Referências: REF Moodboard.')}</p></div>
-    <div style="text-align:right"><p class="cap">Versão interativa (palco 3D e planta)</p><a class="cap" href="https://claude.ai/artifact/APbextPifRAnL2Fr3VUWjs" style="color:var(--cream)">claude.ai/artifact/APbextPifRAnL2Fr3VUWjs</a></div>
+    <div style="text-align:right"><p class="cap">Versão interativa (palco 3D e planta)</p><a class="cap" href="https://revolut-the-reveal.netlify.app" style="color:var(--cream)">revolut-the-reveal.netlify.app</a></div>
   </div>` });
 
 /* ---------- montagem ---------- */
@@ -351,7 +363,7 @@ await Promise.all([...document.images].map(im => im.decode().catch(() => {})));
 const natural = src => new Promise(r => { const im = new Image(); im.onload = () => r(im.naturalWidth / im.naturalHeight); im.onerror = () => r(1); im.src = src; });
 for (const box of document.querySelectorAll('.jg')) {
   const items = JSON.parse(box.dataset.items);
-  for (const it of items) it.ar = await natural(it.src);
+  for (const it of items) it.ar = it.ph ? 4 / 3 : await natural(it.src);
   const W = box.clientWidth, H = box.clientHeight, gap = 8;
   let best = null;
   for (let rows = 1; rows <= items.length; rows++) {
@@ -369,7 +381,7 @@ for (const box of document.querySelectorAll('.jg')) {
   y = Math.max(0, (H - blockH) / 2);
   parts.forEach((p, r) => {
     const h = hs[r] * s, rowW = p.reduce((a, it) => a + h * it.ar, 0) + gap * (p.length - 1); let x = Math.max(0, (W - rowW) / 2);
-    p.forEach(it => { const w = h * it.ar; box.insertAdjacentHTML('beforeend', `<figure class="fig" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"><img src="${it.src}" alt=""><span class="num">${it.n}</span></figure>`); x += w + gap; });
+    p.forEach(it => { const w = h * it.ar; box.insertAdjacentHTML('beforeend', it.ph ? `<figure class="fig fig--ph" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"><span class="ph__lbl">Imagem a enviar</span><span class="num">${it.n}</span></figure>` : `<figure class="fig" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"><img src="${it.src}" alt=""><span class="num">${it.n}</span></figure>`); x += w + gap; });
     y += h + gap;
   });
 }

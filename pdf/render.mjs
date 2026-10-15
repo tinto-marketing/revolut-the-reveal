@@ -68,7 +68,14 @@ await page.evaluate(({ marks }) => {
   });
 }, { marks });
 await page.evaluate(() => Promise.all([...document.images].map(i => i.decode().catch(() => {}))));
+// fundos aplicados por CSS: espera cada imagem carregar e decodificar antes de imprimir
+await page.evaluate(async () => {
+  const urls = new Set();
+  document.querySelectorAll('.page, [data-r]').forEach(el => { const m = getComputedStyle(el).backgroundImage.match(/url\("?([^")]+)"?\)/); if (m) urls.add(m[1]); });
+  await Promise.all([...urls].map(u => new Promise(r => { const im = new Image(); im.onload = () => im.decode().then(r, r); im.onerror = r; im.src = u; })));
+});
 await page.waitForLoadState('networkidle');
+await page.waitForTimeout(1500);
 const left = await page.evaluate(() => { const g = s => s && s.includes('gradient'); let c = 0; document.querySelectorAll('*').forEach(el => { const cs = getComputedStyle(el); if (cs.display === 'none') return; if (g(cs.backgroundImage) && !cs.backgroundImage.includes('url(')) c++; ['::before', '::after'].forEach(p => { const ps = getComputedStyle(el, p); if (ps.display !== 'none' && ps.content !== 'none' && g(ps.backgroundImage)) c++; }); }); return c; });
 console.log('degradês restantes', left);
 await page.pdf({ path: out, preferCSSPageSize: true, printBackground: true });

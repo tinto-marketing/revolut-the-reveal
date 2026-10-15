@@ -162,14 +162,14 @@ Legenda da coluna "Fonte":
 | 1 | Capa | `#entrada` (hero) | captura `cover-hero` · texto: PDF |
 | 2 | Sumário | menu do topo | PDF (`TOC` no `build.js`) |
 | 3 | 01 Conceito · "Um novo amanhecer" · luz da noite | `#conceito` | captura `chapter-conceito` · texto: PDF (no site, HTML de `#conceito`) |
-| 4 | Narrativa · quatro atos de luz | `#conceito` → atos | PDF (`ACTS`) + HTML dos atos no site · asset |
+| 4 | Narrativa · quatro atos de luz — **retirada em 15/10 (rev2)** | — | — |
 | 5 | 02 Revelação · O palco em 30 s · Opção 1 e 2 (vista aérea) | `#revelacao` | captura `stage-o1/o2-top` · texto: PDF + site |
 | 6 | Opção 1 × Opção 2 (público e diagonal) | `#revelacao` (abas e câmeras) | captura `stage-o*-front/diag` · texto: PDF |
 | 7–8 | Revelação em 8 quadros (0 a 29,9 s) | `#revelacao` (linha do tempo) | captura `stage-tl-00…07` · cues: PDF (`CUEDESC`) + cues do site |
 | 9 | Key light no carro | `#revelacao` (câmera do carro) | captura `stage-car-*` · resposta: dados (diretriz 04) |
 | 10 | 03 Espaços · índice | `#espacos` | captura `chapter-espacos` · lista: dados (`REVEAL.spaces`) |
 | 11 | Entrada & Espaço | `#espacos` → espaço `espaco` | dados (`spaces[0]`) · asset `img/espaco/` |
-| 12–13 | Luz · Fórmula 1 (1/2 e 2/2) | espaço `luz` | dados (`spaces[1]`) · asset `img/luz/` |
+| 12–13 | Luz · Fórmula 1 (1/2 e 2/2) — **retirada em 15/10 (rev2)** | — | — |
 | 14 | DJ & Palco | espaço `dj` | dados (`spaces[2]`) · asset `img/dj/` |
 | 15 | Expo · Cartões | espaço `expo` | dados (`spaces[3]`) · asset `img/expo/` |
 | 16 | Bar | espaço `bar` | dados (`spaces[4]`) · asset `img/bar/` |
@@ -228,3 +228,6 @@ Cite **página + o que muda**, como na revisão de 15/10 ("PÁG. 11 — Entrada:
 ## 9. Próximo passo
 
 A **revisão de 15/10** ("THE REVEAL — Revisão da apresentação", 35 itens por página) foi recebida e ainda não foi aplicada. Ela será aplicada seguindo a seção 7. O que depender de material que ainda não existe vai para uma lista de pendências, separada por página.
+
+
+> **15/10 (rev2):** saíram a pág. 4 (Narrativa) e as págs. 12–13 (Luz · Fórmula 1); o PDF passou a ter 36 páginas. Imagens ainda não enviadas aparecem como espaço de foto em cor sólida: no `REVEAL.spaces`, uma entrada `[null, 'legenda']` vira placeholder no site e no PDF. Para trocar, basta pôr o arquivo em `assets/img/<espaço>/` e o nome no lugar do `null`.
