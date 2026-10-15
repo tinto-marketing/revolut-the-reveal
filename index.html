@@ -1,0 +1,1891 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Revolut The Reveal</title>
+<meta name="description" content="Moodboard do evento The Reveal · Revolut F1 Team · Casa Fasano, São Paulo.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="Revolut The Reveal">
+<meta property="og:description" content="Moodboard do evento The Reveal · Revolut F1 Team · Casa Fasano, São Paulo.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/renders-r02/r02_0000.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/js/vendor/three-r147-bundle.js" as="script">
+<style>
+/* =========================================================
+   THE REVEAL · Revolut F1 Team — moodboard do evento
+   Tokens completos: 02_MARCA/DESIGN-SYSTEM.md · tokens.json
+   ========================================================= */
+
+
+:root {
+  color-scheme: dark;
+  --c-petrol: #17423C; --c-teal: #599087; --c-burnt: #F78400; --c-amber: #FFB62A; --c-cream: #DCD1B1; --c-near-black: #090B09;
+  --c-black: #000; --c-surface: #2B4942; --c-surface-active: #E3CA9C;
+  --c-text: #fff; --c-text-2: rgba(255,255,255,.76); --c-text-3: rgba(220,209,177,.64);
+  --c-line: rgba(220,209,177,.16); --c-line-strong: rgba(220,209,177,.32);
+  --grad-dawn: linear-gradient(90deg,#030303 0%,#0F1716 9%,#1A2B28 18%,#263E3A 27%,#3E5851 36%,#717E70 45%,#A4A48F 54%,#D5C6A9 63%,#DEBD87 72%,#E7B366 81%,#E8A145 90%,#D57829 100%);
+  --grad-night: linear-gradient(90deg,#17423C 0%,#599087 25%,#DCD1B1 50%,#FFB62A 75%,#F78400 100%);
+  --hud-glow: 89,144,135;
+  --font: 'Helvetica Neue', Helvetica, 'Nimbus Sans', Arial, sans-serif;
+  --w-light: 300; --w-reg: 400; --w-med: 500; --w-bold: 700;
+  --fs-display: clamp(64px, 11.5vw, 176px); --fs-h1: clamp(38px, 5.2vw, 78px); --fs-h2: clamp(26px, 2.8vw, 42px);
+  --fs-eyebrow: clamp(14px, 1.15vw, 18px); --fs-lead: clamp(19px, 1.7vw, 27px); --fs-body: clamp(15px, 1.05vw, 17px);
+  --gutter: clamp(16px, 4.3vw, 86px);
+  --sp-2: 16px; --sp-3: 24px; --sp-4: 40px; --sp-5: 64px; --sp-6: 112px; --sp-7: 160px;
+  --radius: 12px; --ease: cubic-bezier(.2,.7,.1,1);
+  --top: 88px;
+}
+*,*::before,*::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { font-weight: var(--w-reg); margin: 0; background: #000; color: var(--c-text); font-family: var(--font); font-size: var(--fs-body); line-height: 1.45; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+kbd { font: inherit; font-size: .92em; padding: 1px 6px; border: 1px solid var(--c-line-strong); border-radius: 4px; }
+::selection { background: var(--c-amber); color: #000; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: absolute; left: -9999px; top: 8px; z-index: 100; background: var(--c-cream); color: #000; padding: 8px 12px; }
+.skip:focus { left: 8px; }
+:focus-visible { outline: 2px solid var(--c-amber); outline-offset: 3px; }
+
+/* ---------- Tipografia ---------- */
+.display { font-size: var(--fs-display); font-weight: var(--w-med); line-height: .9; letter-spacing: -.045em; margin: 0; }
+.h1 { font-size: var(--fs-h1); font-weight: var(--w-med); line-height: 1.02; letter-spacing: -.032em; margin: 0; }
+.h2 { font-size: var(--fs-h2); font-weight: var(--w-reg); line-height: 1.1; letter-spacing: -.02em; margin: 0; }
+.eyebrow { font-size: var(--fs-eyebrow); font-weight: var(--w-bold); letter-spacing: -.005em; margin: 0 0 .45em; }
+.lead { font-size: var(--fs-lead); font-weight: var(--w-light); line-height: 1.3; letter-spacing: -.015em; margin: 0; max-width: 32ch; }
+.lead em { font-style: normal; color: var(--c-amber); }
+.lead--sm { font-weight: var(--w-light); font-size: clamp(16px, 1.25vw, 20px); max-width: 52ch; color: var(--c-text-2); line-height: 1.45; }
+.lead--sm b { color: #fff; }
+.label { font-size: 15px; margin: 0; line-height: 1.35; }
+.label b { font-weight: 700; margin-right: .35em; }
+.body { font-size: var(--fs-body); margin: 0; color: var(--c-text-2); }
+.muted { color: var(--c-text-3); }
+.caption { font-size: 12.5px; color: var(--c-text-3); margin: 0; }
+
+/* ---------- Grain, cursor light ---------- */
+.grain { position: fixed; inset: -50%; z-index: 60; pointer-events: none; opacity: .07; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.6 -.3'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: grain 1.2s steps(6) infinite; }
+@keyframes grain { 0%{transform:translate(0,0)} 20%{transform:translate(-3%,2%)} 40%{transform:translate(2%,-3%)} 60%{transform:translate(-2%,-1%)} 80%{transform:translate(3%,3%)} 100%{transform:translate(0,0)} }
+.cursor-light { position: fixed; z-index: 55; left: 0; top: 0; width: 560px; height: 560px; margin: -280px 0 0 -280px; border-radius: 50%; pointer-events: none; opacity: 0;
+  background: radial-gradient(circle, rgba(var(--cl, 89,144,135), .13) 0%, rgba(var(--cl, 89,144,135), .05) 35%, transparent 70%); mix-blend-mode: screen; transition: opacity .6s; will-change: transform; }
+body.has-pointer .cursor-light { opacity: 1; }
+body.at-hero .cursor-light { opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .grain { animation: none; } }
+main, .footer { position: relative; z-index: 1; }
+
+/* ---------- Topbar: uma peça só (marca · capítulos · fio de luz) ---------- */
+.topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding-top: env(safe-area-inset-top, 0px);
+  background: rgba(0,0,0,.84); backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid var(--c-line); transition: background .5s, border-color .5s; }
+body.at-hero .topbar { background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,0)); border-color: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+.topbar__row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: var(--sp-3); height: 56px; padding: 0 var(--gutter); }
+.topbar__brand { justify-self: start; display: flex; align-items: center; height: 100%; font-size: 19px; color: #fff; }
+.wordmark { height: 1em; width: auto; fill: currentColor; display: block; }
+.topbar__nav { display: flex; align-items: center; gap: 2px; padding: 3px; border-radius: 999px; background: rgba(255,255,255,.04); border: 1px solid var(--c-line); }
+.topbar__nav a { display: flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border-radius: 999px; text-decoration: none; font-size: 13.5px; line-height: 1; color: var(--c-text-2); white-space: nowrap; transition: color .3s, background .3s; }
+.topbar__nav a span { font-size: 10.5px; color: var(--c-text-3); font-feature-settings: 'tnum'; transition: color .3s; }
+.topbar__nav a:hover { color: #fff; background: rgba(255,255,255,.06); }
+.topbar__nav a.is-active { color: #fff; background: rgba(var(--hud-glow), .18); box-shadow: inset 0 0 0 1px rgba(var(--hud-glow), .45); }
+.topbar__nav a.is-active span { color: rgb(var(--hud-glow)); }
+.topbar__end { justify-self: end; display: flex; align-items: center; gap: 14px; }
+.topbar__event { font-size: 13px; line-height: 1; color: var(--c-text-3); white-space: nowrap; }
+.topbar__menu { display: none; align-items: center; gap: 10px; height: 34px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--c-line-strong); background: transparent; cursor: pointer; font-size: 13.5px; line-height: 1; }
+.topbar__menu i { position: relative; width: 14px; height: 8px; border-top: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transition: transform .3s; }
+.topbar__menu[aria-expanded="true"] i { transform: rotate(90deg); }
+.topbar__sheet { display: grid; padding: 6px var(--gutter) 16px; border-top: 1px solid var(--c-line); background: rgba(0,0,0,.94); }
+.topbar__sheet a { display: flex; align-items: baseline; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--c-line); text-decoration: none; font-size: 20px; letter-spacing: -.01em; }
+.topbar__sheet a span { font-size: 12px; color: var(--c-text-3); font-feature-settings: 'tnum'; }
+.topbar__sheet a.is-active span { color: rgb(var(--hud-glow)); }
+@media (max-width: 1080px) { .topbar__event { display: none; } }
+@media (max-width: 900px) {
+  .topbar__row { grid-template-columns: 1fr auto; }
+  .topbar__nav { display: none; }
+  .topbar__menu { display: inline-flex; }
+}
+@media (min-width: 901px) { .topbar__sheet { display: none !important; } }
+
+/* fio de luz do evento — segunda linha da topbar */
+.hud { display: flex; align-items: center; gap: 14px; height: 30px; padding: 0 var(--gutter) 2px; font-size: 11.5px; line-height: 1; transition: opacity .5s, height .5s; }
+.hud__label { color: var(--c-text-3); white-space: nowrap; }
+.hud__bar { position: relative; flex: 1; height: 14px; border: 0; padding: 0; background: transparent; cursor: pointer; }
+.hud__bar::before { content: ''; position: absolute; left: 0; right: 0; top: 6px; height: 2px; border-radius: 2px; background: var(--grad-dawn); transition: height .2s, top .2s; }
+.hud__bar:hover::before { top: 5px; height: 4px; }
+.hud__marker { position: absolute; top: 50%; left: 0; width: 9px; height: 9px; border-radius: 50%; background: #fff; transform: translate(-50%, -50%); box-shadow: 0 0 0 3px rgba(0,0,0,.8), 0 0 14px rgba(var(--hud-glow), 1); transition: left .25s linear; }
+.hud__moment { font-weight: 700; min-width: 11ch; text-align: right; white-space: nowrap; }
+body.at-hero .hud { opacity: 0; pointer-events: none; }
+@media (max-width: 560px) { .hud__label { display: none; } }
+
+/* ---------- Seções com cor própria (inspiradas no hero: lâminas + brilho) ---------- */
+.wrap { padding: 0 var(--gutter); max-width: 1920px; margin: 0 auto; }
+.sec { position: relative; isolation: isolate; padding: var(--sp-6) 0 var(--sp-7); background-color: var(--bg, #000); transition: background-color 1.2s var(--ease); }
+.sec::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(70% 45% at 88% 0%, rgba(var(--glow), .20), transparent 70%),
+    radial-gradient(50% 40% at 0% 100%, rgba(var(--glow), .10), transparent 70%),
+    repeating-linear-gradient(90deg, rgba(var(--glow), .045) 0 1px, transparent 1px 18px);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.55) 50%, #000 100%); mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.55) 50%, #000 100%); transition: opacity 1s; }
+.sec:has(> .chapter:first-child) { padding-top: 0; }
+.head-row { margin-bottom: var(--sp-5); }
+.head-row .body { max-width: 62ch; margin-top: var(--sp-2); }
+.head-row--split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); align-items: end; }
+.head-row--split .lead--sm { justify-self: end; }
+@media (max-width: 900px) { .head-row--split { grid-template-columns: 1fr; } .head-row--split .lead--sm { justify-self: start; } }
+
+/* Lâminas (canvas reutilizável do hero) */
+.fins { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.fins--soft { opacity: .9; }
+.fin-band { position: relative; height: clamp(64px, 9vw, 120px); background: #000; overflow: hidden; z-index: 1;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+
+/* Capítulo (título em tela cheia) */
+.chapter { position: relative; min-height: 86vh; display: flex; align-items: center; padding: var(--sp-6) var(--gutter); margin-bottom: var(--sp-6); overflow: hidden;
+  background:
+    radial-gradient(75% 95% at 100% 100%, rgba(243,214,158,.95) 0%, rgba(220,209,177,.8) 12%, rgba(140,160,138,.55) 25%, rgba(43,90,80,.55) 40%, rgba(23,66,60,.35) 52%, transparent 70%),
+    radial-gradient(55% 60% at 0% 0%, rgba(23,66,60,.5), transparent 70%), #000; }
+.chapter--flip { background:
+    radial-gradient(75% 95% at 0% 100%, rgba(255,190,80,.95) 0%, rgba(220,209,177,.8) 12%, rgba(140,160,138,.55) 25%, rgba(43,90,80,.55) 40%, rgba(23,66,60,.35) 52%, transparent 70%),
+    radial-gradient(55% 60% at 100% 0%, rgba(23,66,60,.5), transparent 70%), #000; }
+.chapter .fins { mix-blend-mode: screen; }
+.chapter__inner { position: relative; z-index: 1; pointer-events: none; }
+.chapter .h1 { font-size: clamp(48px, 6.6vw, 104px); letter-spacing: -.04em; }
+
+.reveal { opacity: 1; transform: translateY(18px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+/* Frames + brilho de lâminas no hover */
+.frame { margin: 0; position: relative; overflow: hidden; border: 1px solid var(--c-line); background: var(--c-near-black); }
+.frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease), filter .8s; }
+.frame::before { content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0; mix-blend-mode: screen;
+  background: repeating-linear-gradient(90deg, rgba(255,255,255,0) 0 10px, rgba(var(--fl, 220,209,177), .22) 10px 11px), linear-gradient(90deg, transparent 0%, rgba(var(--fl, 220,209,177), .28) 50%, transparent 100%);
+  background-size: auto, 40% 100%; background-repeat: repeat, no-repeat; background-position: 0 0, -60% 0; transition: opacity .4s; }
+.tile:hover .frame::before, .act:hover .frame::before, .r02-row .frame:hover::before { opacity: 1; animation: sweep 1.6s var(--ease) forwards; }
+@keyframes sweep { to { background-position: 0 0, 160% 0; } }
+
+/* Botões, toggle, chips */
+.btn { font-weight: var(--w-med); display: inline-flex; align-items: center; gap: 10px; padding: 11px 18px; border-radius: 999px; border: 1px solid var(--c-line-strong); background: rgba(0,0,0,.2); cursor: pointer; font-size: 14.5px; transition: background .3s, color .3s, border-color .3s, transform .2s; white-space: nowrap; list-style: none; }
+.btn:hover { border-color: var(--c-cream); }
+.btn:active { transform: scale(.97); }
+.btn--primary { background: var(--c-surface-active); color: #000; border-color: var(--c-surface-active); font-weight: 700; }
+.btn--primary:hover { background: var(--c-amber); border-color: var(--c-amber); }
+.btn[aria-pressed="true"] { background: var(--c-surface); border-color: var(--c-teal); }
+.btn__icon { font-size: 11px; }
+.toggle { display: inline-flex; padding: 4px; border-radius: 999px; background: rgba(43,73,66,.55); border: 1px solid var(--c-line); }
+.toggle__btn { border: 0; background: transparent; padding: 8px 16px; border-radius: 999px; cursor: pointer; font-size: 14px; color: var(--c-text-2); transition: background .3s, color .3s; }
+.toggle__btn.is-on { background: var(--c-surface-active); color: #000; font-weight: 700; }
+input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 6px; background: var(--grad-dawn); cursor: pointer; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 3px solid #000; box-shadow: 0 0 12px rgba(var(--hud-glow), .9); }
+input[type=range]::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid #000; }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; height: 100vh; min-height: 620px; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 var(--gutter) var(--sp-5); background: #000; }
+.hero__veil { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.35) 45%, rgba(0,0,0,0) 70%), linear-gradient(90deg, rgba(0,0,0,.55), transparent 55%); pointer-events: none; }
+.hero__content { position: relative; z-index: 2; max-width: 1100px; pointer-events: none; }
+.hero__lede { font-weight: var(--w-light); font-size: var(--fs-lead); line-height: 1.28; color: var(--c-text-2); max-width: 30ch; margin: var(--sp-3) 0 0; }
+.hero__foot { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: flex-end; gap: var(--sp-3); margin-top: var(--sp-5); padding-top: var(--sp-3); border-top: 1px solid var(--c-line); pointer-events: none; }
+.hero__foot .label { color: var(--c-text-2); max-width: 44ch; }
+.hero__scroll { pointer-events: auto; text-decoration: none; font-size: 14px; color: var(--c-cream); white-space: nowrap; }
+.hero__scroll span { display: inline-block; animation: bob 2s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(4px); } }
+@media (max-width: 700px) { .hero__foot { flex-direction: column; align-items: flex-start; } }
+
+/* ---------- Conceito ---------- */
+.intro-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--sp-5); align-items: end; margin-bottom: var(--sp-7); }
+.night-light { display: grid; gap: 12px; padding: var(--sp-3); border: 1px solid var(--c-line); border-radius: var(--radius); background: rgba(0,0,0,.25); }
+.night-light__bar { position: relative; height: 36px; border-radius: 6px; background: var(--grad-night); cursor: crosshair; }
+.night-light__dot { position: absolute; top: -5px; bottom: -5px; width: 2px; background: #fff; left: 0; box-shadow: 0 0 12px #fff; transition: left .15s; }
+.night-light__names { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--c-text-3); }
+@media (max-width: 900px) { .intro-grid { grid-template-columns: 1fr; } }
+.acts { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 2vw, 32px); }
+.act { cursor: default; outline: none; }
+.act .label { margin-bottom: 14px; }
+.act .frame { aspect-ratio: 4 / 5; transition: box-shadow .6s; }
+.act:hover .frame, .act:focus .frame { box-shadow: 0 30px 80px -30px rgba(var(--ag), .8); }
+.act:hover .frame img { transform: scale(1.04); }
+.act__swatch { display: block; height: 4px; margin: 14px 0; background: var(--sw); }
+.act:nth-child(2) { transition-delay: .08s; } .act:nth-child(3) { transition-delay: .16s; } .act:nth-child(4) { transition-delay: .24s; }
+@media (max-width: 1000px) { .acts { grid-template-columns: 1fr 1fr; row-gap: var(--sp-5); } }
+@media (max-width: 520px) { .acts { grid-template-columns: 1fr; } }
+
+/* ---------- Palco 3D ---------- */
+.stage3d { display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(250px, 1fr); grid-template-areas: 'tabs tabs' 'view cues' 'ctrl cues'; gap: var(--sp-3) var(--sp-4); }
+.stage3d__tabs { grid-area: tabs; display: flex; gap: 8px; flex-wrap: wrap; }
+.tab { font-weight: var(--w-med); display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 12px 18px; border-radius: 10px; border: 1px solid var(--c-line); background: rgba(43,73,66,.35); cursor: pointer; font-size: 14px; text-align: left; transition: background .3s, border-color .3s, color .3s; }
+.tab span { font-size: 11.5px; font-weight: 700; color: var(--c-text-3); }
+.tab:hover { border-color: var(--c-line-strong); }
+.tab.is-on { background: var(--c-surface-active); color: #000; border-color: var(--c-surface-active); }
+.tab.is-on span { color: rgba(0,0,0,.6); }
+.stage3d__view { grid-area: view; position: relative; aspect-ratio: 16 / 9; border: 1px solid var(--c-line); border-radius: var(--radius); overflow: hidden; background: #000; cursor: grab; touch-action: pan-y; }
+.stage3d__view.is-drag { cursor: grabbing; }
+.stage3d__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.stage3d__ref { position: absolute; inset: 0; margin: 0; opacity: 0; pointer-events: none; transition: opacity .7s var(--ease); background: #000; }
+.stage3d__ref img { width: 100%; height: 100%; object-fit: cover; }
+.stage3d__ref figcaption { position: absolute; left: 16px; bottom: 14px; right: 16px; color: #fff; text-shadow: 0 1px 8px #000; }
+.stage3d__view.is-ref .stage3d__ref { opacity: 1; pointer-events: auto; }
+.stage3d__view.is-ref .stage3d__hud, .stage3d__view.is-ref .meters, .stage3d__view.is-ref .stage3d__cams, .stage3d__view.is-ref .stage3d__hint { opacity: 0; pointer-events: none; }
+.stage3d__hud { position: absolute; left: 16px; right: 16px; top: 14px; display: flex; justify-content: space-between; align-items: flex-start; pointer-events: none; transition: opacity .4s; }
+.stage__time { font-size: 13px; color: var(--c-text-2); }
+.stage__clock { font-size: 28px; color: #fff; letter-spacing: -.02em; margin-right: 6px; font-feature-settings: 'tnum'; }
+.stage__cue { font-weight: 700; font-size: 14px; padding: 6px 12px; border-radius: 999px; background: rgba(0,0,0,.55); border: 1px solid var(--c-line); backdrop-filter: blur(6px); }
+.stage3d__cams { position: absolute; left: 14px; bottom: 14px; display: flex; gap: 6px; transition: opacity .4s; }
+.cam { font-size: 12.5px; padding: 6px 11px; border-radius: 999px; border: 1px solid var(--c-line-strong); background: rgba(0,0,0,.5); cursor: pointer; backdrop-filter: blur(6px); }
+.cam.is-on { background: var(--c-surface-active); color: #000; border-color: var(--c-surface-active); font-weight: 700; }
+.meters { position: absolute; right: 14px; bottom: 14px; display: grid; gap: 6px; padding: 10px 12px; border-radius: 10px; background: rgba(0,0,0,.5); border: 1px solid var(--c-line); backdrop-filter: blur(6px); transition: opacity .4s; }
+.meter { display: grid; grid-template-columns: 70px 90px; align-items: center; gap: 8px; font-size: 11.5px; color: var(--c-text-2); }
+.meter i { display: block; height: 4px; border-radius: 4px; background: rgba(255,255,255,.12); position: relative; overflow: hidden; }
+.meter i::after { content: ''; position: absolute; inset: 0; transform-origin: left; transform: scaleX(var(--v, 0)); background: var(--mc, #fff); transition: transform .1s linear; }
+.stage3d__hint { position: absolute; left: 50%; transform: translateX(-50%); bottom: 18px; pointer-events: none; transition: opacity .4s; white-space: nowrap; }
+.stage3d__fallback { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; background: #000; }
+.stage-ctrl { grid-area: ctrl; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.scrub { flex: 1; min-width: 180px; }
+.cues { grid-area: cues; list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--c-line); align-self: start; }
+.cues li { display: grid; grid-template-columns: 48px 1fr; column-gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--c-line); opacity: .45; transition: opacity .4s; cursor: pointer; }
+.cues li:hover { opacity: .85; }
+.cues li b { font-size: 15px; }
+.cues li span:last-child { grid-column: 2; font-size: 13.5px; color: var(--c-text-2); }
+.cues__t { grid-row: span 2; font-size: 12.5px; color: var(--c-text-3); padding-top: 2px; font-feature-settings: 'tnum'; }
+.cues li.is-past { opacity: .7; }
+.cues li.is-now { opacity: 1; }
+.cues li.is-now .cues__t { color: rgb(var(--hud-glow)); }
+.opt-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-3); margin-top: var(--sp-5); }
+.opt-note { padding-top: var(--sp-2); border-top: 1px solid var(--c-line-strong); display: grid; gap: 8px; }
+@media (max-width: 1000px) { .stage3d { grid-template-columns: 1fr; grid-template-areas: 'tabs' 'view' 'ctrl' 'cues'; } .opt-notes { grid-template-columns: 1fr; } .meters { display: none; } .stage3d__view { aspect-ratio: 4 / 3; } .stage3d__hint { display: none; } }
+
+/* ---------- Espaços ---------- */
+.space-nav { position: sticky; top: var(--top); z-index: 20; display: flex; justify-content: space-between; align-items: center; gap: var(--sp-3); padding: 10px var(--gutter); background: rgba(0,0,0,.72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--c-line); }
+.space-index { position: relative; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+.space-index::-webkit-scrollbar { display: none; }
+.space-index a { text-decoration: none; font-size: 13px; padding: 7px 13px; border-radius: 999px; border: 1px solid var(--c-line); color: var(--c-text-2); white-space: nowrap; transition: background .3s, color .3s, border-color .3s; }
+.space-index a:hover { border-color: var(--c-line-strong); color: #fff; }
+.space-index a.is-on { background: rgba(var(--sg), .22); border-color: rgba(var(--sg), .7); color: #fff; }
+.space-index a span { color: var(--c-text-3); margin-right: 6px; }
+@media (max-width: 700px) { .space-nav .toggle { display: none; } }
+.space { position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(260px, 1fr) 2.4fr; gap: var(--sp-5); padding: var(--sp-6) var(--gutter); background-color: var(--sbg); scroll-margin-top: 140px; }
+.space::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(60% 50% at 15% 0%, rgba(var(--sg), .22), transparent 70%), repeating-linear-gradient(90deg, rgba(var(--sg), .05) 0 1px, transparent 1px 18px);
+  -webkit-mask-image: linear-gradient(180deg, #000, rgba(0,0,0,.35)); mask-image: linear-gradient(180deg, #000, rgba(0,0,0,.35)); }
+.space__side { position: sticky; top: calc(var(--top) + 80px); align-self: start; display: grid; gap: var(--sp-2); }
+.space__n { font-size: 13px; color: rgb(var(--sg)); font-weight: 700; }
+.space__folder { font-size: 12.5px; color: var(--c-text-3); }
+.space__light { height: 4px; border-radius: 4px; background: var(--grad-night); position: relative; margin: 8px 0 2px; }
+.space__light i { position: absolute; top: 50%; width: 10px; height: 10px; border-radius: 50%; background: #fff; transform: translate(-50%,-50%); box-shadow: 0 0 0 2px #000, 0 0 12px rgba(var(--sg), 1); }
+.space__lightlbl { font-size: 12px; color: var(--c-text-3); }
+.space__tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 0; padding: 0; list-style: none; }
+.space__tags li { font-size: 12.5px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--c-line-strong); color: var(--c-text-2); }
+.space__plan { font-size: 13.5px; color: var(--c-cream); text-decoration: none; border-bottom: 1px solid var(--c-line-strong); justify-self: start; padding-bottom: 2px; }
+.gallery { columns: 3 240px; column-gap: 14px; }
+.gallery--few { columns: 2 240px; }
+.gallery--one { columns: 1; max-width: 640px; }
+.tile { break-inside: avoid; margin: 0 0 14px; cursor: zoom-in; position: relative; display: block; width: 100%; padding: 0; border: 0; background: none; text-align: left; transform-style: preserve-3d; transition: transform .5s var(--ease); }
+.tile .frame { display: block; }
+.tile .frame img { height: auto; }
+.tile:hover .frame img { transform: scale(1.035); }
+.tile__note { display: block; font-size: 13px; color: var(--c-text-2); margin-top: 8px; line-height: 1.35; }
+.tile__src { display: block; font-size: 11.5px; color: var(--c-text-3); margin-top: 3px; }
+.graded .frame img { filter: grayscale(1) contrast(1.15) brightness(.95); }
+.graded .frame::after { content: ''; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: color; background: linear-gradient(180deg, var(--c-petrol) 0%, var(--c-teal) 35%, var(--c-cream) 60%, var(--c-amber) 80%, var(--c-burnt) 100%); opacity: .95; }
+@media (max-width: 900px) { .space { grid-template-columns: 1fr; } .space__side { position: static; } }
+
+/* ---------- Reunião (imersivo) ---------- */
+.meet { padding-bottom: var(--sp-6); }
+.meet__intro { padding-bottom: var(--sp-5); }
+.meet__intro .lead--sm { margin-top: var(--sp-3); }
+.meet__body { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: var(--sp-5); padding: 0 var(--gutter); max-width: 1920px; margin: 0 auto; }
+.meet__stage { position: sticky; top: calc(var(--top) + 16px); height: calc(100vh - var(--top) - 40px); align-self: start; }
+.meet__frame { position: relative; height: 100%; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--c-line); background: #000; }
+.meet__media { position: absolute; inset: 0; }
+.mm { position: absolute; inset: 0; opacity: 0; transition: opacity .9s var(--ease), transform 1.4s var(--ease); transform: scale(1.04); }
+.mm.is-on { opacity: 1; transform: none; }
+.mm img { width: 100%; height: 100%; object-fit: cover; }
+.mm__cap { position: absolute; left: 16px; right: 16px; bottom: 54px; color: #fff; text-shadow: 0 1px 10px #000; font-size: 13px; }
+.mm--dawn { display: grid; align-content: center; padding: 8%; background: radial-gradient(80% 60% at 50% 110%, rgba(var(--dg, 89,144,135), .55), transparent 70%), #050706; }
+.mm--dawn .dawn__bar { height: clamp(120px, 26vh, 260px); border-radius: 8px; background: var(--grad-dawn); position: relative; overflow: hidden; }
+.mm--dawn .dawn__bar i { position: absolute; top: 0; bottom: 0; width: 3px; background: #fff; box-shadow: 0 0 30px 8px rgba(255,255,255,.6); left: 0; }
+.mm--dawn .dawn__ticks { display: flex; justify-content: space-between; margin-top: 14px; font-size: 13px; color: var(--c-text-2); }
+.mm--dawn .dawn__now { margin-top: 26px; font-size: clamp(24px, 2.6vw, 40px); letter-spacing: -.01em; }
+.mm--plan { background: #070605; }
+.mm--plan .pl { position: absolute; inset: 6%; }
+.mm--plan .pl img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: .55; }
+.mm--plan .pl b { position: absolute; border: 2px solid var(--c-surface-active); background: rgba(227,202,156,.16); border-radius: 4px; display: grid; place-items: center; font-size: 12px; font-weight: 700; text-shadow: 0 1px 4px #000; box-shadow: 0 0 30px rgba(227,202,156,.3); animation: pulse 2.4s ease-in-out infinite; }
+.mm--plan .pl b.alt { border-color: var(--c-teal); background: rgba(89,144,135,.2); box-shadow: 0 0 30px rgba(89,144,135,.35); }
+@keyframes pulse { 50% { box-shadow: 0 0 6px rgba(227,202,156,.1); } }
+.mm--plan svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.mm--fins canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.mm--fins .mm__cap { bottom: 54px; }
+.meet__meta { position: absolute; left: 16px; right: 16px; top: 14px; display: flex; justify-content: space-between; font-size: 12.5px; z-index: 3; }
+.meet__group { padding: 5px 11px; border-radius: 999px; background: rgba(0,0,0,.55); border: 1px solid var(--c-line); backdrop-filter: blur(6px); }
+.meet__count { color: var(--c-text-2); font-feature-settings: 'tnum'; padding-top: 5px; }
+.meet__count b { color: #fff; font-size: 15px; }
+.meet__progress { position: absolute; left: 16px; right: 16px; bottom: 18px; height: 3px; background: rgba(255,255,255,.12); border-radius: 3px; z-index: 3; overflow: hidden; }
+.meet__progress i { position: absolute; inset: 0; transform-origin: left; transform: scaleX(.1); background: var(--grad-night); transition: transform .6s var(--ease); }
+.meet__list { list-style: none; margin: 0; padding: 0; }
+.meet__item { min-height: 78vh; display: flex; flex-direction: column; justify-content: center; gap: var(--sp-2); padding: var(--sp-4) 0; opacity: .22; transition: opacity .6s var(--ease); }
+.meet__item.is-on { opacity: 1; }
+.meet__n { font-size: 13px; color: rgb(var(--glow)); font-weight: 700; }
+.meet__ask { font-weight: var(--w-reg); font-size: clamp(24px, 2.4vw, 38px); line-height: 1.15; letter-spacing: -.012em; margin: 0; }
+.meet__ans { margin: 0; padding-top: var(--sp-2); border-top: 1px solid var(--c-line-strong); color: var(--c-text-2); font-size: clamp(15px, 1.1vw, 18px); max-width: 52ch; }
+.meet__ans::before { content: 'Nossa proposta'; display: block; font-size: 12px; font-weight: 700; color: var(--c-surface-active); margin-bottom: 6px; }
+.meet__link { font-size: 14px; color: var(--c-cream); text-decoration: none; align-self: flex-start; border-bottom: 1px solid var(--c-line-strong); padding-bottom: 2px; }
+.meet__link:hover { color: var(--c-amber); }
+@media (max-width: 900px) {
+  .meet__body { grid-template-columns: 1fr; gap: 0; }
+  .meet__stage { top: calc(var(--top) - 4px); height: 42vh; z-index: 2; }
+  .meet__item { min-height: 70vh; }
+}
+
+/* ---------- R02 ---------- */
+.r02 { display: grid; gap: var(--sp-5); }
+.r02-row { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: var(--sp-4); align-items: center; padding-bottom: var(--sp-5); border-bottom: 1px solid var(--c-line); }
+.r02-row .frame { aspect-ratio: 16 / 9; cursor: zoom-in; }
+.r02-row .frame:hover img { transform: scale(1.03); }
+.r02-row__n { font-size: 13px; color: var(--c-text-3); }
+.r02-row h3 { margin: 4px 0 var(--sp-3); }
+.r02-diff { display: grid; gap: var(--sp-2); }
+.r02-diff p { margin: 0; font-size: 15px; line-height: 1.45; padding-left: 14px; border-left: 2px solid var(--c-line-strong); color: var(--c-text-2); }
+.r02-diff p b { display: block; font-size: 12px; color: var(--c-text-3); margin-bottom: 2px; }
+.r02-diff p.is-to { border-left-color: var(--c-amber); color: #fff; }
+.r02-diff p.is-to b { color: var(--c-surface-active); }
+.r02-row a { font-size: 13.5px; color: var(--c-cream); text-decoration: none; display: inline-block; margin-top: var(--sp-2); }
+.r02-row:nth-child(even) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); }
+.r02-row:nth-child(even) .frame { order: 2; }
+@media (max-width: 900px) { .r02-row, .r02-row:nth-child(even) { grid-template-columns: 1fr; } .r02-row:nth-child(even) .frame { order: 0; } }
+.steps { list-style: none; padding: 0; margin: var(--sp-6) 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.steps__i { background: var(--c-surface); border-radius: 10px; padding: 14px 14px 22px; display: grid; gap: 4px; align-content: start; }
+.steps__i b { font-size: 16px; font-weight: 500; }
+.steps__i span:last-child { font-size: 13px; color: var(--c-text-2); }
+.steps__i .caption { color: rgba(255,255,255,.7); }
+.steps__i.is-active { background: var(--c-surface-active); color: #000; }
+.steps__i.is-active span { color: rgba(0,0,0,.7) !important; }
+@media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- Planta ---------- */
+.sec--plan { padding-bottom: var(--sp-6); }
+.plan { display: grid; gap: 14px; }
+.plan__controls { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); padding: 14px 18px; border: 1px solid var(--c-line); border-radius: var(--radius); background: rgba(0,0,0,.4); }
+.plan__time { flex: 1; min-width: 260px; display: grid; gap: 8px; }
+.plan__moment { color: var(--c-amber); font-weight: 700; }
+.plan__ticks { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--c-text-3); }
+.layers-pop { position: relative; }
+.layers-pop summary::-webkit-details-marker { display: none; }
+.layers-pop[open] summary { border-color: var(--c-cream); }
+.layers { position: absolute; right: 0; top: calc(100% + 8px); z-index: 10; display: grid; gap: 10px; padding: 14px 16px; border-radius: 10px; background: rgba(9,11,9,.95); border: 1px solid var(--c-line-strong); min-width: 170px; }
+.chk { display: inline-flex; gap: 8px; align-items: center; font-size: 13.5px; color: var(--c-text-2); cursor: pointer; }
+.chk input { accent-color: var(--c-surface-active); }
+.zone-chips { position: relative; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+.zone-chips::-webkit-scrollbar { display: none; }
+.zchip { font-size: 12.5px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--c-line); background: rgba(0,0,0,.3); color: var(--c-text-2); cursor: pointer; white-space: nowrap; transition: all .3s; }
+.zchip:hover { color: #fff; border-color: var(--c-line-strong); }
+.zchip.is-on { background: var(--c-surface-active); border-color: var(--c-surface-active); color: #000; font-weight: 700; }
+.plan__viewport { position: relative; width: 100%; aspect-ratio: 16 / 9; max-height: 82vh; min-height: 420px; border: 1px solid var(--c-line); border-radius: var(--radius); overflow: hidden; perspective: 2600px; perspective-origin: 50% 35%; cursor: grab; touch-action: pan-y;
+  background: radial-gradient(70% 70% at 42% 55%, rgba(var(--plan-glow, 23,66,60), .32), transparent 70%), #030302; transition: background 1s; }
+.plan__viewport.is-drag { cursor: grabbing; }
+.plan__hint { position: absolute; left: 16px; bottom: 12px; z-index: 3; pointer-events: none; }
+.plane { position: absolute; left: 50%; top: 50%; width: 1560px; height: 1012px; transform-style: preserve-3d; transform-origin: 50% 50%;
+  transform: translate(-50%, -50%) translate(var(--px, 0px), var(--py, 0px)) scale(var(--s, .5)) rotateX(var(--rx, 0deg)) rotateZ(var(--rz, 0deg)); transition: transform 1.1s var(--ease); }
+.plane.no-tr { transition: none; }
+.plane__lines { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .5; user-select: none; pointer-events: none; }
+.plane__svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.plane__stand { position: absolute; inset: 0; transform-style: preserve-3d; pointer-events: none; }
+.zone { cursor: pointer; }
+.zone rect { fill: rgba(220,209,177,0); stroke: rgba(220,209,177,0); stroke-width: 2; transition: fill .3s, stroke .3s; }
+.zone:hover rect, .zone:focus rect { fill: rgba(220,209,177,.08); stroke: rgba(220,209,177,.6); }
+.zone.is-sel rect { fill: rgba(227,202,156,.14); stroke: var(--c-surface-active); stroke-width: 3; stroke-dasharray: 8 6; animation: dash 1s linear infinite; }
+@keyframes dash { to { stroke-dashoffset: -28; } }
+.zone:focus { outline: none; }
+.plan-label { font: 700 15px var(--font); fill: #fff; paint-order: stroke; stroke: rgba(0,0,0,.85); stroke-width: 4px; pointer-events: none; }
+.plan-label--svc { font-weight: 400; font-size: 12px; fill: var(--c-text-3); }
+.plan-flow { fill: none; stroke: var(--c-surface-active); stroke-width: 3; stroke-dasharray: 2 12; stroke-linecap: round; animation: flow 1.4s linear infinite; opacity: .9; }
+@keyframes flow { to { stroke-dashoffset: -28; } }
+.light-pool { mix-blend-mode: screen; transition: opacity .5s; }
+.layer-off { opacity: 0 !important; }
+.stand { position: absolute; transform-origin: 50% 100%; transition: opacity .8s; }
+.stand--y { transform-origin: 0 100%; }
+.is-2d .stand { opacity: 0; }
+.stand--led { background: #000; border: 2px solid #222; overflow: hidden; }
+.stand--led::before { content: ''; position: absolute; inset: 0; background: var(--led, linear-gradient(90deg, #17423C, #599087)); }
+.stand--led::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, rgba(255,255,255,0) 0 40px, rgba(255,255,255,.35) 40px 44px, rgba(255,255,255,0) 44px 90px); animation: speed 1.2s linear infinite; opacity: var(--speed, 0); mix-blend-mode: screen; }
+@keyframes speed { to { background-position: 180px 0; } }
+.stand--backdrop { background: repeating-linear-gradient(90deg, rgba(220,209,177,.12) 0 3px, rgba(220,209,177,.03) 3px 9px), linear-gradient(0deg, rgba(var(--plan-glow,89,144,135),.85), rgba(var(--plan-glow,89,144,135),.15)); border-top: 1px solid rgba(220,209,177,.5); }
+.stand--bar { background: linear-gradient(0deg, rgba(var(--plan-glow,89,144,135),.95), rgba(var(--plan-glow,89,144,135),.55)); border-top: 3px solid #c9ccc9; box-shadow: 0 0 40px rgba(var(--plan-glow,89,144,135),.6); }
+.stand--sign { display: grid; place-items: center; color: #fff; text-shadow: 0 0 18px rgba(255,255,255,.8); }
+.stand--sign svg { width: 92%; height: auto; fill: currentColor; }
+.stand--car svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.plan__tip { position: absolute; z-index: 6; pointer-events: none; padding: 5px 10px; border-radius: 999px; background: rgba(0,0,0,.8); border: 1px solid var(--c-line-strong); font-size: 12.5px; font-weight: 700; transform: translate(12px, 12px); white-space: nowrap; }
+.zone-card { position: absolute; z-index: 5; top: 16px; right: 16px; width: min(320px, 36%); max-height: calc(100% - 32px); overflow: auto; display: flex; flex-direction: column; gap: 10px; padding: 18px; border-radius: 12px;
+  background: rgba(9,11,9,.78); border: 1px solid var(--c-line-strong); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); scrollbar-width: thin; transition: transform .5s var(--ease), opacity .5s; }
+.zone-card.is-swap { opacity: .2; transform: translateY(6px); }
+.zone-card__head { display: flex; justify-content: space-between; align-items: center; }
+.zone-card__nav { display: flex; gap: 6px; }
+.zone-card__btn { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--c-line-strong); background: transparent; cursor: pointer; font-size: 18px; line-height: 1; display: grid; place-items: center; }
+.zone-card__btn:hover { background: var(--c-surface); }
+.zone-card__title { font-size: 22px; font-weight: var(--w-med); line-height: 1.15; letter-spacing: -.01em; margin: 0; }
+.zone-card__dims { color: var(--c-amber); font-size: 13.5px; }
+.zone-card__text { font-size: 14px; }
+.zone-card__tags { display: flex; flex-wrap: wrap; gap: 5px; list-style: none; padding: 0; margin: 0; }
+.zone-card__tags li { font-size: 11.5px; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--c-line-strong); color: var(--c-text-2); }
+.zone-card__thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.zone-card__thumbs button { padding: 0; border: 0; background: none; cursor: zoom-in; display: block; }
+.zone-card__thumbs .frame { aspect-ratio: 1; display: block; }
+.zone-card__thumbs button, .zone-card__thumbs .frame img { display: block; }
+.zone-card__go { font-size: 13px; color: var(--c-cream); text-decoration: none; border-bottom: 1px solid var(--c-line-strong); align-self: flex-start; }
+@media (max-width: 900px) {
+  .plan__viewport { aspect-ratio: 3 / 2; min-height: 0; }
+  .zone-card { position: static; width: auto; max-height: none; }
+  .plan__hint { display: none; }
+}
+
+/* ---------- Footer ---------- */
+.footer { position: relative; overflow: hidden; border-top: 1px solid var(--c-line); padding: var(--sp-6) var(--gutter) 64px; background: #000; }
+.footer__inner { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; gap: var(--sp-3); flex-wrap: wrap; pointer-events: none; }
+.footer__wm { font-size: clamp(40px, 7vw, 96px); }
+.footer .caption { max-width: 60ch; line-height: 1.6; }
+
+/* ---------- Lightbox / toast ---------- */
+.lightbox { width: 100vw; height: 100vh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: rgba(0,0,0,.95); color: #fff; }
+.lightbox[open] { display: grid; grid-template-columns: 64px 1fr 64px; align-items: center; }
+.lightbox::backdrop { background: rgba(0,0,0,.8); }
+.lightbox__fig { margin: 0; display: grid; justify-items: center; gap: 12px; padding: 48px 0; max-height: 100vh; }
+.lightbox__fig img { max-height: calc(100vh - 170px); max-width: 100%; object-fit: contain; border: 1px solid var(--c-line); transition: opacity .3s; }
+.lightbox__fig figcaption { text-align: center; max-width: 70ch; display: grid; gap: 4px; }
+.lightbox__close { position: absolute; top: 16px; right: 20px; font-size: 32px; background: none; border: 0; cursor: pointer; line-height: 1; z-index: 2; }
+.lightbox__nav { background: none; border: 0; font-size: 44px; cursor: pointer; color: var(--c-cream); height: 100%; }
+.lightbox__nav:hover { color: var(--c-amber); }
+.toast { position: fixed; left: 50%; bottom: 40px; transform: translate(-50%, 20px); z-index: 90; background: var(--c-surface-active); color: #000; font-weight: 700; font-size: 14px; padding: 10px 18px; border-radius: 999px; opacity: 0; transition: opacity .3s, transform .3s; pointer-events: none; }
+.toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+
+body{background:#000;color:#fff}
+</style>
+</head>
+<body>
+
+<script>document.body.classList.add("at-hero")</script>
+
+<a class="skip" href="#conceito">Pular para o conteúdo</a>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-light" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="topbar__row">
+    <a class="topbar__brand" href="#entrada" aria-label="Revolut — início"><svg class="wordmark" viewBox="0 0 3621.526 800" role="img" aria-label="Revolut" xmlns="http://www.w3.org/2000/svg"><g>
+	<path d="M3621.526,334.211V211.11h-147.019V50.611h-142.188v585.134c0,53.764,13.519,94.737,40.197,121.784
+		c26.662,27.07,68.208,40.793,123.493,40.793h125.516V675.221h-91.844c-19.981,0-34.316-4.391-42.613-13.065
+		c-7.622-7.936-12.563-27.987-12.563-51.074V334.211H3621.526z"/>
+	<polygon points="1651.305,211.094 1504.294,638.874 1357.284,211.094 1207.912,211.094 1420.136,793.287 1588.453,793.287 
+		1800.676,211.094 	"/>
+	<rect x="2470.098" width="142.188" height="793.28"/>
+	<path d="M3100.572,502.748c0,36.857-5.583,68.922-16.594,95.302c-10.931,26.239-26.584,46.353-46.533,59.77
+		c-19.95,13.417-44.479,20.224-72.882,20.224c-40.652,0-71.329-13.362-91.169-39.695c-20.044-26.615-30.207-66.954-30.207-119.886
+		V211.11h-142.188v323.068c0,50.305,6.289,92.973,18.711,126.802c12.421,33.932,29.485,61.535,50.721,82.026
+		c21.22,20.467,46,35.249,73.65,43.953c27.509,8.657,57.089,13.041,87.938,13.041c44.463,0,81.257-8.061,109.331-23.965
+		c25.612-14.547,47.067-31.555,63.88-50.627l12.735,67.871h124.795V211.11h-142.188V502.748z"/>
+	<path d="M2252.748,241.811c-44.808-24.843-98.015-37.429-158.123-37.429c-59.371,0-112.381,12.586-157.558,37.421
+		c-45.232,24.898-80.771,60.061-105.637,104.508c-24.827,44.408-37.413,97.043-37.413,156.437
+		c0,58.665,12.586,110.931,37.413,155.339c24.851,44.432,60.398,79.587,105.637,104.484c45.177,24.835,98.188,37.421,157.558,37.421
+		c60.107,0,113.314-12.586,158.123-37.429c44.855-24.882,80.206-60.037,105.065-104.477c24.835-44.432,37.429-96.698,37.429-155.339
+		c0-59.371-12.594-112.005-37.429-156.437C2332.939,301.856,2297.595,266.693,2252.748,241.811z M2177.631,657.788
+		c-22.906,14.915-50.831,22.483-82.998,22.483c-31.43,0-59.175-7.567-82.465-22.49c-23.329-14.939-41.625-36.025-54.391-62.68
+		c-12.821-26.678-19.33-57.747-19.33-92.353c0-35.32,6.501-66.569,19.33-92.886c12.759-26.294,31.069-47.388,54.422-62.703
+		c23.282-15.299,51.019-23.055,82.433-23.055c32.151,0,60.061,7.756,82.974,23.039c22.977,15.323,41.107,36.425,53.897,62.727
+		c12.813,26.38,19.314,57.63,19.314,92.879c0,34.528-6.501,65.605-19.314,92.353C2218.715,621.763,2200.592,642.85,2177.631,657.788
+		z"/>
+	<rect x="0" y="195.779" width="147.764" height="597.508"/>
+	<path d="M611.145,229.946c0-126.787-103.246-229.938-230.158-229.938H0V127.61h362.873c57.434,0,105.01,45.122,106.061,100.579
+		c0.525,27.768-9.896,53.975-29.344,73.792c-19.456,19.824-45.451,30.748-73.196,30.748H225.037c-5.019,0-9.104,4.078-9.104,9.097
+		v113.409c0,1.929,0.596,3.772,1.717,5.325l239.835,332.729h175.563L392.656,459.649
+		C513.718,453.571,611.145,351.855,611.145,229.946z"/>
+	<path d="M1065.507,238.423c-42.565-22.592-93.106-34.041-150.218-34.041c-57.183,0-108.311,12.594-151.967,37.445
+		c-43.726,24.874-78.128,60.045-102.242,104.516c-24.09,44.369-36.3,97.372-36.3,157.542c0,58.641,12.398,110.891,36.864,155.307
+		c24.521,44.518,59.888,79.493,105.104,103.951C811.878,787.602,866.011,800,927.632,800c48.886,0,92.785-9.159,130.48-27.235
+		c37.703-18.122,68.483-42.801,91.491-73.352c21.855-29.038,36.598-61.88,43.812-97.607l0.776-3.811h-141.396l-0.667,2.29
+		c-7.787,26.647-22.89,47.702-44.91,62.594c-23.635,16.013-52.666,24.137-86.299,24.137c-28.505,0-54.25-6.109-76.513-18.154
+		c-22.153-11.974-39.476-29.101-51.474-50.917c-12.045-21.894-18.899-48.235-20.365-78.136v-4.674h427.105l0.478-2.611
+		c1.49-8.195,2.447-16.64,2.862-25.133c0.353-8.273,0.557-16.538,0.557-24.882c-0.761-56.406-13.37-106.022-37.468-147.481
+		C1141.91,293.52,1108.064,261.015,1065.507,238.423z M1013.696,348.06c24.294,20.444,39.405,49.498,44.949,86.409H777.476
+		c3.215-23.949,11.167-44.691,23.659-61.707c13.104-17.848,29.893-31.869,49.905-41.679c20.036-9.841,42.032-14.837,65.37-14.837
+		C955.862,316.245,988.594,326.949,1013.696,348.06z"/>
+</g></svg></a>
+    <nav class="topbar__nav" aria-label="Capítulos">
+      <a href="#conceito"><span>01</span>Conceito</a>
+      <a href="#revelacao"><span>02</span>Revelação</a>
+      <a href="#espacos"><span>03</span>Espaços</a>
+      <a href="#reuniao"><span>04</span>Reunião</a>
+      <a href="#r02"><span>05</span>R02 → R03</a>
+      <a href="#planta"><span>06</span>Planta</a>
+    </nav>
+    <div class="topbar__end">
+      <span class="topbar__event">The Reveal · Casa Fasano</span>
+      <button class="topbar__menu" type="button" aria-expanded="false" aria-controls="topbar-sheet"><span class="topbar__menu-lbl">Capítulos</span><i aria-hidden="true"></i></button>
+    </div>
+  </div>
+  <div class="hud" aria-label="Luz do evento">
+    <span class="hud__label">Luz do evento</span>
+    <button class="hud__bar" type="button" aria-label="Ir para um momento da noite"><span class="hud__marker"></span></button>
+    <span class="hud__moment" aria-live="polite">Chegada</span>
+  </div>
+  <nav class="topbar__sheet" id="topbar-sheet" aria-label="Capítulos" hidden>
+    <a href="#conceito"><span>01</span>Conceito</a>
+    <a href="#revelacao"><span>02</span>Revelação do carro</a>
+    <a href="#espacos"><span>03</span>Espaços</a>
+    <a href="#reuniao"><span>04</span>Reunião com cliente</a>
+    <a href="#r02"><span>05</span>R02 → R03</a>
+    <a href="#planta"><span>06</span>Planta imersiva</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- 00 · ENTRADA -->
+<section id="entrada" class="hero" data-t="0">
+  <canvas class="fins fins--hero" data-fins='{"gap":16,"intensity":1,"sweep":true}' aria-hidden="true"></canvas>
+  <div class="hero__veil" aria-hidden="true"></div>
+  <div class="hero__content">
+    <p class="eyebrow">Revolut F1 Team · Casa Fasano · São Paulo</p>
+    <h1 class="display">The Reveal</h1>
+    <p class="hero__lede">Cenografia e luz para a noite da revelação. Um amanhecer em São Paulo, do verde ao âmbar.</p>
+  </div>
+  <div class="hero__foot">
+    <p class="label"><b>Protótipo</b> backdrop interativo — mova o cursor, as lâminas de policarbonato respondem</p>
+    <a class="hero__scroll" href="#conceito">Role para entrar <span aria-hidden="true">↓</span></a>
+  </div>
+</section>
+
+<!-- 01 · CONCEITO -->
+<section id="conceito" class="sec" data-t="0.08" style="--bg:#0A1D1A;--glow:89,144,135">
+  <div class="chapter">
+    <canvas class="fins fins--soft" data-fins='{"gap":22,"intensity":0.35,"dir":"h"}' aria-hidden="true"></canvas>
+    <div class="chapter__inner">
+      <p class="eyebrow">01 · Conceito</p>
+      <h2 class="h1">Um novo amanhecer<br>na cidade</h2>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="intro-grid">
+      <p class="lead reveal">A noite é um tributo a São Paulo: a selva de concreto dos arranha-céus, os corredores da Paulista, o sol refletido na água da calçada e no vidro dos prédios. A narrativa é <em>o nascer do sol antes da corrida</em>, a cidade acordando antes do grande evento.</p>
+      <div class="night-light reveal">
+        <p class="label"><b>A luz da noite</b> paleta das cores do cartão</p>
+        <div class="night-light__bar"><span class="night-light__dot"></span></div>
+        <div class="night-light__names"><span>Deep petrol</span><span>Dusty teal</span><span>Faded cream</span><span>Golden amber</span><span>Burnt orange</span></div>
+      </div>
+    </div>
+
+    <div class="head-row reveal">
+      <p class="eyebrow">Narrativa</p>
+      <h3 class="h2">Quatro atos de luz</h3>
+      <p class="body muted">Passe o cursor sobre os atos para ver a cor de cada momento.</p>
+    </div>
+    <ol class="acts">
+      <li class="act reveal" data-glow="89,144,135" data-bg="#0A1D1A" data-t="0.05" tabindex="0">
+        <p class="label"><b>Chegada</b> loop ambiente</p>
+        <figure class="frame"><img src="assets/img/luz/luz-04.jpg" alt="Anel de LED verde suspenso sobre o público" loading="lazy"></figure>
+        <span class="act__swatch" style="--sw:var(--c-petrol)"></span>
+        <p class="body">Verde petróleo e teal. Luz baixa, mistério, silhuetas. O terraço recebe e o backdrop reage a quem passa.</p>
+      </li>
+      <li class="act reveal" data-glow="220,209,177" data-bg="#0B1311" data-t="0.5" tabindex="0">
+        <p class="label"><b>Revelação do carro</b> ~30 segundos</p>
+        <figure class="frame"><img src="assets/img/luz/luz-07.jpg" alt="Treliças com feixes cruzados como speed lines" loading="lazy"></figure>
+        <span class="act__swatch" style="--sw:linear-gradient(90deg,var(--c-teal),var(--c-cream),var(--c-amber))"></span>
+        <p class="body">Blackout, pulso verde, speed lines, beat drop e amanhecer. Transformação total da luz, com o carro sempre em luz branca neutra.</p>
+      </li>
+      <li class="act reveal" data-glow="220,209,177" data-bg="#12110C" data-t="0.62" tabindex="0">
+        <p class="label"><b>Revelação do cartão</b> instalação</p>
+        <figure class="frame"><img src="assets/img/expo/expo-02.jpg" alt="Coluna de espelho infinito" loading="lazy"></figure>
+        <span class="act__swatch" style="--sw:var(--c-cream)"></span>
+        <p class="body">O cartão como protagonista: volumes tridimensionais, profundidade infinita, nada de vitrine convencional.</p>
+      </li>
+      <li class="act reveal" data-glow="247,132,0" data-bg="#170E05" data-t="0.95" tabindex="0">
+        <p class="label"><b>Pós-revelação</b> loop ambiente</p>
+        <figure class="frame"><img src="assets/img/luz/luz-06.jpg" alt="Sol de luz âmbar com raios atrás do artista" loading="lazy"></figure>
+        <span class="act__swatch" style="--sw:linear-gradient(90deg,var(--c-amber),var(--c-burnt))"></span>
+        <p class="body">Âmbar dourado e laranja queimado. Pista aberta, varanda e salão na mesma temperatura de luz.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<div class="fin-band" aria-hidden="true"><canvas class="fins" data-fins='{"gap":10,"intensity":0.55}'></canvas></div>
+
+<!-- 02 · REVELAÇÃO 3D -->
+<section id="revelacao" class="sec" data-t="0.3" style="--bg:#050706;--glow:89,144,135">
+  <div class="wrap">
+    <div class="head-row head-row--split reveal">
+      <div>
+        <p class="eyebrow">02 · Revelação do carro</p>
+        <h2 class="h1">O palco em 30 segundos</h2>
+      </div>
+      <p class="lead lead--sm">Modelo em escala, com as cotas da planta v01: palco de 12,00 × 5,00 m, LED de 4 + 12 + 4 m e carro de 4,58 × 2,00 m a 23,6°, sob pé-direito de 3,95 m. Compare os laterais como estão na planta com os laterais a 45°. Arraste para girar e rode a revelação.</p>
+    </div>
+
+    <div class="stage3d reveal">
+      <div class="stage3d__tabs" role="tablist" aria-label="Configuração do palco">
+        <button role="tab" class="tab" data-opt="1" aria-selected="false"><span>Opção 1</span>Como está na planta · laterais recuados</button>
+        <button role="tab" class="tab is-on" data-opt="2" aria-selected="true"><span>Opção 2</span>Laterais a 45° · encaixados no central</button>
+        <button role="tab" class="tab" data-opt="ref" aria-selected="false"><span>Referência</span>Render R02 (layout anterior)</button>
+      </div>
+
+      <div class="stage3d__view">
+        <canvas class="stage3d__canvas" aria-label="Palco em 3D. Arraste para girar."></canvas>
+        <figure class="stage3d__ref"><img src="assets/img/renders-r02/r02_0003-2.jpg" alt="Render R02 do palco com o carro e a parede de LED com a cidade em âmbar"><figcaption class="caption">Render R02 · 23/09 · LED com a cidade em âmbar desde o início, carro banhado pela cor da cena</figcaption></figure>
+        <div class="stage3d__hud">
+          <div class="stage__time"><span class="stage__clock">00.0</span><span class="stage__of">/ 30 s</span></div>
+          <div class="stage__cue" aria-live="polite">Chegada</div>
+        </div>
+        <div class="stage3d__cams" role="group" aria-label="Câmera">
+          <button class="cam is-on" data-cam="front">Público</button>
+          <button class="cam" data-cam="diag">Diagonal</button>
+          <button class="cam" data-cam="top">Aérea</button>
+          <button class="cam" data-cam="car">Carro</button>
+          <button class="cam is-on" data-dims aria-pressed="true">Cotas</button>
+        </div>
+        <div class="meters" aria-hidden="true">
+          <div class="meter"><span>Ambiente</span><i data-m="house"></i></div>
+          <div class="meter"><span>Cena</span><i data-m="scene"></i></div>
+          <div class="meter"><span>Key carro</span><i data-m="key"></i></div>
+        </div>
+        <p class="stage3d__hint caption">Arraste para girar · <kbd>espaço</kbd> roda/pausa</p>
+        <div class="stage3d__fallback" hidden><p class="body">O 3D precisa de WebGL. Abra no Chrome ou Edge atualizado.</p></div>
+      </div>
+
+      <div class="stage-ctrl">
+        <button class="btn btn--primary" data-stage="play"><span class="btn__icon" aria-hidden="true">▶</span><span class="btn__txt">Rodar revelação</span></button>
+        <button class="btn" data-stage="reset">Reiniciar</button>
+        <label class="scrub"><span class="sr">Linha do tempo da revelação</span><input type="range" min="0" max="30" step="0.1" value="0" class="stage__range"></label>
+      </div>
+
+      <ol class="cues">
+        <li data-at="0"><span class="cues__t">00 s</span><b>Blackout</b><span>Cena desce para 0. Luz ambiente cai para 15%, nunca apaga.</span></li>
+        <li data-at="3"><span class="cues__t">03 s</span><b>Pulso verde</b><span>LED e washes pulsam em petróleo e teal, com o motor no som.</span></li>
+        <li data-at="8"><span class="cues__t">08 s</span><b>Speed lines</b><span>Conteúdo do LED corre pelos 3 painéis. Moving heads varrem a sala.</span></li>
+        <li data-at="15"><span class="cues__t">15 s</span><b>Beat drop</b><span>Strobe branco sincronizado ao drop (timecode).</span></li>
+        <li data-at="17"><span class="cues__t">17 s</span><b>Amanhecer</b><span>Wash sobe do piso. O LED vira o nascer do sol sobre a cidade.</span></li>
+        <li data-at="24"><span class="cues__t">24 s</span><b>Key light</b><span>Elipsoidais 5600K com recorte acendem só no carro.</span></li>
+        <li data-at="27"><span class="cues__t">27 s</span><b>Estado âmbar</b><span>Ambiente volta a 60%. Salão, deck e varanda entram juntos.</span></li>
+      </ol>
+    </div>
+
+    <div class="opt-notes reveal">
+      <div class="opt-note"><p class="label"><b>Opção 1</b> como está na planta</p><p class="body">Três painéis paralelos. Os laterais de 4,00 m ficam recuados 1,00 m, encostados nas quinas do central. A cidade é lida de frente, como uma tela única.</p></div>
+      <div class="opt-note"><p class="label"><b>Opção 2</b> laterais a 45°</p><p class="body">Os painéis 1 e 3 giram 45° a partir das quinas do painel 2 e se encaixam nele. Avançam cerca de 2,83 m para os lados do palco, sem ocupar o palco. A imagem abraça o carro e a cidade abre em perspectiva.</p></div>
+      <div class="opt-note"><p class="label"><b>Premissas</b> a confirmar</p><p class="body">A planta não cota a altura do LED (adotamos 3,50 m) nem a do palco (0,40 m). O carro segue o retângulo da planta (4,58 × 2,00 m): vale confirmar a medida real. O balcão de DJ saiu do palco. A opção escolhida entra na planta v02.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="fin-band fin-band--warm" aria-hidden="true"><canvas class="fins" data-fins='{"gap":10,"intensity":0.55}'></canvas></div>
+
+<!-- 03 · ESPAÇOS -->
+<section id="espacos" class="sec" data-t="0.5" style="--bg:#0B100E;--glow:220,209,177">
+  <div class="chapter chapter--flip">
+    <canvas class="fins fins--soft" data-fins='{"gap":20,"intensity":0.35}' aria-hidden="true"></canvas>
+    <div class="chapter__inner">
+      <p class="eyebrow">03 · Espaços</p>
+      <h2 class="h1">Moodboard<br>por espaço</h2>
+    </div>
+  </div>
+  <div class="space-nav">
+    <nav class="space-index" aria-label="Espaços"></nav>
+    <div class="toggle" role="group" aria-label="Tratamento das imagens">
+      <button class="toggle__btn is-on" data-grade="off" aria-pressed="true">Original</button>
+      <button class="toggle__btn" data-grade="on" aria-pressed="false">Na paleta</button>
+    </div>
+  </div>
+  <div class="spaces"></div>
+</section>
+
+<!-- 04 · REUNIÃO (imersivo) -->
+<section id="reuniao" class="sec meet" data-t="0.72" style="--bg:#0A1D1A;--glow:89,144,135">
+  <div class="meet__intro wrap">
+    <p class="eyebrow">04 · Reunião com cliente · 13/10</p>
+    <h2 class="h1">O que o cliente pediu<br>e como respondemos</h2>
+    <p class="lead lead--sm">Dez diretrizes de cenografia e luz. Ao rolar, cada uma acende a sua cena. As respostas são uma proposta inicial, a validar com os fornecedores.</p>
+  </div>
+  <div class="meet__body">
+    <div class="meet__stage">
+      <div class="meet__frame">
+        <div class="meet__media"></div>
+        <div class="meet__meta">
+          <span class="meet__group">Iluminação e ambientação</span>
+          <span class="meet__count"><b>01</b> / 10</span>
+        </div>
+        <div class="meet__progress"><i></i></div>
+      </div>
+    </div>
+    <ol class="meet__list"></ol>
+  </div>
+</section>
+
+<!-- 05 · R02 → R03 -->
+<section id="r02" class="sec" data-t="0.84" style="--bg:#0B0B0A;--glow:220,209,177">
+  <div class="wrap">
+    <div class="head-row head-row--split reveal">
+      <div>
+        <p class="eyebrow">05 · Ponto de partida</p>
+        <h2 class="h1">Renders R02 → direção</h2>
+      </div>
+      <p class="lead lead--sm">Os renders de 23/09 geraram os pedidos de alteração. Para cada vista, o que muda. Depois da aprovação, planta e renders (R03) são refeitos nesta direção.</p>
+    </div>
+    <div class="r02"></div>
+    <ol class="steps reveal">
+      <li class="steps__i is-active"><span class="caption">Agora</span><b>Aprovação do moodboard</b><span>Luz, palco e referências por espaço</span></li>
+      <li class="steps__i"><span class="caption">Depois</span><b>Revisão da planta</b><span>Terraço como acesso, deck em 2 ambientes, opção de LED</span></li>
+      <li class="steps__i"><span class="caption">Depois</span><b>Renders R03</b><span>Estados verde e âmbar, carro em key light neutra</span></li>
+      <li class="steps__i"><span class="caption">Depois</span><b>Projeto de luz e cue list</b><span>Revelação de 30 s em timecode</span></li>
+    </ol>
+  </div>
+</section>
+
+<div class="fin-band fin-band--warm" aria-hidden="true"><canvas class="fins" data-fins='{"gap":10,"intensity":0.55}'></canvas></div>
+
+<!-- 06 · PLANTA -->
+<section id="planta" class="sec sec--plan" data-t="0.92" style="--bg:#120C06;--glow:255,182,42">
+  <div class="wrap">
+    <div class="head-row head-row--split reveal">
+      <div>
+        <p class="eyebrow">06 · Implantação Casa Fasano</p>
+        <h2 class="h1">Planta imersiva</h2>
+      </div>
+      <p class="lead lead--sm">Ante-projeto do Studio Sarrafo (1:150, 13/10), <b>sujeito a revisão</b> depois desta aprovação. Leve a luz pela noite, gire em 3D e explore cada ambiente.</p>
+    </div>
+  </div>
+  <div class="plan wrap">
+    <div class="plan__controls">
+      <div class="toggle" role="group" aria-label="Vista">
+        <button class="toggle__btn is-on" data-view="3d" aria-pressed="true">3D</button>
+        <button class="toggle__btn" data-view="2d" aria-pressed="false">2D</button>
+      </div>
+      <label class="plan__time">
+        <span class="label"><b>Momento</b> <span class="plan__moment">Chegada</span></span>
+        <input type="range" min="0" max="1" step="0.001" value="0" class="plan__range" aria-label="Momento da noite, de chegada a pós-revelação">
+        <span class="plan__ticks"><span>Chegada</span><span>Aquecimento</span><span>Revelação</span><span>Pós</span></span>
+      </label>
+      <button class="btn btn--primary plan__run" type="button"><span class="btn__icon" aria-hidden="true">▶</span><span class="plan__runtxt">Revelação 30 s</span></button>
+      <button class="btn plan__tour" type="button" aria-pressed="false">Tour pelos ambientes</button>
+      <details class="layers-pop">
+        <summary class="btn">Camadas</summary>
+        <div class="layers" role="group" aria-label="Camadas">
+          <label class="chk"><input type="checkbox" data-layer="scene" checked><span>Luz cênica</span></label>
+          <label class="chk"><input type="checkbox" data-layer="ambient" checked><span>Luz ambiente</span></label>
+          <label class="chk"><input type="checkbox" data-layer="flow" checked><span>Fluxo</span></label>
+          <label class="chk"><input type="checkbox" data-layer="labels" checked><span>Rótulos</span></label>
+        </div>
+      </details>
+    </div>
+    <div class="zone-chips" aria-label="Ambientes"></div>
+    <div class="plan__viewport" tabindex="0" aria-label="Planta interativa. Arraste para girar em 3D. Setas trocam de ambiente.">
+      <div class="plane">
+        <img class="plane__lines" src="assets/plan/planta-linhas.png" alt="" draggable="false">
+        <svg class="plane__svg" viewBox="40 40 1560 1012"></svg>
+        <div class="plane__stand"></div>
+      </div>
+      <div class="plan__tip" hidden></div>
+      <p class="plan__hint caption">Arraste para girar · clique num ambiente · ← → troca de ambiente</p>
+      <aside class="zone-card" aria-live="polite">
+        <div class="zone-card__head">
+          <span class="zone-card__n caption">Ambiente</span>
+          <div class="zone-card__nav"><button class="zone-card__btn" data-zstep="-1" aria-label="Ambiente anterior">‹</button><button class="zone-card__btn" data-zstep="1" aria-label="Próximo ambiente">›</button></div>
+        </div>
+        <h3 class="zone-card__title">Palco · Carro + DJ</h3>
+        <p class="zone-card__dims label"></p>
+        <p class="zone-card__text body"></p>
+        <ul class="zone-card__tags"></ul>
+        <div class="zone-card__thumbs"></div>
+        <a class="zone-card__go" href="#espacos">Ver no moodboard →</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <canvas class="fins fins--soft" data-fins='{"gap":14,"intensity":0.4}' aria-hidden="true"></canvas>
+  <div class="footer__inner">
+    <span class="footer__wm"><svg class="wordmark" viewBox="0 0 3621.526 800" role="img" aria-label="Revolut" xmlns="http://www.w3.org/2000/svg"><g>
+	<path d="M3621.526,334.211V211.11h-147.019V50.611h-142.188v585.134c0,53.764,13.519,94.737,40.197,121.784
+		c26.662,27.07,68.208,40.793,123.493,40.793h125.516V675.221h-91.844c-19.981,0-34.316-4.391-42.613-13.065
+		c-7.622-7.936-12.563-27.987-12.563-51.074V334.211H3621.526z"/>
+	<polygon points="1651.305,211.094 1504.294,638.874 1357.284,211.094 1207.912,211.094 1420.136,793.287 1588.453,793.287 
+		1800.676,211.094 	"/>
+	<rect x="2470.098" width="142.188" height="793.28"/>
+	<path d="M3100.572,502.748c0,36.857-5.583,68.922-16.594,95.302c-10.931,26.239-26.584,46.353-46.533,59.77
+		c-19.95,13.417-44.479,20.224-72.882,20.224c-40.652,0-71.329-13.362-91.169-39.695c-20.044-26.615-30.207-66.954-30.207-119.886
+		V211.11h-142.188v323.068c0,50.305,6.289,92.973,18.711,126.802c12.421,33.932,29.485,61.535,50.721,82.026
+		c21.22,20.467,46,35.249,73.65,43.953c27.509,8.657,57.089,13.041,87.938,13.041c44.463,0,81.257-8.061,109.331-23.965
+		c25.612-14.547,47.067-31.555,63.88-50.627l12.735,67.871h124.795V211.11h-142.188V502.748z"/>
+	<path d="M2252.748,241.811c-44.808-24.843-98.015-37.429-158.123-37.429c-59.371,0-112.381,12.586-157.558,37.421
+		c-45.232,24.898-80.771,60.061-105.637,104.508c-24.827,44.408-37.413,97.043-37.413,156.437
+		c0,58.665,12.586,110.931,37.413,155.339c24.851,44.432,60.398,79.587,105.637,104.484c45.177,24.835,98.188,37.421,157.558,37.421
+		c60.107,0,113.314-12.586,158.123-37.429c44.855-24.882,80.206-60.037,105.065-104.477c24.835-44.432,37.429-96.698,37.429-155.339
+		c0-59.371-12.594-112.005-37.429-156.437C2332.939,301.856,2297.595,266.693,2252.748,241.811z M2177.631,657.788
+		c-22.906,14.915-50.831,22.483-82.998,22.483c-31.43,0-59.175-7.567-82.465-22.49c-23.329-14.939-41.625-36.025-54.391-62.68
+		c-12.821-26.678-19.33-57.747-19.33-92.353c0-35.32,6.501-66.569,19.33-92.886c12.759-26.294,31.069-47.388,54.422-62.703
+		c23.282-15.299,51.019-23.055,82.433-23.055c32.151,0,60.061,7.756,82.974,23.039c22.977,15.323,41.107,36.425,53.897,62.727
+		c12.813,26.38,19.314,57.63,19.314,92.879c0,34.528-6.501,65.605-19.314,92.353C2218.715,621.763,2200.592,642.85,2177.631,657.788
+		z"/>
+	<rect x="0" y="195.779" width="147.764" height="597.508"/>
+	<path d="M611.145,229.946c0-126.787-103.246-229.938-230.158-229.938H0V127.61h362.873c57.434,0,105.01,45.122,106.061,100.579
+		c0.525,27.768-9.896,53.975-29.344,73.792c-19.456,19.824-45.451,30.748-73.196,30.748H225.037c-5.019,0-9.104,4.078-9.104,9.097
+		v113.409c0,1.929,0.596,3.772,1.717,5.325l239.835,332.729h175.563L392.656,459.649
+		C513.718,453.571,611.145,351.855,611.145,229.946z"/>
+	<path d="M1065.507,238.423c-42.565-22.592-93.106-34.041-150.218-34.041c-57.183,0-108.311,12.594-151.967,37.445
+		c-43.726,24.874-78.128,60.045-102.242,104.516c-24.09,44.369-36.3,97.372-36.3,157.542c0,58.641,12.398,110.891,36.864,155.307
+		c24.521,44.518,59.888,79.493,105.104,103.951C811.878,787.602,866.011,800,927.632,800c48.886,0,92.785-9.159,130.48-27.235
+		c37.703-18.122,68.483-42.801,91.491-73.352c21.855-29.038,36.598-61.88,43.812-97.607l0.776-3.811h-141.396l-0.667,2.29
+		c-7.787,26.647-22.89,47.702-44.91,62.594c-23.635,16.013-52.666,24.137-86.299,24.137c-28.505,0-54.25-6.109-76.513-18.154
+		c-22.153-11.974-39.476-29.101-51.474-50.917c-12.045-21.894-18.899-48.235-20.365-78.136v-4.674h427.105l0.478-2.611
+		c1.49-8.195,2.447-16.64,2.862-25.133c0.353-8.273,0.557-16.538,0.557-24.882c-0.761-56.406-13.37-106.022-37.468-147.481
+		C1141.91,293.52,1108.064,261.015,1065.507,238.423z M1013.696,348.06c24.294,20.444,39.405,49.498,44.949,86.409H777.476
+		c3.215-23.949,11.167-44.691,23.659-61.707c13.104-17.848,29.893-31.869,49.905-41.679c20.036-9.841,42.032-14.837,65.37-14.837
+		C955.862,316.245,988.594,326.949,1013.696,348.06z"/>
+</g></svg></span>
+    <p class="caption">The Reveal · Revolut F1 Team · Casa Fasano, São Paulo · moodboard de cenografia e luz, out/2026<br>Planta: Studio Sarrafo (ante-projeto) · Paleta: BR_ARF1_Activation_Creative · Referências: REF Moodboard</p>
+  </div>
+</footer>
+
+<dialog class="lightbox" aria-label="Imagem ampliada">
+  <button class="lightbox__close" aria-label="Fechar">×</button>
+  <button class="lightbox__nav lightbox__prev" aria-label="Anterior">‹</button>
+  <figure class="lightbox__fig"><img alt=""><figcaption><p class="label lightbox__label"></p><p class="caption lightbox__src"></p><p class="caption lightbox__count"></p></figcaption></figure>
+  <button class="lightbox__nav lightbox__next" aria-label="Próxima">›</button>
+</dialog>
+<div class="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/js/vendor/three-r147-bundle.js"></script>
+<script>
+/* =========================================================
+   THE REVEAL · dados do moodboard
+   Espaços = pastas de IMGS/ (ordem segue o fluxo do convidado)
+   ========================================================= */
+window.REVEAL = {};
+
+REVEAL.spaces = [
+  {
+    id: 'espaco', bg: '#0A1D1A', glow: '89,144,135', folder: 'Espaço', n: '04.1', name: 'Entrada & Espaço',
+    t: 0.05,
+    text: 'A cenografia externa de entrada precisa de impacto: policarbonato, vidro verde, lâminas e volumes arquitetônicos contemporâneos. O backdrop de entrada é interativo. Lâminas retroiluminadas respondem a sensores de movimento.',
+    tags: ['Policarbonato alveolar', 'Vidro verde', 'Lâminas verticais', 'Sensores de movimento'],
+    zones: ['terraco', 'backdrop'],
+    imgs: [
+      ['espaco-05.jpg', 'Placas de vidro verde empilhadas: matéria-prima para a cenografia de entrada.', 'IMG_2297.PNG'],
+      ['espaco-06.jpg', 'Fachada em vidro verde translúcido com tipografia aplicada. Letreiro e portal.', 'IMG_2298.PNG'],
+      ['espaco-08.jpg', 'Lâminas onduladas de acrílico com gradiente de luz. Policarbonato e cor em movimento.', 'f6ce0b5391466fb963cbcd5c0af57344.jpg'],
+      ['espaco-07.jpg', 'Lâminas verticais com luz rasante e silhuetas. Linguagem do backdrop interativo.', 'ba764468d2c15a5b91b0125f6a5cb276.jpg'],
+      ['espaco-03.jpg', 'Painéis de LED em diagonal refletidos no piso: profundidade e velocidade.', '628cfc8869e6813971bfbff4c7988dee.jpg'],
+      ['espaco-02.jpg', 'Linhas de luz cruzando o vão. Trajetória, pista e speed lines no espaço.', '595a655bbf371f311c8da7b1306e51b2.jpg'],
+      ['espaco-01.jpg', 'Tubos de luz em abóbada: ritmo, repetição, imersão em âmbar.', '3659ec3ac77eebf7aeff70674cb9cac1.jpg'],
+      ['espaco-04.jpg', 'Corredor monocromático retroiluminado. Imersão total de cor (ler em laranja queimado).', '99b20f0e2295fc83e8af5a55fba44da5 (1).jpg']
+    ]
+  },
+  {
+    id: 'luz', bg: '#08130F', glow: '89,144,135', folder: 'Luz Formúla 1', n: '04.2', name: 'Luz · Fórmula 1',
+    t: 0.4,
+    text: 'Rigs circulares que remetem à roda e ao volante, feixes em leque como speed lines, sol de luz no clímax. A mesma estrutura atravessa a noite do verde ao âmbar e se transforma inteira em ~30 s na revelação.',
+    tags: ['Rig circular', 'Moving heads beam', 'Haze', 'Timecode', 'Verde → âmbar'],
+    zones: ['palco', 'led', 'pista'],
+    imgs: [
+      ['luz-04.jpg', 'Anel de LED verde suspenso. Estado de chegada.', 'Captura de tela 2026-10-13 174303.png'],
+      ['luz-05.jpg', 'Feixes verdes em leque a partir de treliça curva.', 'Captura de tela 2026-10-13 174429.png'],
+      ['luz-07.jpg', 'Treliças em grade com feixes cruzados: speed lines no ar.', 'Captura de tela 2026-10-13 174953.png'],
+      ['luz-03.jpg', 'Rig de treliça circular sobre a pista. Geometria de roda.', '8641eacc993d3e3630ee89005ebb6d7b.jpg'],
+      ['luz-11.jpg', 'Anel de feixes descendo sobre o público.', 'd1def714a7f2f2d94e584531bd920416.jpg'],
+      ['luz-01.jpg', 'Arcos de feixes em anel, frios. Referência de forma (ler em teal).', '3afcd07b327f3434790942e54f5a0098.jpg'],
+      ['luz-10.jpg', 'Torre de luz com haze. Marco vertical no centro da pista.', 'c115dda01f0def4ada90fe6b2ce36f01.jpg'],
+      ['luz-08.jpg', 'Leque de feixes laranja a partir do palco: o amanhecer chegando.', 'Captura de tela 2026-10-13 175406.png'],
+      ['luz-09.jpg', 'Arco de feixes âmbar emoldurando o palco.', 'a0c3d03636ea2e1d2ba1c0c7516f1ab7.jpg'],
+      ['luz-06.jpg', 'Sol de luz âmbar com raios. Clímax pós-revelação.', 'Captura de tela 2026-10-13 174921.png'],
+      ['luz-02.jpg', 'Linha de luz âmbar no horizonte, contínua e baixa.', '56ec6484523937bf61560430e8521d8f.jpg']
+    ]
+  },
+  {
+    id: 'dj', bg: '#0E100C', glow: '220,209,177', folder: 'Dj', n: '04.3', name: 'DJ & Palco',
+    t: 0.5,
+    text: 'A cabine do DJ é um objeto luminoso e escultórico, translúcida, que brilha por dentro e muda de cor com a noite. Ela sai do palco do carro: a nova posição será definida na planta v02, sem disputar a key light.',
+    tags: ['Cabine-lightbox', 'Translúcido', 'Anel / sol', 'Palco 12 × 5 m'],
+    zones: ['pista'],
+    imgs: [
+      ['dj-03.jpg', 'Cabine translúcida que brilha por dentro: leve e escultórica.', 'IMG_2295.PNG'],
+      ['dj-01.jpg', 'Cabine em grade retroiluminada sobre cortina de tecido.', '4c2101f2bba1ad8cf2496e1b176edace.jpg'],
+      ['dj-02.jpg', 'Palco em caixa suspensa: o DJ como objeto de luz (ler em laranja queimado).', '8ebaf62c35c51534e87cd90f6830e1f3.jpg'],
+      ['dj-04.jpg', 'Anel-sol atrás do artista. Assinatura do pós-revelação.', 'a53f41ac46f1de7f0acb6b12bd1577c2.jpg']
+    ]
+  },
+  {
+    id: 'expo', bg: '#0B1413', glow: '220,209,177', folder: 'expo', n: '04.4', name: 'Expo · Cartões',
+    t: 0.62,
+    text: 'Instalação tridimensional para os cartões, com protagonismo do produto e sem apresentação convencional. Espelho infinito, pedestais-cubo de luz, vitrines de acrílico. O cartão parece flutuar dentro de um volume.',
+    tags: ['Espelho infinito', 'Pedestal-lightbox', 'Acrílico', 'Totem cartão'],
+    zones: ['totem', 'instalacao'],
+    imgs: [
+      ['expo-02.jpg', 'Coluna de espelho infinito: totem para o cartão.', '8e02a04016b2cd21452703ed426fc0ed.jpg'],
+      ['expo-01.jpg', 'Espelho infinito em forma de letra: profundidade e mistério.', '6c919fe8968f4ab1323d9c3b8e105ad2.jpg'],
+      ['expo-04.jpg', 'Pedestais-cubo iluminados com redoma de acrílico.', 'IMG_2296.PNG'],
+      ['expo-03.jpg', 'Corredor de nichos retroiluminados (ler em âmbar).', '99b20f0e2295fc83e8af5a55fba44da5.jpg']
+    ]
+  },
+  {
+    id: 'bar', bg: '#140E07', glow: '255,182,42', folder: 'Bar', n: '04.5', name: 'Bar',
+    t: 0.72,
+    text: 'Balcões-lightbox com frente translúcida e tampo em inox, teto luminoso como marco aéreo. Os dois bares (salão 6 m, deck 6 m) acompanham a luz cênica e passam do verde ao âmbar.',
+    tags: ['Balcão-lightbox', 'Inox escovado', 'Teto luminoso', 'Bar 6 m × 2'],
+    zones: ['bar', 'deckA'],
+    imgs: [
+      ['bar-04.jpg', 'Balcão com frente verde retroiluminada e tampo inox.', 'IMG_2299.PNG'],
+      ['bar-05.jpg', 'Rodapé de luz verde e teto-tela branco.', 'IMG_2300.PNG'],
+      ['bar-03.jpg', 'Cubo de vidro verde iluminado sobre o bar. Marco aéreo.', 'Captura de tela 2026-10-13 181440.png'],
+      ['bar-01.jpg', 'Balcão-lightbox laranja contra parede de cor. Estado âmbar.', 'Captura de tela 2026-10-13 175809.png'],
+      ['bar-02.jpg', 'Mesas em acrílico laranja sob teto luminoso.', 'Captura de tela 2026-10-13 175925.png']
+    ]
+  },
+  {
+    id: 'photo-op', bg: '#170D05', glow: '247,132,0', folder: 'Photo Op', n: '04.6', name: 'Photo Op',
+    t: 0.82,
+    text: 'Área de Photo Opp + VM (75 m²). Constelação de arcos de luz e silhuetas contra vidro canelado retroiluminado. O convidado vira silhueta no amanhecer.',
+    tags: ['Vidro canelado', 'Silhueta', 'Arcos de LED', '75 m²'],
+    zones: ['photo'],
+    imgs: [
+      ['photo-op-02.jpg', 'Silhuetas contra vidro canelado retroiluminado (ler em âmbar).', 'b25913fb836536f9c01111a3ebcc4639.jpg'],
+      ['photo-op-01.jpg', 'Constelação de arcos de LED verde sobre o público.', '28d0c702a4a054f153b61fe52c280c21.jpg']
+    ]
+  },
+  {
+    id: 'mobiliario', bg: '#1A1208', glow: '255,182,42', folder: 'Mobiliário', n: '04.7', name: 'Mobiliário',
+    t: 0.92,
+    text: 'Acrílico âmbar com inox escovado: peças que funcionam como luminárias. Bistrôs e bancos seguem a mesma matéria.',
+    tags: ['Acrílico âmbar', 'Inox escovado', 'Bistrôs', 'Bancos'],
+    zones: ['bancos', 'pista'],
+    imgs: [
+      ['mobiliario-01.jpg', 'Mesas em acrílico laranja e base em inox sob teto luminoso.', 'e7003afa09bda2e59455d5e13b53a2ef.jpg']
+    ]
+  }
+];
+
+/* Reunião com cliente — diretrizes (13/10) + primeira resposta.
+   media: tipo de visual no painel imersivo · bg/glow: cor da cena daquela diretriz */
+REVEAL.guides = [
+  { group: 'Iluminação e ambientação', ask: 'Iluminação dinâmica, com transição gradual do verde ao âmbar ao longo do evento.',
+    ans: 'Cue list com 4 estados (chegada, aquecimento, revelação, pós) e crossfades longos, de 20 a 40 min. Pixel mapping nos LEDs seguindo o gradiente amanhecer da paleta.',
+    media: { type: 'dawn' }, bg: '#0A1D1A', glow: '89,144,135', link: ['planta', 'Ver a luz na planta'] },
+  { group: 'Iluminação e ambientação', ask: 'Na revelação do carro, transformação completa da iluminação em ~30 segundos, com solução técnica e efeito cenográfico definidos.',
+    ans: 'Console (ex. grandMA3) sincronizado por timecode a áudio e LED. Sequência: blackout, pulso verde, speed lines, strobe, amanhecer e key light. Haze para materializar os feixes.',
+    media: { type: 'img', src: 'assets/img/luz/luz-07.jpg', cap: 'Speed lines no ar · Luz F1 / 07' }, bg: '#06100E', glow: '89,144,135', link: ['revelacao', 'Rodar a revelação em 3D'] },
+  { group: 'Iluminação e ambientação', ask: 'Iluminação ambiente agradável e independente dos efeitos cênicos coloridos.',
+    ans: 'Camada de branco quente (2700–3000K) em circuito e dimmer próprios, com mínimo de 15%. Luz indireta em sancas e luminárias de mesa. A cena colorida nunca substitui a luz de convivência.',
+    media: { type: 'img', src: 'assets/img/bar/bar-02.jpg', cap: 'Teto luminoso e acrílico âmbar · Bar / 05' }, bg: '#15120C', glow: '220,209,177', link: ['space-bar', 'Ver referências de bar'] },
+  { group: 'Iluminação e ambientação', ask: 'Preservar as cores originais do carro, sem interferência da luz cenográfica.',
+    ans: 'Key light dedicada: elipsoidais 5600K com CRI ≥ 95 e recorte por shutter só no carro. A luz colorida mira arquitetura, LED e público. Teste de cor com o carro antes do evento.',
+    media: { type: 'img', src: 'assets/img/renders-r02/r02_0003.jpg', cap: 'R02: o carro banhado em âmbar muda de cor. É isso que se evita.' }, bg: '#120D06', glow: '255,182,42', link: ['revelacao', 'Ver a key light no 3D'] },
+  { group: 'Iluminação e ambientação', ask: 'Integrar a iluminação da varanda à narrativa visual e às transições de luz dos demais ambientes.',
+    ans: 'Washes RGBW IP65 na varanda e no deck, na mesma cue list e no mesmo universo DMX. A varanda entra no âmbar junto com o salão.',
+    media: { type: 'plan', zones: ['deckA', 'deckB'], cap: 'Varanda / deck na planta v01' }, bg: '#161007', glow: '255,182,42', link: ['planta', 'Ver na planta'] },
+  { group: 'Fluxo e ocupação', ask: 'Definir o terraço como acesso principal do evento.',
+    ans: 'Chegada pelo terraço: cenografia externa de impacto, depois o backdrop interativo e o salão. Chapelaria no eixo de entrada. A confirmar na planta revisada.',
+    media: { type: 'plan', zones: ['terraco', 'backdrop', 'chapelaria'], flow: true, cap: 'Terraço → backdrop → salão' }, bg: '#0B1A17', glow: '89,144,135', link: ['planta', 'Ver o fluxo na planta'] },
+  { group: 'Fluxo e ocupação', ask: 'Redimensionar a área externa, criando dois ambientes distintos e complementares.',
+    ans: 'Deck dividido em Deck Bar (bar 6 m + bistrôs) e Deck Lounge (letra caixa Revolut + estar). A divisão sugerida segue o eixo de 3,80 m da planta.',
+    media: { type: 'plan', zones: ['deckA', 'deckB'], split: true, cap: 'Deck 278,63 m² → 2 ambientes' }, bg: '#14100A', glow: '220,209,177', link: ['planta', 'Ver na planta'] },
+  { group: 'Cenografia e experiências interativas', ask: 'Backdrop de entrada interativo, com sensores de movimento e efeitos responsivos.',
+    ans: 'Lâminas de policarbonato alveolar retroiluminadas com fita pixel. Sensor de profundidade ou LiDAR com TouchDesigner: a luz acompanha quem passa. Mova o cursor sobre o painel.',
+    media: { type: 'fins' }, bg: '#071311', glow: '89,144,135', link: ['entrada', 'Ver o protótipo em tela cheia'] },
+  { group: 'Cenografia e experiências interativas', ask: 'Instalação tridimensional para os cartões, com protagonismo e sem apresentação convencional.',
+    ans: 'Volumes de espelho infinito e pedestais-cubo em acrílico. Cartões suspensos em giro lento, cada um com sua própria luz. Totem cartão integrado ao bar.',
+    media: { type: 'img', src: 'assets/img/expo/expo-02.jpg', cap: 'Coluna de espelho infinito · expo / 01' }, bg: '#0D1514', glow: '220,209,177', link: ['space-expo', 'Ver referências de expo'] },
+  { group: 'Cenografia e experiências interativas', ask: 'Cenografia externa de entrada de forte impacto, com policarbonato, volumes e arquitetura contemporânea.',
+    ans: 'Pórtico de policarbonato e vidro verde em camadas, com retroiluminação que acompanha a cue list e letreiro Revolut aplicado em vidro.',
+    media: { type: 'img', src: 'assets/img/espaco/espaco-08.jpg', cap: 'Lâminas de acrílico com gradiente · Espaço / 08' }, bg: '#0A1A18', glow: '89,144,135', link: ['space-espaco', 'Ver referências de entrada'] }
+];
+
+/* Zonas da planta (coordenadas no PDF a 100dpi; viewBox 40 40 1560 1012) */
+REVEAL.zones = [
+  { id: 'terraco', name: 'Terraço · Acesso principal', dims: 'Volume escultórico 4,50 m · cenografia externa', rect: [110, 462, 320, 256],
+    text: 'Acesso principal. Cenografia de impacto em policarbonato e vidro verde em camadas. A luz da entrada é a primeira a mudar de cor: a onda verde → âmbar começa aqui.',
+    tags: ['Acesso principal', 'Policarbonato', 'Cenografia externa'], space: 'espaco', light: [[270, 590, 170]], delay: 0 },
+  { id: 'backdrop', name: 'Backdrop interativo', dims: 'Parede 12,53 m · altura sugerida 3 m', rect: [426, 462, 24, 320],
+    text: 'Backdrop de entrada com lâminas retroiluminadas e sensores de movimento. Separa o terraço do salão e reage a quem atravessa.',
+    tags: ['Sensores', 'TouchDesigner', 'Fita pixel'], space: 'espaco', light: [[440, 620, 110]], delay: 0.04 },
+  { id: 'housemix', name: 'Housemix', dims: '5,00 m', rect: [450, 466, 30, 130],
+    text: 'Operação de luz, som e vídeo. Visada direta para palco e carro, importante para o cue de 30 s.',
+    tags: ['Operação', 'Timecode'], space: 'luz', light: [], delay: 0.08 },
+  { id: 'led', name: 'Painéis de LED', dims: '4,00 + 12,00 + 4,00 m', rect: [535, 400, 514, 50],
+    text: 'Três painéis: o central atrás do palco e dois laterais. Conteúdo em pixel mapping no gradiente amanhecer: speed lines na revelação, nascer do sol no pós.',
+    tags: ['Pixel mapping', 'Speed lines', 'Sunrise'], space: 'luz', light: [[587, 415, 80], [790, 440, 160], [995, 415, 80]], delay: 0.12 },
+  { id: 'palco', name: 'Palco · Carro', dims: 'Palco 12,00 × 5,00 m · carro 4,58 × 2,00 m a 23,6°', rect: [638, 450, 307, 130],
+    text: 'O carro a 23,6° no centro do palco, com key light branca dedicada (5600K, CRI ≥ 95). A cena colorida banha o fundo e o piso, nunca a pintura do carro. O balcão de DJ da v01 sai do palco e vai ser reposicionado na v02.',
+    tags: ['Key light neutra', 'Giratório', 'Revelação'], space: 'luz', light: [[700, 560, 90]], car: true, delay: 0.14 },
+  { id: 'pista', name: 'Pista de dança & bistrôs', dims: 'Salão principal', rect: [482, 590, 476, 182],
+    text: 'Coração do evento. Rig circular suspenso e moving heads. Bistrôs em acrílico âmbar nas bordas.',
+    tags: ['Rig circular', 'Moving heads', 'Haze'], space: 'luz', light: [[620, 680, 150], [830, 650, 170]], delay: 0.18 },
+  { id: 'instalacao', name: 'Instalação dos cartões', dims: 'Proposta · volumes junto ao lounge', rect: [1005, 535, 150, 180],
+    text: 'Proposta de posição para a instalação 3D dos cartões, aproveitando os volumes angulares desenhados na planta: espelho infinito e pedestais de luz. A confirmar com a cenografia.',
+    tags: ['Espelho infinito', 'Cartão protagonista'], space: 'expo', light: [[1080, 620, 100]], delay: 0.22 },
+  { id: 'bancos', name: 'Lounge · bancos', dims: 'Entre palco e Photo Opp', rect: [960, 470, 250, 255],
+    text: 'Área de estar com bancos e bistrôs. A luz ambiente quente é a principal aqui, para conversas.',
+    tags: ['Estar', 'Luz ambiente'], space: 'mobiliario', light: [[1150, 520, 70]], delay: 0.24 },
+  { id: 'bar', name: 'Bar · salão', dims: 'Balcão 6,00 m', rect: [966, 728, 156, 46],
+    text: 'Balcão-lightbox com tampo inox. A frente translúcida segue a cena, do verde ao âmbar.',
+    tags: ['Balcão-lightbox', 'Inox'], space: 'bar', light: [[1044, 750, 90]], delay: 0.26 },
+  { id: 'totem', name: 'Totem cartão', dims: '1,20 m', rect: [898, 762, 40, 26],
+    text: 'Totem de ativação do cartão ao lado do bar. Coluna de espelho infinito como linguagem.',
+    tags: ['Ativação', 'Espelho infinito'], space: 'expo', light: [[917, 775, 50]], delay: 0.27 },
+  { id: 'photo', name: 'Photo Opp + VM', dims: '75 m²', rect: [1213, 462, 197, 256],
+    text: 'Photo opportunity e visual merchandising. Silhuetas contra vidro canelado retroiluminado e arcos de luz.',
+    tags: ['Vidro canelado', 'Silhueta', '75 m²'], space: 'photo-op', light: [[1310, 590, 130]], delay: 0.3 },
+  { id: 'deckA', name: 'Varanda · Deck Bar', dims: 'Parte do deck de 278,63 m² · bar 6,00 m', rect: [340, 786, 436, 160],
+    text: 'Primeiro ambiente externo: bar de 6 m e bistrôs. A iluminação da varanda entra na mesma cue list do salão.',
+    tags: ['Ambiente 1', 'Bar externo', 'Varanda'], space: 'bar', light: [[600, 920, 120], [450, 840, 90]], delay: 0.34 },
+  { id: 'deckB', name: 'Varanda · Deck Lounge', dims: 'Parte do deck de 278,63 m² · letra caixa Revolut', rect: [776, 786, 442, 160],
+    text: 'Segundo ambiente externo: estar com a letra caixa Revolut como marco. Complementar ao Deck Bar.',
+    tags: ['Ambiente 2', 'Letra caixa', 'Varanda'], space: 'espaco', light: [[905, 870, 90], [1100, 860, 110]], delay: 0.38 },
+  { id: 'chapelaria', name: 'Chapelaria', dims: 'No eixo de entrada', rect: [143, 722, 150, 62],
+    text: 'Chapelaria junto ao acesso pelo terraço.', tags: ['Serviço'], space: null, light: [], delay: 0.02 }
+];
+
+/* Pontos de serviço, só rótulo */
+REVEAL.labels = [
+  [470, 433, 'Bebidas'], [1072, 433, 'Alimentos'], [218, 290, 'Sanitário fem.'], [420, 245, 'Camarim'],
+  [365, 175, 'Enfermaria'], [215, 425, 'Sala de reunião'], [205, 900, 'Sanitário masc.']
+];
+
+/* Fluxo do convidado */
+REVEAL.flow = 'M 60 600 L 270 600 L 330 750 L 470 760 L 640 700 L 820 660 M 820 660 L 1040 700 L 1300 590 M 640 700 L 600 860 L 980 860';
+
+/* Renders R02 (23/09/2026) — o que gerou os pedidos de alteração.
+   [arquivo, título, como está no R02, direção do moodboard, link] */
+REVEAL.renders = [
+  ['r02_0000.jpg', 'Chegada', 'Luz ambiente azul fria, fora da paleta. Totem-pedestal convencional e backdrop estático ao fundo.', 'Chegada em verde petróleo e teal, com branco quente de convivência em circuito próprio. Terraço como acesso principal, com cenografia de policarbonato e backdrop interativo.', 'entrada'],
+  ['r02_0001.jpg', 'Backdrop', 'Padrão Piso Paulista em linhas douradas, fixo.', 'O padrão pode sobreviver, mas vira resposta ao movimento: lâminas retroiluminadas que acendem com quem passa.', 'entrada'],
+  ['r02_0003-2.jpg', 'Palco · carro coberto', 'Parede de LED com a cidade em âmbar desde o início da noite.', 'A noite começa no verde. O âmbar é conquistado: só chega com a revelação, em ~30 s de transformação total da luz.', 'revelacao'],
+  ['r02_0003.jpg', 'Palco · carro revelado', 'Carro banhado pela luz âmbar do ambiente: a cor da pintura muda.', 'Key light branca 5600K, CRI ≥ 95, com recorte só no carro. A cena colorida vai para fundo, piso e público.', 'revelacao'],
+  ['r02_0003-3.jpg', 'Palco · totem frontal', 'Totem de cartão com lâminas na frente do palco, competindo com o carro.', 'O cartão ganha instalação própria, tridimensional, fora do eixo do carro. O totem de ativação fica junto ao bar.', 'space-expo'],
+  ['r02_0004.jpg', 'Salão · VM', 'Vitrines de vestuário e pedestais pretos com luz branca pontual. Apresentação convencional.', 'Pedestais-lightbox e volumes de espelho infinito, com luz integrada à cue list. O produto como protagonista.', 'space-expo'],
+  ['r02_0005.jpg', 'Vitrines', 'Linha de vitrines lado a lado, leitura de loja.', 'Agrupamentos escultóricos em alturas diferentes, com o vidro e o acrílico da paleta. Photo Opp e VM em 75 m² dedicados.', 'space-photo-op'],
+  ['r02_0006.jpg', 'Bar + VM', 'Bar em caixa preta, sem luz própria.', 'Balcão-lightbox com tampo inox. A frente translúcida passa do verde ao âmbar com a noite.', 'space-bar'],
+  ['r02_0007.jpg', 'Lounge', 'Sofás brancos e cadeiras de escritório, sem relação com a paleta.', 'Mobiliário em acrílico âmbar e inox. Luz ambiente quente como principal na área de estar.', 'space-mobiliario'],
+  ['r02_0002.jpg', 'Vista geral', 'Layout em caixa única com LED perimetral.', 'Layout a refazer sobre a planta da Casa Fasano: salão, deck em dois ambientes e varanda integrada à luz.', 'planta'],
+  ['r02_0008.jpg', 'Vista geral 2', 'Ocupação dispersa, sem fluxo claro.', 'Fluxo definido: terraço, backdrop, salão, e daí bar, Photo Opp e deck.', 'planta']
+];
+
+</script>
+<script>
+/* =========================================================
+   THE REVEAL · interações do moodboard
+   1. Luz global, HUD, cursor
+   2. FinField — o efeito do hero, reutilizável
+   3. Conceito (atos e luz da noite)
+   4. Palco 3D (three.js r147) + revelação de 30 s
+   5. Espaços + lightbox
+   6. Reunião imersiva
+   7. R02 → direção
+   8. Planta imersiva
+   ========================================================= */
+(() => {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fine = matchMedia('(pointer: fine)').matches;
+const FONT = getComputedStyle(document.documentElement).getPropertyValue('--font') || 'Helvetica, Arial, sans-serif';
+
+const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+const mixc = (a, b, t) => a.map((v, i) => Math.round(lerp(v, b[i], t)));
+const ramp = (stops, t) => { t = clamp(t); for (let i = 1; i < stops.length; i++) { if (t <= stops[i][0]) { const [t0, c0] = stops[i - 1], [t1, c1] = stops[i]; return mixc(c0, c1, (t - t0) / (t1 - t0 || 1)); } } return stops[stops.length - 1][1]; };
+const rgb = c => `rgb(${c.join(',')})`;
+const rgba = (c, a) => `rgba(${c.join(',')},${a})`;
+const C = { petrol: hex('#17423C'), teal: hex('#599087'), burnt: hex('#F78400'), amber: hex('#FFB62A'), cream: hex('#DCD1B1'), black: hex('#090B09'), white: [255, 255, 255], warm: hex('#F3E6CC') };
+const SCENE = [[0, C.petrol], [.22, C.teal], [.5, C.cream], [.75, C.amber], [1, C.burnt]];
+const GLOW = [[0, C.teal], [.3, C.teal], [.55, C.cream], [.78, C.amber], [1, C.burnt]];
+const momentOf = t => t < .2 ? 'Chegada' : t < .45 ? 'Aquecimento' : t < .7 ? 'Revelação' : 'Pós-revelação';
+const root = document.documentElement;
+let pageT = 0;
+
+/* rola só o trilho horizontal (nunca a página) para centralizar um item */
+const centerIn = el => { const box = el.parentElement; if (!box) return; box.scrollTo({ left: el.offsetLeft - (box.clientWidth - el.offsetWidth) / 2, behavior: reduced ? 'auto' : 'smooth' }); };
+
+/* ---------- ponteiro global ---------- */
+const PTR = { x: -9999, y: -9999, t: 0 };
+addEventListener('pointermove', e => { PTR.x = e.clientX; PTR.y = e.clientY; PTR.t = performance.now(); if (e.pointerType === 'mouse') document.body.classList.add('has-pointer'); }, { passive: true });
+document.addEventListener('pointerleave', () => { PTR.x = PTR.y = -9999; });
+
+/* =========================================================
+   1. Luz global
+   ========================================================= */
+const hudMarker = $('.hud__marker'), hudMoment = $('.hud__moment'), cursorLight = $('.cursor-light');
+let anchors = [];
+function measureAnchors() { anchors = $$('section[data-t], article[data-t]').map(el => ({ y: el.getBoundingClientRect().top + scrollY, t: +el.dataset.t })).sort((a, b) => a.y - b.y); }
+function tAtY(y) {
+  if (!anchors.length) return 0;
+  if (y <= anchors[0].y) return anchors[0].t;
+  for (let i = 1; i < anchors.length; i++) if (y < anchors[i].y) { const a = anchors[i - 1], b = anchors[i]; return lerp(a.t, b.t, (y - a.y) / (b.y - a.y)); }
+  return anchors[anchors.length - 1].t;
+}
+function yAtT(t) {
+  for (let i = 1; i < anchors.length; i++) { const a = anchors[i - 1], b = anchors[i]; if (t <= b.t && b.t > a.t) return lerp(a.y, b.y, (t - a.t) / (b.t - a.t)); }
+  return anchors.length ? anchors[anchors.length - 1].y : 0;
+}
+let lastMoment = '';
+function applyGlobalLight() {
+  pageT = tAtY(scrollY + innerHeight * .5);
+  const g = ramp(GLOW, pageT).join(',');
+  root.style.setProperty('--hud-glow', g);
+  root.style.setProperty('--cl', g);
+  hudMarker.style.left = (pageT * 100) + '%';
+  const m = momentOf(pageT); if (m !== lastMoment) { hudMoment.textContent = m; lastMoment = m; }
+  document.body.classList.toggle('at-hero', scrollY < innerHeight * .55);
+}
+let ticking = false;
+addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { applyGlobalLight(); ticking = false; }); } }, { passive: true });
+addEventListener('resize', () => { measureAnchors(); applyGlobalLight(); });
+$('.hud__bar').addEventListener('click', e => {
+  const r = e.currentTarget.getBoundingClientRect(); const t = clamp((e.clientX - r.left) / r.width);
+  scrollTo({ top: yAtT(t) - innerHeight * .5, behavior: reduced ? 'auto' : 'smooth' });
+});
+// luz do cursor (só desktop)
+if (fine && !reduced) {
+  const tick = () => { if (PTR.x > -999) cursorLight.style.transform = `translate(${PTR.x}px, ${PTR.y}px)`; requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+}
+// reveal on scroll + nav ativa
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+const observeReveals = () => $$('.reveal:not(.in)').forEach(el => io.observe(el));
+const navLinks = $$('.topbar__nav a, .topbar__sheet a');
+const navIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) navLinks.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + e.target.id)); }), { rootMargin: '-45% 0px -50% 0px' });
+['conceito', 'revelacao', 'espacos', 'reuniao', 'r02', 'planta'].forEach(id => { const el = document.getElementById(id); if (el) navIO.observe(el); });
+
+/* menu de capítulos (mobile) */
+(function menu() {
+  const btn = $('.topbar__menu'), sheet = $('.topbar__sheet'); if (!btn || !sheet) return;
+  const set = open => { btn.setAttribute('aria-expanded', open); sheet.hidden = !open; };
+  btn.addEventListener('click', () => set(sheet.hidden));
+  sheet.addEventListener('click', e => { if (e.target.closest('a')) set(false); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') set(false); });
+  addEventListener('scroll', () => { if (!sheet.hidden && Math.abs(scrollY - (sheet._y ?? scrollY)) > 80) set(false); sheet._y = sheet.hidden ? undefined : (sheet._y ?? scrollY); }, { passive: true });
+})();
+const toast = $('.toast'); let toastT;
+function say(msg) { toast.textContent = msg; toast.classList.add('is-on'); clearTimeout(toastT); toastT = setTimeout(() => toast.classList.remove('is-on'), 1600); }
+
+/* =========================================================
+   2. FinField — lâminas de policarbonato que respondem ao movimento
+   ========================================================= */
+const glowOf = el => { const s = el.closest('[style*="--glow"]'); if (!s) return null; const v = getComputedStyle(s).getPropertyValue('--glow').trim(); return v ? v.split(',').map(Number) : null; };
+class FinField {
+  constructor(cv, opts = {}) {
+    this.cv = cv; this.ctx = cv.getContext('2d');
+    this.o = Object.assign({ gap: 16, intensity: 1, sweep: true, dir: 'v', color: null, reach: 220 }, opts);
+    this.visible = false; this.fins = []; this.last = performance.now(); this.colT = 0; this.col = C.teal; this.focus = { x: -9999, y: -9999 };
+    this.size(); new ResizeObserver(() => this.size()).observe(cv);
+    new IntersectionObserver(es => { this.visible = es[0].isIntersecting; if (this.visible) this.loop(); }).observe(cv);
+  }
+  size() {
+    const dpr = Math.min(devicePixelRatio || 1, 2); this.W = this.cv.clientWidth; this.H = this.cv.clientHeight;
+    if (!this.W || !this.H) return;
+    this.cv.width = this.W * dpr; this.cv.height = this.H * dpr; this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const L = this.o.dir === 'v' ? this.W : this.H, gap = this.W < 700 ? this.o.gap * .8 : this.o.gap;
+    this.gap = gap; this.fins = Array.from({ length: Math.ceil(L / gap) + 1 }, (_, i) => ({ p: i * gap + gap / 2, e: 0, q: this.o.dir === 'v' ? this.H / 2 : this.W / 2 }));
+  }
+  color(now) {
+    if (this.o.color) return typeof this.o.color === 'function' ? this.o.color() : this.o.color;
+    if (now - this.colT > 400) { this.colT = now; this.col = glowOf(this.cv) || ramp(GLOW, pageT); }
+    return this.col;
+  }
+  frame(now) {
+    const { ctx, W, H, o } = this; if (!W) return;
+    const dt = Math.min(50, now - this.last) / 16.7; this.last = now;
+    const r = this.cv.getBoundingClientRect();
+    const lx = PTR.x - r.left, ly = PTR.y - r.top;
+    const inside = lx > -o.reach && lx < W + o.reach && ly > -o.reach && ly < H + o.reach && now - PTR.t < 2500;
+    let sx, sy, speed;
+    if (inside) { const px = this.focus.x < -999 ? lx : this.focus.x, py = this.focus.y < -999 ? ly : this.focus.y; speed = Math.hypot(lx - px, ly - py); sx = lx; sy = ly; this.focus = { x: lerp(px, lx, .35), y: lerp(py, ly, .35) }; }
+    else { this.focus = { x: -9999, y: -9999 }; if (!o.sweep) { sx = -9999; sy = H / 2; speed = 0; } else { const k = (Math.sin(now / 2600 + o.gap) + 1) / 2; sx = lerp(W * .1, W * .9, k); sy = H * (.45 + .15 * Math.sin(now / 1900)); speed = o.intensity >= 1 ? 13 : 6; if (o.dir === 'h') { sy = lerp(H * .1, H * .9, k); sx = W * .5; } } }
+    const col = this.color(now);
+    ctx.clearRect(0, 0, W, H);
+    const vert = o.dir === 'v';
+    const sigma = Math.max(60, (vert ? W : H) * .07);
+    const g = this.gap;
+    for (const f of this.fins) {
+      const d = f.p - (vert ? sx : sy), infl = Math.exp(-(d * d) / (2 * sigma * sigma));
+      f.e = Math.min(1.2, f.e * Math.pow(.955, dt) + infl * Math.min(speed, 40) * .012 * dt + infl * .006);
+      f.q = lerp(f.q, vert ? sy : sx, .08);
+      const a = clamp((.05 + f.e * .9) * o.intensity, 0, 1);
+      const span = (vert ? H : W) * .7;
+      const gr = vert ? ctx.createLinearGradient(0, f.q - span, 0, f.q + span) : ctx.createLinearGradient(f.q - span, 0, f.q + span, 0);
+      gr.addColorStop(0, rgba(col, 0)); gr.addColorStop(.5, rgba(col, a)); gr.addColorStop(1, rgba(col, 0));
+      ctx.fillStyle = gr;
+      if (vert) ctx.fillRect(f.p - g * .32, 0, g * .64, H); else ctx.fillRect(0, f.p - g * .32, W, g * .64);
+      ctx.fillStyle = `rgba(220,209,177,${(.04 + f.e * .35) * o.intensity})`;
+      if (vert) ctx.fillRect(f.p - g * .32, 0, 1, H); else ctx.fillRect(0, f.p - g * .32, W, 1);
+      ctx.fillStyle = `rgba(255,255,255,${f.e * .5 * o.intensity})`;
+      if (vert) ctx.fillRect(f.p - .5, f.q - 60 - f.e * 120, 1, 120 + f.e * 240); else ctx.fillRect(f.q - 60 - f.e * 120, f.p - .5, 120 + f.e * 240, 1);
+    }
+    if (sx > -999) { const h = ctx.createRadialGradient(sx, sy, 0, sx, sy, sigma * 3); h.addColorStop(0, rgba(col, .16 * o.intensity)); h.addColorStop(1, rgba(col, 0)); ctx.fillStyle = h; ctx.fillRect(0, 0, W, H); }
+  }
+  loop() { cancelAnimationFrame(this.raf); const step = now => { if (!this.visible) return; this.frame(now); this.raf = requestAnimationFrame(step); }; this.raf = requestAnimationFrame(step); if (reduced) { this.frame(performance.now()); cancelAnimationFrame(this.raf); } }
+}
+$$('canvas.fins').forEach(cv => {
+  let o = {}; try { o = JSON.parse(cv.dataset.fins || '{}'); } catch (e) {}
+  if (cv.classList.contains('fins--hero')) o.color = () => ramp(GLOW, pageT);
+  if (cv.closest('.fin-band')) { o.reach = 260; o.color = cv.closest('.fin-band--warm') ? () => ramp(GLOW, clamp(pageT + .15)) : () => ramp(GLOW, pageT); }
+  new FinField(cv, o);
+});
+
+/* =========================================================
+   3. Conceito
+   ========================================================= */
+(function concept() {
+  const sec = $('#conceito'); if (!sec) return;
+  const base = { bg: sec.style.getPropertyValue('--bg'), glow: sec.style.getPropertyValue('--glow') };
+  const set = (bg, glow) => { sec.style.setProperty('--bg', bg); sec.style.setProperty('--glow', glow); };
+  $$('.act', sec).forEach(a => {
+    a.style.setProperty('--ag', a.dataset.glow);
+    const on = () => set(a.dataset.bg, a.dataset.glow), off = () => set(base.bg, base.glow);
+    a.addEventListener('mouseenter', on); a.addEventListener('focus', on);
+    a.addEventListener('mouseleave', off); a.addEventListener('blur', off);
+  });
+  const bar = $('.night-light__bar', sec), dot = $('.night-light__dot', sec);
+  if (bar) {
+    const NIGHT = [[0, C.petrol], [.25, C.teal], [.5, C.cream], [.75, C.amber], [1, C.burnt]];
+    bar.addEventListener('pointermove', e => { const r = bar.getBoundingClientRect(), t = clamp((e.clientX - r.left) / r.width); dot.style.left = (t * 100) + '%'; const c = ramp(NIGHT, t); set(rgb(mixc([0, 0, 0], c, .14)), c.join(',')); });
+    bar.addEventListener('pointerleave', () => set(base.bg, base.glow));
+  }
+})();
+
+/* =========================================================
+   4. Revelação — estado de luz em função do tempo (0–30 s)
+   ========================================================= */
+function revealState(s) {
+  const st = { house: .7, scene: ramp(SCENE, .2), wash: .5, beams: .35, sweep: .3, led: 'idle', ledLv: .7, ledK: 0, key: 0, strobe: 0, cue: 'Chegada' };
+  if (s <= 0) return st;
+  if (s < 3) { const k = ease(s / 3); Object.assign(st, { house: lerp(.7, .15, k), wash: lerp(.5, 0, k), beams: lerp(.35, 0, k), ledLv: lerp(.7, 0, k), cue: 'Blackout' }); }
+  else if (s < 8) { const f = .5 + .5 * Math.sin((s - 3) * Math.PI * 2 * 1.1 - Math.PI / 2); Object.assign(st, { house: .15, scene: mixc(C.petrol, C.teal, f), wash: .3 * f, beams: .2 * f, led: 'pulse', ledLv: .15 + .75 * f, cue: 'Pulso verde' }); }
+  else if (s < 15) { const k = (s - 8) / 7; Object.assign(st, { house: .15, scene: C.teal, wash: .25, beams: .45 + .5 * k, sweep: 1.6 + 2 * k, led: 'speed', ledLv: .6 + .4 * k, ledK: k, cue: 'Speed lines' }); }
+  else if (s < 17) { const on = Math.floor(s * 11) % 2 === 0; Object.assign(st, { house: .15, scene: C.cream, wash: on ? .6 : .05, beams: on ? 1 : .2, sweep: 3, led: 'flash', ledLv: on ? 1 : .05, strobe: on ? .7 * (1 - (s - 15) / 2.4) : 0, cue: 'Beat drop' }); }
+  else if (s < 24) { const k = ease((s - 17) / 7); Object.assign(st, { house: .15, scene: ramp(SCENE, .5 + .45 * k), wash: lerp(.3, 1, k), beams: .8, sweep: .8, led: 'sunrise', ledLv: 1, ledK: k, cue: 'Amanhecer' }); }
+  else if (s < 27) { const k = ease((s - 24) / 3); Object.assign(st, { house: .15, scene: ramp(SCENE, .95 - .1 * k), wash: 1, beams: lerp(.8, .55, k), sweep: .6, led: 'sunrise', ledLv: 1, ledK: 1, key: k, cue: 'Key light' }); }
+  else { const k = ease(clamp((s - 27) / 3)); Object.assign(st, { house: lerp(.15, .6, k), scene: ramp(SCENE, .85 - .1 * k), wash: lerp(1, .75, k), beams: .5, sweep: .4, led: 'sunrise', ledLv: 1, ledK: 1, key: 1, cue: 'Estado âmbar' }); }
+  return st;
+}
+const CAR_PATH = 'M1 18.6 L13 17.6 L15 16.4 Q24 14.6 33 13.2 L39 12.6 L42 9.8 Q45 7.6 49 8.2 Q52 8.8 53.5 11.4 L61 11.2 Q70 10.6 79 11.2 L83 8.6 L85 4.4 L98.5 4.4 L98.5 7.4 L93 7.4 L93.4 12.6 Q94.4 16.4 91 18.4 L60 19.2 L22 19.6 L1 20.4 Z';
+const WHEELS = [[23, 17.4, 5.8], [79, 17, 6.4]];
+
+/* ---------- LED: uma tela contínua para os 3 painéis (20 × 6 m) ---------- */
+function makeLED() {
+  const W = 2400, H = 420, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+  const ctx = cv.getContext('2d');
+  // skyline procedural (fixo), com torre de antena tipo Paulista
+  let seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+  const blds = []; let x = 0;
+  while (x < W) { const w = 18 + rnd() * 60, h = H * (.12 + rnd() * rnd() * .55); blds.push({ x, w, h, win: rnd() > .3 }); x += w + rnd() * 4; }
+  const towers = [{ x: W * .62, h: H * .78 }, { x: W * .93, h: H * .86 }];
+  const streaks = Array.from({ length: 70 }, () => ({ y: rnd(), l: .03 + rnd() * .18, v: .3 + rnd() * 1.2, o: rnd() }));
+  const logo = new Image(); let logoOk = false;
+  const wm = $('.topbar__brand svg');
+  if (wm) { const c = wm.cloneNode(true); c.setAttribute('fill', '#ffffff'); c.setAttribute('width', 3621); c.setAttribute('height', 800); c.removeAttribute('class'); logo.onload = () => logoOk = true; logo.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(c.outerHTML); }
+  function skyline(fill, winCol, winA) {
+    ctx.fillStyle = fill;
+    for (const b of blds) ctx.fillRect(b.x, H - b.h, b.w, b.h);
+    for (const t of towers) { ctx.fillRect(t.x - 10, H - t.h * .55, 20, t.h * .55); ctx.fillRect(t.x - 2, H - t.h, 4, t.h * .45); ctx.fillRect(t.x - 9, H - t.h * .62, 18, 4); }
+    if (winA > 0) { ctx.fillStyle = rgba(winCol, winA); for (const b of blds) if (b.win) for (let yy = H - b.h + 8; yy < H - 6; yy += 17) for (let xx = b.x + 4; xx < b.x + b.w - 4; xx += 9) if (((xx * 7 + yy * 13) | 0) % 11 === 0) ctx.fillRect(xx, yy, 3, 4); }
+  }
+  function draw(st, now) {
+    const lv = st.ledLv;
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.fillStyle = '#010101'; ctx.fillRect(0, 0, W, H);
+    if (st.led === 'idle' || st.led === 'pulse') {
+      const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, rgba(C.petrol, lv * .6)); g.addColorStop(.75, rgba(st.scene, lv)); g.addColorStop(1, rgba(C.petrol, lv));
+      ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+      skyline(rgba([4, 14, 12], .92), C.teal, .3 * lv);
+    } else if (st.led === 'speed') {
+      ctx.fillStyle = rgba(C.petrol, .45 * lv); ctx.fillRect(0, 0, W, H);
+      for (const k of streaks) {
+        const px = ((k.o + now / 1000 * k.v * (1 + st.ledK)) % 1.3 - .15) * W;
+        const g = ctx.createLinearGradient(px - k.l * W, 0, px, 0);
+        g.addColorStop(0, rgba(C.teal, 0)); g.addColorStop(1, rgba(k.v > 1.1 ? C.cream : C.teal, lv));
+        ctx.fillStyle = g; ctx.fillRect(px - k.l * W, k.y * H, k.l * W, Math.max(2, H * .01));
+      }
+    } else if (st.led === 'flash') {
+      ctx.fillStyle = rgba(C.cream, lv); ctx.fillRect(0, 0, W, H);
+    } else if (st.led === 'sunrise') {
+      const k = st.ledK;
+      const g = ctx.createLinearGradient(0, 0, 0, H);
+      g.addColorStop(0, rgb(mixc([6, 10, 9], hex('#E7B366'), k)));
+      g.addColorStop(.45, rgb(mixc(C.petrol, C.amber, k)));
+      g.addColorStop(.75, rgb(mixc(C.teal, hex('#E8A145'), k)));
+      g.addColorStop(1, rgb(mixc(C.cream, C.burnt, k)));
+      ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+      // sol
+      const sx = W * .78, sy = H * lerp(1.05, .62, k);
+      const sg = ctx.createRadialGradient(sx, sy, 0, sx, sy, H * .8); sg.addColorStop(0, rgba([255, 240, 200], .95 * k)); sg.addColorStop(.15, rgba(C.amber, .6 * k)); sg.addColorStop(1, rgba(C.amber, 0));
+      ctx.fillStyle = sg; ctx.fillRect(0, 0, W, H);
+      skyline(rgb(mixc([3, 8, 7], [40, 24, 8], k)), [255, 200, 120], .5 * k);
+    }
+    // logo
+    if (logoOk && lv > .05) { const lw = W * .12, lh = lw * 800 / 3621; ctx.globalAlpha = clamp(lv) * .92; ctx.drawImage(logo, W / 2 - lw / 2, H * .17, lw, lh); ctx.globalAlpha = 1; }
+  }
+  return { cv, draw };
+}
+
+/* ---------- Palco 3D — em escala, pelas cotas da planta v01 ----------
+   Origem: centro da face frontal do LED central (x = 0, z = 0). +z vai para a plateia. Unidades em metros.
+   Cotas da planta (Studio Sarrafo, 1:150): LED central 12,00 · laterais 4,00 recuados 1,00 · palco 12,00 × 5,00
+   · carro 4,58 × 2,00 a 23,6°, centro a 2,43 m do fundo do palco · pé-direito 3,95.
+   Premissas (não cotadas na planta): altura do LED 3,50 · altura do palco 0,40. */
+const DIM = { ledW: 12, sideW: 4, sideBack: 1, ledD: 1, ledH: 3.5, stageW: 12, stageD: 5, stageH: .4, carL: 4.58, carW: 2, carRot: -23.6 * Math.PI / 180, carZ: 2.43, ceil: 3.95, wallZ: -2.18, planterD: 1.04 };
+(function stage3d() {
+  const view = $('.stage3d__view'), cv = $('.stage3d__canvas'); if (!view) return;
+  const clock = $('.stage__clock'), cueEl = $('.stage__cue'), range = $('.stage__range'), playBtn = $('[data-stage=play]');
+  const cueItems = $$('.cues li'), meters = Object.fromEntries($$('.meter i').map(i => [i.dataset.m, i]));
+  let s = 0, playing = false, lastNow = 0, visible = false, isRef = false;
+
+  function ui(st) {
+    clock.textContent = s.toFixed(1).padStart(4, '0');
+    cueEl.textContent = (playing || s > 0) ? st.cue : 'Chegada · antes da revelação';
+    cueItems.forEach(li => { const at = +li.dataset.at, nx = li.nextElementSibling ? +li.nextElementSibling.dataset.at : 31; li.classList.toggle('is-now', (playing || s > 0) && s >= at && s < nx); li.classList.toggle('is-past', s >= nx); });
+    const sc = Math.max(st.wash, st.beams, st.ledLv * .8);
+    meters.house.style.setProperty('--v', st.house); meters.house.style.setProperty('--mc', '#F3E6CC');
+    meters.scene.style.setProperty('--v', sc); meters.scene.style.setProperty('--mc', rgb(st.scene));
+    meters.key.style.setProperty('--v', st.key); meters.key.style.setProperty('--mc', '#ffffff');
+  }
+  function setPlaying(p) {
+    playing = p; playBtn.querySelector('.btn__txt').textContent = p ? 'Pausar' : (s >= 30 ? 'Rodar de novo' : s > 0 ? 'Continuar' : 'Rodar revelação');
+    playBtn.querySelector('.btn__icon').textContent = p ? '❚❚' : '▶';
+    if (p) { if (s >= 30) s = 0; lastNow = performance.now(); if (isRef) setOpt('2'); }
+  }
+  playBtn.addEventListener('click', () => setPlaying(!playing));
+  $('[data-stage=reset]').addEventListener('click', () => { s = 0; range.value = 0; setPlaying(false); });
+  range.addEventListener('input', () => { s = +range.value; if (playing) setPlaying(false); });
+  cueItems.forEach(li => li.addEventListener('click', () => { s = +li.dataset.at + .01; range.value = s; setPlaying(false); if (isRef) setOpt('2'); }));
+  addEventListener('keydown', e => { if (e.code === 'Space' && visible && !/INPUT|TEXTAREA|BUTTON|SELECT/.test(document.activeElement.tagName)) { e.preventDefault(); setPlaying(!playing); } });
+
+  // configuração dos laterais: 0 = planta v01 (recuados, alinhados) · 1 = 45° encaixados no central
+  let optT = 1, optK = 1;
+  function setOpt(o) {
+    $$('.stage3d__tabs .tab').forEach(t => { const on = t.dataset.opt === o; t.classList.toggle('is-on', on); t.setAttribute('aria-selected', on); });
+    isRef = o === 'ref'; view.classList.toggle('is-ref', isRef);
+    if (!isRef) optT = o === '1' ? 0 : 1;
+  }
+  $$('.stage3d__tabs .tab').forEach(t => t.addEventListener('click', () => setOpt(t.dataset.opt)));
+
+  const T = window.THREE;
+  let renderer;
+  try { if (!T) throw 0; renderer = new T.WebGLRenderer({ canvas: cv, antialias: true, powerPreference: 'high-performance' }); }
+  catch (e) { $('.stage3d__fallback').hidden = false; setOpt('ref'); return; }
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.5));
+  renderer.outputEncoding = T.sRGBEncoding; renderer.autoClear = false;
+
+  const scene = new T.Scene(), carScene = new T.Scene();
+  scene.background = new T.Color(0x010201);
+  scene.fog = new T.FogExp2(0x010201, .03);
+  const camera = new T.PerspectiveCamera(38, 16 / 9, .1, 200);
+  const D = DIM;
+
+  // piso do salão (semi-transparente → reflexo do LED)
+  const floor = new T.Mesh(new T.PlaneGeometry(60, 40), new T.MeshStandardMaterial({ color: 0x0d0e0d, roughness: .5, metalness: .15, transparent: true, opacity: .87 }));
+  floor.rotation.x = -Math.PI / 2; floor.position.z = 8; scene.add(floor);
+
+  // fundo do salão: vidro + floreira (cota 1,00) + pé-direito 3,95
+  const glass = new T.Mesh(new T.PlaneGeometry(26, D.ceil), new T.MeshStandardMaterial({ color: 0x17423C, transparent: true, opacity: .18, roughness: .1, metalness: .3 }));
+  glass.position.set(1.2, D.ceil / 2, D.wallZ); scene.add(glass);
+  const planter = new T.Mesh(new T.BoxGeometry(26, .6, D.planterD), new T.MeshStandardMaterial({ color: 0x0f1a14, roughness: .9 })); planter.position.set(1.2, .3, D.wallZ - D.planterD / 2); scene.add(planter);
+  for (let k = 0; k < 40; k++) { const p = new T.Mesh(new T.ConeGeometry(.28, .9 + (k % 3) * .25, 6), new T.MeshStandardMaterial({ color: 0x1d3a26, roughness: .9 })); p.position.set(-11.5 + k * .63, .9, D.wallZ - .5 + ((k * 37) % 5) * .08); scene.add(p); }
+  const ceiling = new T.Mesh(new T.PlaneGeometry(26, 14), new T.MeshStandardMaterial({ color: 0x060606, roughness: 1, transparent: true, opacity: .55 }));
+  ceiling.rotation.x = Math.PI / 2; ceiling.position.set(1.2, D.ceil, 4.8); scene.add(ceiling);
+
+  // LED: uma tela contínua de 20 m (4 + 12 + 4)
+  const led = makeLED();
+  const tex = new T.CanvasTexture(led.cv); tex.encoding = T.sRGBEncoding; tex.anisotropy = 4;
+  const ledMat = new T.MeshBasicMaterial({ map: tex, side: T.DoubleSide, toneMapped: false });
+  const structMat = new T.MeshStandardMaterial({ color: 0x050505, roughness: .9 });
+  function panel(u0, u1, w) {
+    const g = new T.PlaneGeometry(w, D.ledH); const uv = g.attributes.uv;
+    for (let i = 0; i < uv.count; i++) uv.setX(i, u0 + uv.getX(i) * (u1 - u0));
+    const m = new T.Group(); m.add(new T.Mesh(g, ledMat));
+    const back = new T.Mesh(new T.BoxGeometry(w, D.ledH, D.ledD - .04), structMat); back.position.z = -(D.ledD / 2) - .02; m.add(back);
+    return m;
+  }
+  function rig() {
+    const r = new T.Group();
+    const c = panel(.2, .8, D.ledW); c.position.set(0, D.ledH / 2, 0); r.add(c);
+    const lp = new T.Group(); lp.name = 'L'; const l = panel(0, .2, D.sideW); l.position.set(-D.sideW / 2, D.ledH / 2, 0); lp.add(l); r.add(lp);
+    const rp = new T.Group(); rp.name = 'R'; const rr = panel(.8, 1, D.sideW); rr.position.set(D.sideW / 2, D.ledH / 2, 0); rp.add(rr); r.add(rp);
+    return r;
+  }
+  const ledRig = rig(); scene.add(ledRig);
+  const mirror = rig(); mirror.scale.y = -1; scene.add(mirror);
+  function placeSides(k) { // k: 0 planta · 1 45°
+    const z = lerp(-D.sideBack, 0, k), a = lerp(0, Math.PI / 4, k);
+    for (const r of [ledRig, mirror]) { const L = r.getObjectByName('L'), R = r.getObjectByName('R'); L.position.set(-D.ledW / 2, 0, z); L.rotation.y = a; R.position.set(D.ledW / 2, 0, z); R.rotation.y = -a; }
+  }
+
+  // halo suave do LED
+  const hc = document.createElement('canvas'); hc.width = hc.height = 256; const hx = hc.getContext('2d');
+  const hg = hx.createRadialGradient(128, 128, 0, 128, 128, 128); hg.addColorStop(0, 'rgba(255,255,255,.5)'); hg.addColorStop(.5, 'rgba(255,255,255,.12)'); hg.addColorStop(1, 'rgba(255,255,255,0)');
+  hx.fillStyle = hg; hx.fillRect(0, 0, 256, 256);
+  const halo = new T.Mesh(new T.PlaneGeometry(26, 7.5), new T.MeshBasicMaterial({ map: new T.CanvasTexture(hc), transparent: true, blending: T.AdditiveBlending, depthWrite: false, opacity: .4 }));
+  halo.position.set(0, D.ledH / 2, .9); scene.add(halo);
+
+  // palco 12 × 5 × 0,40 e giratório
+  const deck = new T.Mesh(new T.BoxGeometry(D.stageW, D.stageH, D.stageD), new T.MeshStandardMaterial({ color: 0x0b0b0b, roughness: .55, metalness: .25 }));
+  deck.position.set(0, D.stageH / 2, D.stageD / 2); scene.add(deck);
+  const turnR = 2.6;
+  const turn = new T.Mesh(new T.CylinderGeometry(turnR, turnR, .03, 72), new T.MeshStandardMaterial({ color: 0x141414, roughness: .3, metalness: .5 })); turn.position.set(0, D.stageH + .015, D.carZ); scene.add(turn);
+  const ringMat = new T.MeshBasicMaterial({ color: 0xDCD1B1, transparent: true, opacity: .3 });
+  const ring = new T.Mesh(new T.TorusGeometry(turnR + .02, .012, 8, 120), ringMat); ring.rotation.x = Math.PI / 2; ring.position.set(0, D.stageH + .035, D.carZ); scene.add(ring);
+  const edgeMat = new T.MeshBasicMaterial({ color: 0x599087, transparent: true, opacity: .55 });
+  const edge = new T.Mesh(new T.BoxGeometry(D.stageW + .02, .025, .025), edgeMat); edge.position.set(0, .03, D.stageD + .01); scene.add(edge);
+
+  // escala humana: 3 pessoas de 1,75 m na plateia
+  const pplMat = new T.MeshBasicMaterial({ color: 0x030303 });
+  [[-3.2, 6.6], [-2.6, 7.1], [4.1, 6.9]].forEach(([x, z]) => { const p = new T.Group(); const b = new T.Mesh(new T.CapsuleGeometry(.17, 1.2, 4, 12), pplMat); b.position.y = .77; p.add(b); const h = new T.Mesh(new T.SphereGeometry(.12, 16, 12), pplMat); h.position.y = 1.62; p.add(h); p.position.set(x, 0, z); scene.add(p); });
+
+  // treliça e moving heads (abaixo do pé-direito)
+  const trussY = 3.62, trussZ = 1.1;
+  const truss = new T.Mesh(new T.BoxGeometry(13, .29, .29), new T.MeshStandardMaterial({ color: 0x0a0a0a, roughness: .7 })); truss.position.set(0, trussY, trussZ); scene.add(truss);
+  const beamGeo = new T.ConeGeometry(.75, 6.5, 32, 1, true); beamGeo.translate(0, -3.25, 0);
+  const beamDef = {
+    vertexShader: 'varying vec2 vUv; varying vec3 vN; varying vec3 vV; void main(){ vUv=uv; vec4 mv=modelViewMatrix*vec4(position,1.); vN=normalize(normalMatrix*normal); vV=normalize(-mv.xyz); gl_Position=projectionMatrix*mv; }',
+    fragmentShader: 'uniform vec3 uColor; uniform float uOpacity; varying vec2 vUv; varying vec3 vN; varying vec3 vV; void main(){ float along=smoothstep(0.,.35,vUv.y)*(.25+.75*vUv.y); float rim=pow(abs(dot(vN,vV)),1.4); gl_FragColor=vec4(uColor*uOpacity*along*rim,1.); }',
+    transparent: true, depthWrite: false, blending: T.AdditiveBlending, side: T.DoubleSide
+  };
+  const beamMat = c => new T.ShaderMaterial(Object.assign({}, beamDef, { uniforms: { uColor: { value: new T.Color(c) }, uOpacity: { value: .3 } } }));
+  const heads = [];
+  for (let i = 0; i < 13; i++) {
+    const g = new T.Group(); g.position.set(-6 + i, trussY - .25, trussZ);
+    const body = new T.Mesh(new T.BoxGeometry(.28, .32, .28), new T.MeshStandardMaterial({ color: 0x080808, roughness: .6 })); body.position.y = .08; g.add(body);
+    const mat = beamMat(0x599087); g.add(new T.Mesh(beamGeo, mat));
+    scene.add(g); heads.push({ g, mat, i });
+  }
+
+  // luzes da cena
+  const hemi = new T.HemisphereLight(0xF3E6CC, 0x0a0806, .5); scene.add(hemi);
+  const ledLights = [new T.PointLight(0x599087, 1, 12, 2), new T.PointLight(0x599087, 1, 9, 2), new T.PointLight(0x599087, 1, 9, 2)];
+  ledLights[0].position.set(0, 1.8, 1.6); ledLights.forEach(l => scene.add(l));
+  const wash = new T.PointLight(0x599087, 1, 12, 2); wash.position.set(0, .3, 7.5); scene.add(wash);
+
+  // carro na escala da planta (4,58 × 2,00) — cena separada: só key branca + ambiente quente
+  const car = new T.Group();
+  const shp = new T.Shape(); const S = D.carL / 100, GY = 23.4;
+  const tok = CAR_PATH.match(/[MLQZ]|-?\d*\.?\d+/g); let ti = 0; const P = () => [(+tok[ti++] - 50) * S, (GY - +tok[ti++]) * S];
+  while (ti < tok.length) { const c = tok[ti++]; if (c === 'M') shp.moveTo(...P()); else if (c === 'L') shp.lineTo(...P()); else if (c === 'Q') { const a = P(), b = P(); shp.quadraticCurveTo(a[0], a[1], b[0], b[1]); } }
+  const bodyW = D.carW * .45;
+  const bodyGeo = new T.ExtrudeGeometry(shp, { depth: bodyW, bevelEnabled: true, bevelThickness: .06, bevelSize: .05, bevelSegments: 3, curveSegments: 16 }); bodyGeo.translate(0, 0, -bodyW / 2);
+  const bodyMat = new T.MeshStandardMaterial({ color: 0x3a3c40, metalness: .55, roughness: .32 });
+  car.add(new T.Mesh(bodyGeo, bodyMat));
+  const tyre = new T.MeshStandardMaterial({ color: 0x0b0b0b, roughness: .8 }), rimM = new T.MeshStandardMaterial({ color: 0x777777, metalness: .9, roughness: .3 });
+  const wz = D.carW / 2 - .19;
+  for (const [wx, wy, wr] of WHEELS) for (const z of [-wz, wz]) {
+    const w = new T.Mesh(new T.CylinderGeometry(wr * S, wr * S, .36, 36), tyre); w.rotation.x = Math.PI / 2; w.position.set((wx - 50) * S, (GY - wy) * S, z); car.add(w);
+    const h = new T.Mesh(new T.CylinderGeometry(wr * S * .5, wr * S * .5, .38, 24), rimM); h.rotation.x = Math.PI / 2; h.position.copy(w.position); car.add(h);
+  }
+  const fw = new T.Mesh(new T.BoxGeometry(.55, .04, D.carW), bodyMat); fw.position.set(-50 * S + .55, .18, 0); car.add(fw);
+  const rw = new T.Mesh(new T.BoxGeometry(.45, .26, D.carW * .5), bodyMat); rw.position.set(48 * S - .2, 18.5 * S, 0); car.add(rw);
+  car.position.set(0, D.stageH + .03, D.carZ); car.rotation.y = D.carRot; carScene.add(car);
+  // pegada do carro (retângulo da planta), visível com as cotas
+  const foot = new T.LineSegments(new T.EdgesGeometry(new T.PlaneGeometry(D.carL, D.carW)), new T.LineBasicMaterial({ color: 0xE3CA9C, transparent: true, opacity: .8 }));
+  foot.rotation.x = -Math.PI / 2; foot.rotation.z = D.carRot; foot.position.set(0, D.stageH + .04, D.carZ);
+  const key = new T.SpotLight(0xffffff, 0, 14, .42, .55, 1.2); key.position.set(1.2, trussY, D.carZ + 2.4); key.target = car; carScene.add(key);
+  const key2 = new T.SpotLight(0xffffff, 0, 14, .42, .6, 1.2); key2.position.set(-2.8, trussY, D.carZ + 1.2); key2.target = car; carScene.add(key2);
+  const carHemi = new T.HemisphereLight(0xF3E6CC, 0x050403, .2); carScene.add(carHemi);
+  const keyGeo = new T.ConeGeometry(1.5, 3.4, 32, 1, true); keyGeo.translate(0, -1.7, 0);
+  const keyCone = new T.Mesh(keyGeo, beamMat(0xffffff)); keyCone.position.set(0, trussY, D.carZ); scene.add(keyCone);
+
+  // cotas
+  const dims = new T.Group(); scene.add(dims);
+  const lineMat = new T.LineBasicMaterial({ color: 0xE3CA9C, transparent: true, opacity: .85 });
+  function label(text, x, y, z, sc = 1) {
+    const c = document.createElement('canvas'); c.width = 512; c.height = 64; const g = c.getContext('2d');
+    g.font = `700 28px ${FONT}`; const tw = Math.min(500, g.measureText(text).width + 40);
+    g.fillStyle = 'rgba(0,0,0,.72)'; g.beginPath(); g.roundRect ? g.roundRect(256 - tw / 2, 8, tw, 48, 24) : g.rect(256 - tw / 2, 8, tw, 48); g.fill();
+    g.fillStyle = '#E3CA9C'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(text, 256, 33);
+    const sp = new T.Sprite(new T.SpriteMaterial({ map: new T.CanvasTexture(c), depthTest: false, transparent: true })); sp.scale.set(4.2 * sc, .52 * sc, 1); sp.position.set(x, y, z); sp.renderOrder = 10; dims.add(sp); return sp;
+  }
+  function dimLine(a, b, txt, off) {
+    const g = new T.BufferGeometry().setFromPoints([new T.Vector3(...a), new T.Vector3(...b)]); dims.add(new T.Line(g, lineMat));
+    const m = [(a[0] + b[0]) / 2 + (off ? off[0] : 0), (a[1] + b[1]) / 2 + (off ? off[1] : 0), (a[2] + b[2]) / 2 + (off ? off[2] : 0)]; return label(txt, ...m);
+  }
+  dimLine([-6, .03, D.stageD + .6], [6, .03, D.stageD + .6], 'Palco 12,00 m', [0, .25, 0]);
+  dimLine([6.6, .03, 0], [6.6, .03, D.stageD], '5,00 m', [0, .25, 0]);
+  dimLine([-6.3, 0, .15], [-6.3, D.ledH, .15], 'LED 3,50 m*', [-.95, 0, 0]);
+  dims.add(foot);
+  label('Carro 4,58 × 2,00', 0, 1.75, D.carZ, .9);
+  const sideL = label('4,00 m', -8, D.ledH + .35, -1), sideR = label('4,00 m', 8, D.ledH + .35, -1);
+  label('LED central 12,00 m', 0, D.ledH + .35, 0);
+  label('Pé-direito 3,95 m', -9.5, D.ceil - .25, -1.6, .9);
+  let showDims = true;
+  const dimBtn = $('[data-dims]'); if (dimBtn) dimBtn.addEventListener('click', () => { showDims = !showDims; dims.visible = showDims; dimBtn.classList.toggle('is-on', showDims); dimBtn.setAttribute('aria-pressed', showDims); });
+
+  // câmera orbital
+  const CAMS = {
+    front: { tx: 0, ty: 1.55, tz: 1.6, th: 0, ph: 1.44, r: 14.5 },
+    diag: { tx: 0, ty: 1.2, tz: 1.8, th: .72, ph: 1.22, r: 14.5 },
+    top: { tx: 0, ty: 0, tz: 1.6, th: 0, ph: .08, r: 20 },
+    car: { tx: 0, ty: .7, tz: D.carZ, th: -.6, ph: 1.3, r: 7 }
+  };
+  const cam = Object.assign({}, CAMS.front), camT = Object.assign({}, CAMS.front);
+  $$('.cam[data-cam]').forEach(b => b.addEventListener('click', () => { Object.assign(camT, CAMS[b.dataset.cam]); $$('.cam[data-cam]').forEach(x => x.classList.toggle('is-on', x === b)); }));
+  let drag = null, lastInteract = 0;
+  view.addEventListener('pointerdown', e => { if (isRef || e.target.closest('button')) return; drag = { x: e.clientX, y: e.clientY, th: camT.th, ph: camT.ph }; view.setPointerCapture(e.pointerId); view.classList.add('is-drag'); });
+  view.addEventListener('pointermove', e => { if (!drag) return; camT.th = drag.th - (e.clientX - drag.x) * .006; camT.ph = clamp(drag.ph - (e.clientY - drag.y) * .004, .1, 1.52); lastInteract = performance.now(); $$('.cam[data-cam]').forEach(x => x.classList.remove('is-on')); });
+  const end = () => { drag = null; view.classList.remove('is-drag'); };
+  view.addEventListener('pointerup', end); view.addEventListener('pointercancel', end);
+
+  function resize() { const w = view.clientWidth, h = view.clientHeight; if (!w || !h) return; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+  new ResizeObserver(resize).observe(view); resize();
+  new IntersectionObserver(es => { visible = es[0].isIntersecting; }, { threshold: .05 }).observe(view);
+
+  const tmpV = new T.Vector3(), lin = c => new T.Color(rgb(c)).convertSRGBToLinear();
+  let ledLast = 0, prevNow = performance.now();
+  function render(now) {
+    requestAnimationFrame(render);
+    const dt = Math.min(200, now - prevNow); prevNow = now; const kOpt = 1 - Math.exp(-dt / 260), kCam = 1 - Math.exp(-dt / 240);
+    if (playing) { s = Math.min(30, s + (now - lastNow) / 1000); lastNow = now; range.value = s; if (s >= 30) setPlaying(false); }
+    const st = revealState(s);
+    ui(st);
+    if (!visible || isRef) return;
+    optK = lerp(optK, optT, kOpt); placeSides(optK);
+    sideL.position.set(lerp(-8, -7.6, optK), D.ledH + .35, lerp(-1, 1.5, optK)); sideR.position.set(lerp(8, 7.6, optK), D.ledH + .35, lerp(-1, 1.5, optK));
+    if (now - ledLast > 33) { led.draw(st, now); tex.needsUpdate = true; ledLast = now; }
+    const lc = st.led === 'sunrise' ? mixc(C.teal, C.amber, st.ledK) : st.led === 'flash' ? C.cream : st.scene;
+    ledLights.forEach((l, k) => { l.color.copy(lin(lc)); l.intensity = st.ledLv * (k ? 1.6 : 2.4); });
+    const L = ledRig.getObjectByName('L'), R = ledRig.getObjectByName('R');
+    L.localToWorld(tmpV.set(-2, 1.6, 1.6)); ledLights[1].position.copy(tmpV);
+    R.localToWorld(tmpV.set(2, 1.6, 1.6)); ledLights[2].position.copy(tmpV);
+    const scol = st.strobe > .2 ? C.white : st.scene;
+    wash.color.copy(lin(scol)); wash.intensity = st.wash * 4;
+    hemi.intensity = .08 + st.house * .55 + st.strobe * 2;
+    edgeMat.color.set(rgb(scol)); ringMat.opacity = .12 + st.key * .5;
+    halo.material.color.set(rgb(lc)); halo.material.opacity = st.ledLv * .5 + st.strobe * .4;
+    heads.forEach(({ g, mat, i }) => {
+      g.rotation.z = Math.sin(now / 1000 * st.sweep + i * .7) * .45 + (i - 6) * .04;
+      g.rotation.x = -.25 + Math.cos(now / 1000 * st.sweep * .8 + i) * .3;
+      mat.uniforms.uColor.value.set(rgb(scol)); mat.uniforms.uOpacity.value = st.beams * .5 + st.strobe * .5;
+    });
+    key.intensity = st.key * 7; key2.intensity = st.key * 3.5;
+    carHemi.intensity = .05 + st.house * .45;
+    keyCone.material.uniforms.uOpacity.value = st.key * .3;
+    if (!drag && now - lastInteract > 6000 && !reduced) camT.th += Math.sin(now / 4000) * .0004;
+    for (const k in cam) cam[k] = lerp(cam[k], camT[k], kCam);
+    camera.position.set(cam.tx + cam.r * Math.sin(cam.ph) * Math.sin(cam.th), cam.ty + cam.r * Math.cos(cam.ph), cam.tz + cam.r * Math.sin(cam.ph) * Math.cos(cam.th));
+    camera.lookAt(cam.tx, cam.ty, cam.tz);
+    renderer.clear(); renderer.render(scene, camera); renderer.clearDepth(); renderer.render(carScene, camera);
+  }
+  requestAnimationFrame(render);
+})();
+
+/* =========================================================
+   5. Espaços + lightbox
+   ========================================================= */
+const lb = $('.lightbox'); let lbItems = [], lbI = 0;
+function openLB(items, i) { lbItems = items; lbI = i; showLB(); if (!lb.open) lb.showModal(); }
+function showLB() {
+  const it = lbItems[lbI], img = $('img', lb);
+  img.style.opacity = 0; img.onload = () => img.style.opacity = 1; img.src = it.src; img.alt = it.note;
+  $('.lightbox__label', lb).innerHTML = `<b>${it.space}</b> ${it.note}`;
+  $('.lightbox__src', lb).textContent = it.path || '';
+  $('.lightbox__count', lb).textContent = `${lbI + 1} / ${lbItems.length}`;
+}
+const lbStep = d => { lbI = (lbI + d + lbItems.length) % lbItems.length; showLB(); };
+$('.lightbox__close').addEventListener('click', () => lb.close());
+$('.lightbox__prev').addEventListener('click', () => lbStep(-1));
+$('.lightbox__next').addEventListener('click', () => lbStep(1));
+lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+lb.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') lbStep(-1); if (e.key === 'ArrowRight') lbStep(1); });
+let tx0 = null; lb.addEventListener('touchstart', e => tx0 = e.touches[0].clientX, { passive: true });
+lb.addEventListener('touchend', e => { if (tx0 === null) return; const dx = e.changedTouches[0].clientX - tx0; if (Math.abs(dx) > 50) lbStep(dx < 0 ? 1 : -1); tx0 = null; });
+
+const itemsOf = sp => sp.imgs.map(([f, note, orig]) => ({ src: `assets/img/${sp.id}/${f}`, note, space: sp.name, path: `03_MOODBOARD/IMGS/${sp.folder}/${orig}` }));
+(function spaces() {
+  const host = $('.spaces'), idx = $('.space-index');
+  REVEAL.spaces.forEach(sp => {
+    idx.insertAdjacentHTML('beforeend', `<a href="#space-${sp.id}" data-sp="${sp.id}" style="--sg:${sp.glow}"><span>${sp.n.slice(-1)}</span>${sp.name}</a>`);
+    const items = itemsOf(sp);
+    const cls = items.length === 1 ? 'gallery gallery--one' : items.length <= 2 ? 'gallery gallery--few' : 'gallery';
+    const el = document.createElement('article');
+    el.className = 'space'; el.id = 'space-' + sp.id; el.dataset.t = (0.48 + sp.t * 0.22).toFixed(3);
+    el.style.setProperty('--sbg', sp.bg); el.style.setProperty('--sg', sp.glow); el.style.setProperty('--glow', sp.glow); el.style.setProperty('--fl', sp.glow);
+    el.innerHTML = `
+      <div class="space__side reveal">
+        <span class="space__n">Espaço ${sp.n.slice(-1)} de ${REVEAL.spaces.length}</span>
+        <h3 class="h2">${sp.name}</h3>
+        <p class="body">${sp.text}</p>
+        <div><div class="space__light"><i style="left:${sp.t * 100}%"></i></div><span class="space__lightlbl">Pico na noite: ${momentOf(sp.t)}</span></div>
+        <ul class="space__tags">${sp.tags.map(t => `<li>${t}</li>`).join('')}</ul>
+        <p class="space__folder">${items.length} ${items.length > 1 ? 'referências' : 'referência'} · pasta ${sp.folder}</p>
+        <a class="space__plan" href="#planta" data-zone="${sp.zones[0]}">Ver na planta →</a>
+      </div>
+      <div class="${cls}">${items.map((it, i) => `
+        <button class="tile reveal" data-i="${i}" type="button" aria-label="Ampliar: ${it.note}">
+          <span class="frame"><img src="${it.src}" alt="${it.note}" loading="lazy"></span>
+          <span class="tile__note">${it.note}</span>
+          <span class="tile__src">${sp.folder} / ${String(i + 1).padStart(2, '0')}</span>
+        </button>`).join('')}
+      </div>`;
+    host.appendChild(el);
+    $$('.tile', el).forEach(b => b.addEventListener('click', () => openLB(items, +b.dataset.i)));
+  });
+  // índice ativo
+  const links = $$('.space-index a');
+  const sio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const id = e.target.id.replace('space-', ''); links.forEach(a => { const on = a.dataset.sp === id; a.classList.toggle('is-on', on); if (on) centerIn(a); }); } }), { rootMargin: '-40% 0px -55% 0px' });
+  $$('.space').forEach(s => sio.observe(s));
+  // inclinação sutil nas imagens
+  if (fine && !reduced) host.addEventListener('pointermove', e => {
+    const t = e.target.closest('.tile'); $$('.tile.is-tilt', host).forEach(x => { if (x !== t) { x.style.transform = ''; x.classList.remove('is-tilt'); } });
+    if (!t) return; const r = t.getBoundingClientRect(), dx = (e.clientX - r.left) / r.width - .5, dy = (e.clientY - r.top) / r.height - .5;
+    t.classList.add('is-tilt'); t.style.transform = `perspective(900px) rotateY(${dx * 5}deg) rotateX(${-dy * 5}deg)`;
+  });
+  host.addEventListener('pointerleave', () => $$('.tile.is-tilt', host).forEach(x => { x.style.transform = ''; x.classList.remove('is-tilt'); }));
+  $$('[data-grade]').forEach(b => b.addEventListener('click', () => {
+    host.classList.toggle('graded', b.dataset.grade === 'on');
+    $$('[data-grade]').forEach(x => { x.classList.toggle('is-on', x === b); x.setAttribute('aria-pressed', x === b); });
+    say(b.dataset.grade === 'on' ? 'Referências gradadas na paleta' : 'Referências originais');
+  }));
+})();
+
+/* =========================================================
+   6. Reunião — painel imersivo por diretriz
+   ========================================================= */
+(function meet() {
+  const sec = $('#reuniao'); if (!sec) return;
+  const list = $('.meet__list', sec), media = $('.meet__media', sec), groupEl = $('.meet__group', sec), countEl = $('.meet__count b', sec), prog = $('.meet__progress i', sec);
+  const G = REVEAL.guides, Z = Object.fromEntries(REVEAL.zones.map(z => [z.id, z]));
+  const total = G.length;
+  $('.meet__count', sec).innerHTML = `<b>01</b> / ${String(total).padStart(2, '0')}`;
+  const countB = $('.meet__count b', sec);
+  const layers = G.map((g, i) => {
+    const li = document.createElement('li'); li.className = 'meet__item'; li.dataset.i = i;
+    li.innerHTML = `<span class="meet__n">${String(i + 1).padStart(2, '0')} · ${g.group}</span><p class="meet__ask">${g.ask}</p><p class="meet__ans">${g.ans}</p><a class="meet__link" href="#${g.link[0]}">${g.link[1]} →</a>`;
+    list.appendChild(li);
+    const m = document.createElement('div'); m.className = 'mm mm--' + g.media.type;
+    if (g.media.type === 'img') m.innerHTML = `<img src="${g.media.src}" alt="" loading="lazy"><p class="mm__cap">${g.media.cap}</p>`;
+    else if (g.media.type === 'dawn') m.innerHTML = `<div class="dawn__bar"><i></i></div><div class="dawn__ticks"><span>Chegada</span><span>Aquecimento</span><span>Revelação</span><span>Pós-revelação</span></div><p class="dawn__now">Chegada</p>`;
+    else if (g.media.type === 'fins') m.innerHTML = `<canvas></canvas><p class="mm__cap">Protótipo: mova o cursor sobre o painel</p>`;
+    else if (g.media.type === 'plan') {
+      const rects = g.media.zones.map((id, k) => { const [x, y, w, h] = Z[id].rect; return `<b class="${g.media.split && k ? 'alt' : ''}" style="left:${(x - 40) / 15.6}%;top:${(y - 40) / 10.12}%;width:${w / 15.6}%;height:${h / 10.12}%">${g.media.split ? (k ? 'Deck Lounge' : 'Deck Bar') : (w > 60 ? (id.startsWith('deck') ? Z[id].name.split(' · ').pop() : Z[id].name.split(' · ')[0]) : '')}</b>`; }).join('');
+      const flow = g.media.flow ? `<svg viewBox="40 40 1560 1012" preserveAspectRatio="none"><path d="${REVEAL.flow}" class="plan-flow"/></svg>` : '';
+      m.innerHTML = `<div class="pl"><img src="assets/plan/planta-linhas.png" alt="">${flow}${rects}</div><p class="mm__cap">${g.media.cap}</p>`;
+      m._zones = g.media.zones;
+    }
+    media.appendChild(m); return m;
+  });
+  // planta: encaixe + zoom na área
+  function fitPlans() {
+    const fw = media.clientWidth, fh = media.clientHeight, ar = 1560 / 1012;
+    layers.forEach(m => {
+      const pl = $('.pl', m); if (!pl) return;
+      let w = Math.min(fw * .9, fh * .8 * ar), h = w / ar; pl.style.width = w + 'px'; pl.style.height = h + 'px'; pl.style.left = (fw - w) / 2 + 'px'; pl.style.top = (fh - h) / 2 - 10 + 'px'; pl.style.inset = 'auto';
+      const zs = m._zones.map(id => Z[id].rect); const x0 = Math.min(...zs.map(r => r[0])), y0 = Math.min(...zs.map(r => r[1])), x1 = Math.max(...zs.map(r => r[0] + r[2])), y1 = Math.max(...zs.map(r => r[1] + r[3]));
+      const cx = ((x0 + x1) / 2 - 40) / 15.6, cy = ((y0 + y1) / 2 - 40) / 10.12, bw = (x1 - x0) / 15.6, bh = (y1 - y0) / 10.12;
+      const z = clamp(Math.min(70 / bw, 60 / bh), 1, 2.4);
+      pl.style.transform = `scale(${z}) translate(${50 - cx}%, ${50 - cy}%)`; pl.style.transition = 'transform 1.4s cubic-bezier(.2,.7,.1,1)';
+    });
+  }
+  new ResizeObserver(fitPlans).observe(media); fitPlans();
+  // lâminas e amanhecer animados
+  const finsCv = $('.mm--fins canvas', media); if (finsCv) new FinField(finsCv, { gap: 14, intensity: 1, sweep: true, reach: 0, color: () => C.teal });
+  const dawn = $('.mm--dawn', media);
+  if (dawn) { const bar = $('i', dawn), now = $('.dawn__now', dawn); const tick = t => { if (dawn.classList.contains('is-on')) { const k = (t / 9000) % 1; bar.style.left = (k * 100) + '%'; now.textContent = momentOf(k); dawn.style.setProperty('--dg', ramp(GLOW, k).join(',')); } requestAnimationFrame(tick); }; requestAnimationFrame(tick); }
+  // ativo = item mais perto do centro da tela
+  const items = $$('.meet__item', list); let cur = -1;
+  function setActive(i) {
+    if (i === cur) return; cur = i;
+    items.forEach((li, k) => li.classList.toggle('is-on', k === i));
+    layers.forEach((m, k) => m.classList.toggle('is-on', k === i));
+    const g = G[i]; sec.style.setProperty('--bg', g.bg); sec.style.setProperty('--glow', g.glow);
+    groupEl.textContent = g.group; countB.textContent = String(i + 1).padStart(2, '0');
+    prog.style.transform = `scaleX(${(i + 1) / total})`;
+  }
+  function onScroll() {
+    const r = sec.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return;
+    const mid = innerHeight * (innerWidth < 900 ? .7 : .5); let best = 0, bd = 1e9;
+    items.forEach((li, k) => { const b = li.getBoundingClientRect(), d = Math.abs(b.top + b.height / 2 - mid); if (d < bd) { bd = d; best = k; } });
+    setActive(best);
+  }
+  addEventListener('scroll', () => requestAnimationFrame(onScroll), { passive: true }); setActive(0);
+})();
+
+/* =========================================================
+   7. R02 → direção
+   ========================================================= */
+(function r02() {
+  const host = $('.r02'); if (!host || !REVEAL.renders) return;
+  const items = REVEAL.renders.map(([f, title, now]) => ({ src: `assets/img/renders-r02/${f}`, note: `${title}: ${now}`, space: 'R02', path: '05_RENDERS/R02_2026-09-23/20260923_REVOLUT_' + f.replace('r02_', 'R02_').replace('.jpg', '.jpg.jpeg') }));
+  const label = { entrada: 'Ver protótipo do backdrop', revelacao: 'Ver o palco em 3D', planta: 'Ver na planta' };
+  REVEAL.renders.forEach(([f, title, now, next, link], i) => {
+    const el = document.createElement('article'); el.className = 'r02-row reveal';
+    el.innerHTML = `<figure class="frame"><img src="assets/img/renders-r02/${f}" alt="Render R02: ${title}" loading="lazy"></figure>
+      <div><span class="r02-row__n">R02 · ${String(i + 1).padStart(2, '0')} / ${String(REVEAL.renders.length).padStart(2, '0')}</span>
+      <h3 class="h2">${title}</h3>
+      <div class="r02-diff"><p><b>No R02</b>${now}</p><p class="is-to"><b>Direção</b>${next}</p></div>
+      <a href="#${link}">${label[link] || 'Ver referências'} →</a></div>`;
+    $('.frame', el).addEventListener('click', () => openLB(items, i));
+    host.appendChild(el);
+  });
+})();
+
+/* =========================================================
+   8. Planta imersiva
+   ========================================================= */
+(function plan() {
+  const vp = $('.plan__viewport'), plane = $('.plane'), svg = $('.plane__svg'), standHost = $('.plane__stand');
+  if (!vp) return;
+  const NS = 'http://www.w3.org/2000/svg';
+  const mk = (tag, attrs = {}, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
+  const OX = 40, OY = 40, ZONES = REVEAL.zones;
+  const defs = mk('defs', {}, svg), gAmb = mk('g', {}, svg), gScene = mk('g', {}, svg), gKey = mk('g', {}, svg), gFlow = mk('g', {}, svg), gZones = mk('g', {}, svg), gLabels = mk('g', {}, svg);
+  let gid = 0;
+  const pool = (parent, x, y, r) => { const id = 'lp' + (gid++); const g = mk('radialGradient', { id }, defs); const s0 = mk('stop', { offset: '0', 'stop-color': '#fff', 'stop-opacity': '.9' }, g); const s1 = mk('stop', { offset: '.45', 'stop-color': '#fff', 'stop-opacity': '.35' }, g); mk('stop', { offset: '1', 'stop-color': '#fff', 'stop-opacity': '0' }, g); const c = mk('circle', { cx: x, cy: y, r, fill: `url(#${id})`, class: 'light-pool' }, parent); return { c, s0, s1 }; };
+  const ambPools = ZONES.filter(z => z.id !== 'chapelaria').map(z => { const [x, y, w, h] = z.rect; const p = pool(gAmb, x + w / 2, y + h / 2, Math.max(w, h) * .62); p.s0.setAttribute('stop-color', '#F3E6CC'); p.s1.setAttribute('stop-color', '#F3E6CC'); return p; });
+  const scenePools = []; ZONES.forEach(z => z.light.forEach(([x, y, r]) => scenePools.push({ p: pool(gScene, x, y, r), z })));
+  const keyPool = pool(gKey, 790, 510, 95);
+  mk('path', { d: REVEAL.flow, class: 'plan-flow' }, gFlow); mk('circle', { cx: 60, cy: 600, r: 8, fill: '#E3CA9C' }, gFlow);
+  const tip = $('.plan__tip');
+  const zoneEls = {};
+  ZONES.forEach(z => {
+    const [x, y, w, h] = z.rect;
+    const g = mk('g', { class: 'zone', tabindex: 0, role: 'button', 'aria-label': z.name, 'data-id': z.id }, gZones);
+    mk('rect', { x, y, width: w, height: h, rx: 4 }, g); zoneEls[z.id] = g;
+    g.addEventListener('click', e => { e.stopPropagation(); stopTour(); select(z.id); });
+    g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(z.id); } });
+    g.addEventListener('pointerenter', () => { tip.textContent = z.name; tip.hidden = false; });
+    g.addEventListener('pointerleave', () => { tip.hidden = true; });
+    const LBL = { terraco: 'Terraço · Acesso', palco: 'Palco · Carro', pista: 'Pista & bistrôs', led: 'Painéis de LED', instalacao: 'Instalação cartões', bancos: 'Lounge', bar: 'Bar', photo: 'Photo Opp + VM', deckA: 'Deck Bar', deckB: 'Deck Lounge', chapelaria: 'Chapelaria' };
+    const POS = { led: [x + w / 2, y - 8], bancos: [1150, 500], instalacao: [1080, 660], bar: [1044, 722] };
+    if (LBL[z.id]) { const [lx, ly] = POS[z.id] || [x + w / 2, y + h / 2 + 5]; mk('text', { x: lx, y: ly, 'text-anchor': 'middle', class: 'plan-label' }, gLabels).textContent = LBL[z.id]; }
+  });
+  [[437, 790, 'Backdrop'], [918, 806, 'Totem'], [465, 610, 'Housemix']].forEach(([x, y, s]) => { mk('text', { x, y, 'text-anchor': 'middle', class: 'plan-label', style: 'font-size:12px' }, gLabels).textContent = s; });
+  REVEAL.labels.forEach(([x, y, s]) => { mk('text', { x, y, 'text-anchor': 'middle', class: 'plan-label plan-label--svc' }, gLabels).textContent = s; });
+  vp.addEventListener('pointermove', e => { if (tip.hidden) return; const r = vp.getBoundingClientRect(); tip.style.left = (e.clientX - r.left) + 'px'; tip.style.top = (e.clientY - r.top) + 'px'; });
+
+  // elementos em pé (3D)
+  const M = 25.6;
+  const stand = (cls, x1, y1, x2, y2, hM) => { const d = document.createElement('div'); d.className = 'stand ' + cls; const h = hM * M;
+    if (Math.abs(y2 - y1) > Math.abs(x2 - x1)) { d.classList.add('stand--y'); d.style.cssText = `left:${x1 - OX}px;top:${y1 - OY - h}px;width:${y2 - y1}px;height:${h}px;transform:rotateZ(90deg) rotateX(-90deg);`; }
+    else d.style.cssText = `left:${x1 - OX}px;top:${y1 - OY - h}px;width:${x2 - x1}px;height:${h}px;transform:rotateX(-90deg);`;
+    standHost.appendChild(d); return d; };
+  const leds = [stand('stand--led', 536, 425.7, 638, 425.7, DIM.ledH), stand('stand--led', 638, 450.7, 945, 450.7, DIM.ledH), stand('stand--led', 945, 425.7, 1047, 425.7, DIM.ledH)];
+  stand('stand--backdrop', 437, 462, 437, 782, 3);
+  const bars = [stand('stand--bar', 968, 744, 1120, 744, 1.1), stand('stand--bar', 527, 912, 677, 912, 1.1)];
+  const sign = stand('stand--sign', 905, 822, 905, 918, 1.4); const wm = $('.topbar__brand svg'); if (wm) sign.appendChild(wm.cloneNode(true));
+  const carEl = document.createElement('div'); carEl.className = 'stand stand--car'; const CL = DIM.carL * M, CH = CL * .24;
+  carEl.style.cssText = `left:${790.2 - OX - CL / 2}px;top:${512.9 - OY - CH}px;width:${CL}px;height:${CH}px;transform:rotateZ(23.6deg) rotateX(-90deg);`;
+  carEl.innerHTML = `<svg viewBox="0 0 100 24" preserveAspectRatio="none"><path class="car-body" d="${CAR_PATH}" fill="#0c0d0c" stroke="rgba(255,255,255,.4)" stroke-width=".3"/>${WHEELS.map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="#050505" stroke="rgba(255,255,255,.4)" stroke-width=".3"/>`).join('')}</svg>`;
+  standHost.appendChild(carEl); const carBody = $('.car-body', carEl);
+
+  // card do ambiente: dentro da vista no desktop, abaixo no mobile
+  const card = $('.zone-card'); const mq = matchMedia('(max-width: 900px)');
+  const placeCard = () => { if (mq.matches) vp.after(card); else vp.appendChild(card); fit(); };
+  mq.addEventListener ? mq.addEventListener('change', placeCard) : mq.addListener(placeCard);
+
+  // vista e enquadramento
+  let view = mq.matches ? '2d' : '3d', rx = 54, rz = -22, T = 0, runS = -1, runLast = 0;
+  if (view === '2d') $$('[data-view]').forEach(x => { const on = x.dataset.view === '2d'; x.classList.toggle('is-on', on); x.setAttribute('aria-pressed', on); });
+  function fit() {
+    const w = vp.clientWidth, h = vp.clientHeight; const cardW = (!mq.matches && card.parentElement === vp) ? card.offsetWidth + 24 : 0;
+    const aw = w - cardW, ah = h;
+    let s;
+    if (view === '3d') { const a = rz * Math.PI / 180, b = rx * Math.PI / 180; const bw = 1560 * Math.abs(Math.cos(a)) + 1012 * Math.abs(Math.sin(a)); const bh = (1560 * Math.abs(Math.sin(a)) + 1012 * Math.abs(Math.cos(a))) * Math.cos(b) + 110 * Math.sin(b); s = Math.min(aw * .9 / bw, ah * .84 / bh); }
+    else s = Math.min(aw * .95 / 1560, ah * .92 / 1012);
+    plane.style.setProperty('--s', s.toFixed(4)); plane.style.setProperty('--px', (-cardW / 2) + 'px'); plane.style.setProperty('--py', (view === '3d' ? -6 : 0) + 'px');
+    plane.style.setProperty('--rx', (view === '3d' ? rx : 0) + 'deg'); plane.style.setProperty('--rz', (view === '3d' ? rz : 0) + 'deg');
+    vp.classList.toggle('is-2d', view === '2d');
+  }
+  $$('[data-view]').forEach(b => b.addEventListener('click', () => { view = b.dataset.view; $$('[data-view]').forEach(x => { x.classList.toggle('is-on', x === b); x.setAttribute('aria-pressed', x === b); }); fit(); }));
+  new ResizeObserver(fit).observe(vp);
+  let drag = null;
+  vp.addEventListener('pointerdown', e => { if (view !== '3d' || e.target.closest('.zone, .zone-card')) return; stopTour(); drag = { x: e.clientX, y: e.clientY, rx, rz }; vp.setPointerCapture(e.pointerId); vp.classList.add('is-drag'); plane.classList.add('no-tr'); });
+  vp.addEventListener('pointermove', e => { if (!drag) return; rz = drag.rz + (e.clientX - drag.x) * .25; rx = clamp(drag.rx - (e.clientY - drag.y) * .2, 20, 68); fit(); });
+  const endDrag = () => { if (!drag) return; drag = null; vp.classList.remove('is-drag'); plane.classList.remove('no-tr'); };
+  vp.addEventListener('pointerup', endDrag); vp.addEventListener('pointercancel', endDrag);
+  $$('[data-layer]').forEach(c => c.addEventListener('change', () => { const map = { scene: [gScene, ...leds, ...bars], ambient: [gAmb], flow: [gFlow], labels: [gLabels] }; map[c.dataset.layer].forEach(el => el.classList.toggle('layer-off', !c.checked)); }));
+  document.addEventListener('click', e => { const d = $('.layers-pop'); if (d && d.open && !d.contains(e.target)) d.open = false; });
+
+  // momento e revelação
+  const range = $('.plan__range'), momentEl = $('.plan__moment'), runBtn = $('.plan__run'), runTxt = $('.plan__runtxt');
+  range.addEventListener('input', () => { T = +range.value; runS = -1; runTxt.textContent = 'Revelação 30 s'; });
+  runBtn.addEventListener('click', () => { if (runS >= 0) { runS = -1; runTxt.textContent = 'Revelação 30 s'; return; } runS = 0; runLast = performance.now(); runTxt.textContent = 'Parar'; select('palco'); });
+  const setPool = (p, col, a) => { p.s0.setAttribute('stop-color', rgb(col)); p.s1.setAttribute('stop-color', rgb(col)); p.c.style.opacity = a; };
+  let pvis = false; new IntersectionObserver(es => pvis = es[0].isIntersecting).observe(vp);
+  function render(now) {
+    requestAnimationFrame(render); if (!pvis) return;
+    let st = null;
+    if (runS >= 0) { runS = Math.min(30, runS + (now - runLast) / 1000); runLast = now; st = revealState(runS); T = .5 + .5 * (runS / 30); range.value = T; momentEl.textContent = `Revelação · ${runS.toFixed(1)} s · ${st.cue}`; if (runS >= 30) { runS = -1; runTxt.textContent = 'Revelação 30 s'; T = 1; range.value = 1; } }
+    if (runS < 0) { st = null; momentEl.textContent = momentOf(T); }
+    const house = st ? st.house : (T > .5 && T < .62 ? .45 : .7);
+    ambPools.forEach(p => p.c.style.opacity = (.16 + .3 * house).toFixed(3));
+    let avg = [0, 0, 0];
+    scenePools.forEach(({ p, z }) => {
+      let col, a;
+      if (st) { col = st.strobe > .2 ? C.white : st.scene; a = clamp(.15 + .85 * Math.max(st.wash, st.beams * .8)); }
+      else { const lt = clamp(T * 1.25 - z.delay * .6); col = lt < .05 ? C.teal : ramp(SCENE, lt * .98 + .02); a = .75 + (reduced ? 0 : .2 * Math.sin(now / 900 + z.delay * 20)); }
+      setPool(p, col, a.toFixed(3)); avg = avg.map((v, i) => v + col[i]);
+    });
+    vp.style.setProperty('--plan-glow', avg.map(v => Math.round(v / scenePools.length)).join(','));
+    leds.forEach(l => {
+      let bg, speed = 0;
+      if (st && st.led === 'speed') { bg = `linear-gradient(90deg, ${rgb(C.petrol)}, ${rgb(C.teal)})`; speed = 1; }
+      else if ((st && st.led === 'sunrise') || (!st && T > .62)) bg = `linear-gradient(0deg, ${rgb(C.burnt)} 0%, ${rgb(C.amber)} 22%, ${rgb(C.cream)} 42%, ${rgb(C.teal)} 70%, ${rgb(C.petrol)} 100%)`;
+      else if (st && st.led === 'flash') bg = rgba(C.cream, st.ledLv);
+      else { const c = st ? st.scene : ramp(SCENE, T * .9), lv = st ? st.ledLv : .9; bg = `linear-gradient(0deg, ${rgba(c, lv)}, ${rgba(C.petrol, lv)})`; }
+      l.style.setProperty('--led', bg); l.style.setProperty('--speed', speed);
+    });
+    const key = st ? st.key : (T >= .7 ? 1 : 0);
+    keyPool.c.style.opacity = (key * .9).toFixed(2);
+    carBody.setAttribute('fill', rgb(mixc([12, 13, 12], [200, 200, 196], key * .8)));
+    if (tourOn && view === '3d' && !reduced) { rz += .03; plane.classList.add('no-tr'); fit(); }
+  }
+
+  // seleção, chips, card
+  const chips = $('.zone-chips');
+  ZONES.forEach(z => { const b = document.createElement('button'); b.className = 'zchip'; b.type = 'button'; b.dataset.id = z.id; b.textContent = z.name.replace(' · Acesso principal', ''); b.addEventListener('click', () => { stopTour(); select(z.id); }); chips.appendChild(b); });
+  let curZ = 'palco';
+  function select(id) {
+    const z = ZONES.find(q => q.id === id); if (!z) return; curZ = id;
+    Object.values(zoneEls).forEach(g => g.classList.toggle('is-sel', g.dataset.id === id));
+    $$('.zchip', chips).forEach(b => { const on = b.dataset.id === id; b.classList.toggle('is-on', on); if (on) centerIn(b); });
+    card.classList.add('is-swap');
+    setTimeout(() => {
+      const k = ZONES.indexOf(z);
+      $('.zone-card__n', card).textContent = `Ambiente ${String(k + 1).padStart(2, '0')} / ${ZONES.length}`;
+      $('.zone-card__title', card).textContent = z.name;
+      $('.zone-card__dims', card).textContent = z.dims;
+      $('.zone-card__text', card).textContent = z.text;
+      $('.zone-card__tags', card).innerHTML = z.tags.map(t => `<li>${t}</li>`).join('');
+      const th = $('.zone-card__thumbs', card); th.innerHTML = '';
+      const sp = REVEAL.spaces.find(s => s.id === z.space), go = $('.zone-card__go', card);
+      if (sp) {
+        const items = itemsOf(sp);
+        items.slice(0, 4).forEach((it, i) => { const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Ampliar: ' + it.note); b.innerHTML = `<span class="frame"><img src="${it.src}" alt="" loading="lazy"></span>`; b.addEventListener('click', () => openLB(items, i)); th.appendChild(b); });
+        go.hidden = false; go.href = '#space-' + sp.id; go.textContent = `Ver ${sp.name} no moodboard →`;
+      } else go.hidden = true;
+      card.classList.remove('is-swap');
+    }, 180);
+  }
+  const step = d => { const k = ZONES.findIndex(z => z.id === curZ); select(ZONES[(k + d + ZONES.length) % ZONES.length].id); };
+  $$('[data-zstep]').forEach(b => b.addEventListener('click', () => { stopTour(); step(+b.dataset.zstep); }));
+  vp.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') { stopTour(); step(-1); } if (e.key === 'ArrowRight') { stopTour(); step(1); } });
+  // tour automático
+  const tourBtn = $('.plan__tour'); let tourOn = false, tourT = null;
+  function stopTour() { if (!tourOn) return; tourOn = false; clearInterval(tourT); tourBtn.setAttribute('aria-pressed', 'false'); tourBtn.textContent = 'Tour pelos ambientes'; plane.classList.remove('no-tr'); }
+  tourBtn.addEventListener('click', () => { if (tourOn) return stopTour(); tourOn = true; tourBtn.setAttribute('aria-pressed', 'true'); tourBtn.textContent = 'Parar tour'; if (view !== '3d') $('[data-view="3d"]').click(); tourT = setInterval(() => step(1), 4200); step(1); });
+  document.addEventListener('click', e => { const a = e.target.closest('[data-zone]'); if (a) setTimeout(() => select(a.dataset.zone), 500); });
+
+  placeCard(); select('palco'); requestAnimationFrame(render);
+})();
+
+/* init */
+observeReveals();
+new ResizeObserver(() => measureAnchors()).observe(document.body);
+measureAnchors(); applyGlobalLight();
+})();
+
+</script>
+
+</body>
+</html>
