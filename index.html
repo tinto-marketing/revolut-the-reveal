@@ -288,6 +288,14 @@ input[type=range]::-moz-range-thumb { width: 14px; height: 14px; border-radius: 
 .tile .frame img { height: auto; }
 .tile:hover .frame img { transform: scale(1.035); }
 .tile__note { display: block; font-size: 13px; color: var(--c-text-2); margin-top: 8px; line-height: 1.35; }
+.frame--ph { display: grid; place-items: center; aspect-ratio: 4 / 3; background: rgba(var(--sg, 220,209,177), .14); border-style: dashed; }
+.zone-card__thumbs .frame--ph { aspect-ratio: 1; }
+.board__figs .frame--ph, .furn-grid .frame--ph { margin: 0; }
+.furn-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 18px; }
+@media (max-width: 700px) { .furn-grid { grid-template-columns: repeat(2, 1fr); } }
+.ph__lbl { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--c-text-3); }
+.tile--ph { cursor: default; }
+.tile .frame--ph { display: grid; }
 .tile__src { display: block; font-size: 11.5px; color: var(--c-text-3); margin-top: 3px; }
 .graded .frame img { filter: grayscale(1) contrast(1.15) brightness(.95); }
 .graded .frame::after { content: ''; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: color; background: linear-gradient(180deg, var(--c-petrol) 0%, var(--c-teal) 35%, var(--c-cream) 60%, var(--c-amber) 80%, var(--c-burnt) 100%); opacity: .95; }
@@ -304,6 +312,7 @@ input[type=range]::-moz-range-thumb { width: 14px; height: 14px; border-radius: 
 .mm { position: absolute; inset: 0; opacity: 0; transition: opacity .9s var(--ease), transform 1.4s var(--ease); transform: scale(1.04); }
 .mm.is-on { opacity: 1; transform: none; }
 .mm img { width: 100%; height: 100%; object-fit: cover; }
+.mm__ph { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(var(--glow, 220,209,177), .12); }
 .mm__cap { position: absolute; left: 16px; right: 16px; bottom: 54px; color: #fff; text-shadow: 0 1px 10px #000; font-size: 13px; }
 .mm--dawn { display: grid; align-content: center; padding: 8%; background: radial-gradient(80% 60% at 50% 110%, rgba(var(--dg, 89,144,135), .55), transparent 70%), #050706; }
 .mm--dawn .dawn__bar { height: clamp(120px, 26vh, 260px); border-radius: 8px; background: var(--grad-dawn); position: relative; overflow: hidden; }
@@ -601,38 +610,6 @@ body{background:#000;color:#fff}
         <div class="night-light__names"><span>Deep petrol</span><span>Dusty teal</span><span>Faded cream</span><span>Golden amber</span><span>Burnt orange</span></div>
       </div>
     </div>
-
-    <div class="head-row reveal">
-      <p class="eyebrow">Narrativa</p>
-      <h3 class="h2">Quatro atos de luz</h3>
-      <p class="body muted">Os LEDs conduzem a noite: o palco, os laterais e os painéis transparentes da varanda mudam juntos. Passe o cursor sobre os atos para ver a cor de cada momento.</p>
-    </div>
-    <ol class="acts">
-      <li class="act reveal" data-glow="89,144,135" data-bg="#0A1D1A" data-t="0.05" tabindex="0">
-        <p class="label"><b>Chegada</b> loop ambiente</p>
-        <figure class="frame"><img src="assets/img/luz/luz-04.jpg" alt="Anel de LED verde suspenso sobre o público" loading="lazy"></figure>
-        <span class="act__swatch" style="--sw:var(--c-petrol)"></span>
-        <p class="body">LEDs em verde petróleo e teal, luz baixa e silhuetas. O terraço recebe e a recepção em cromo escovado conduz ao check-in.</p>
-      </li>
-      <li class="act reveal" data-glow="220,209,177" data-bg="#0B1311" data-t="0.5" tabindex="0">
-        <p class="label"><b>Revelação do carro</b> ~30 segundos</p>
-        <figure class="frame"><img src="assets/img/luz/luz-07.jpg" alt="Treliças com feixes cruzados como speed lines" loading="lazy"></figure>
-        <span class="act__swatch" style="--sw:linear-gradient(90deg,var(--c-teal),var(--c-cream),var(--c-amber))"></span>
-        <p class="body">A transformação acontece nos LEDs: blackout, pulso verde, speed lines, beat drop e amanhecer em ~30 s. O carro fica sempre em luz branca neutra.</p>
-      </li>
-      <li class="act reveal" data-glow="220,209,177" data-bg="#12110C" data-t="0.62" tabindex="0">
-        <p class="label"><b>Revelação do cartão</b> instalação</p>
-        <figure class="frame"><img src="assets/img/expo/expo-02.jpg" alt="Coluna de espelho infinito" loading="lazy"></figure>
-        <span class="act__swatch" style="--sw:var(--c-cream)"></span>
-        <p class="body">O cartão como protagonista: volumes tridimensionais, profundidade infinita, nada de vitrine convencional.</p>
-      </li>
-      <li class="act reveal" data-glow="247,132,0" data-bg="#170E05" data-t="0.95" tabindex="0">
-        <p class="label"><b>Pós-revelação</b> loop ambiente</p>
-        <figure class="frame"><img src="assets/img/luz/luz-06.jpg" alt="Sol de luz âmbar com raios atrás do artista" loading="lazy"></figure>
-        <span class="act__swatch" style="--sw:linear-gradient(90deg,var(--c-amber),var(--c-burnt))"></span>
-        <p class="body">Âmbar dourado e laranja queimado. O LED do palco e os painéis da varanda mostram o mesmo nascer do sol, e salão e varanda ficam na mesma luz.</p>
-      </li>
-    </ol>
   </div>
 </section>
 
@@ -739,10 +716,10 @@ body{background:#000;color:#fff}
           <li><b>Integração</b><span>A mudança de cor começa do lado de fora e avança para o salão e a varanda na mesma cue.</span></li>
         </ul>
         <div class="board__figs">
-          <figure class="frame" style="margin:0"><img src="assets/img/espaco/espaco-02.jpg" alt="Linhas de luz cruzando o vão" loading="lazy"></figure>
-          <figure class="frame" style="margin:0"><img src="assets/img/luz/luz-02.jpg" alt="Linha de luz âmbar no horizonte" loading="lazy"></figure>
+          <figure class="frame frame--ph" style="margin:0"><span class="ph__lbl">Imagem a enviar · gobos</span></figure>
+          <figure class="frame frame--ph" style="margin:0"><span class="ph__lbl">Imagem a enviar · fachada</span></figure>
         </div>
-        <p class="caption">Referências de atmosfera da curadoria atual. As referências específicas de gobo e projeção estão em curadoria.</p>
+        <p class="caption">As referências de gobo, projeção e branding externo estão em curadoria.</p>
       </div>
     </article>
 
@@ -780,18 +757,25 @@ body{background:#000;color:#fff}
       <div class="board__side">
         <span class="board__n">Prancha nova · revisão 15/10</span>
         <h3 class="h2">Mobiliário por ambiente</h3>
-        <p class="body">As peças por ambiente, para aprovação. A matéria segue o moodboard: acrílico âmbar e inox escovado. As alternativas com imagem entram na próxima versão.</p>
-        <ul class="space__tags"><li>Acrílico âmbar</li><li>Inox escovado</li><li>Banco Paulistano</li></ul>
+        <p class="body">O mobiliário está definido. As imagens das peças entram aqui assim que forem enviadas.</p>
+        <ul class="space__tags"><li>Mobiliário definido</li><li>Banco Paulistano</li><li>Imagens a enviar</li></ul>
       </div>
       <div class="board__main">
+        <div class="furn-grid">
+          <figure class="frame frame--ph"><span class="ph__lbl">Terraço · área interna</span></figure>
+          <figure class="frame frame--ph"><span class="ph__lbl">Lounge</span></figure>
+          <figure class="frame frame--ph"><span class="ph__lbl">Pista</span></figure>
+          <figure class="frame frame--ph"><span class="ph__lbl">Bar</span></figure>
+          <figure class="frame frame--ph"><span class="ph__lbl">Varanda</span></figure>
+        </div>
         <table class="furn">
           <thead><tr><th>Ambiente</th><th>Peças</th><th>Status</th></tr></thead>
           <tbody>
-            <tr><td>Terraço · área interna</td><td>Banco estilo Paulistano (nova posição)</td><td><span class="status status--wait">A aprovar</span></td></tr>
-            <tr><td>Lounge</td><td>Bancos e poltronas baixas, mesas laterais em acrílico âmbar</td><td><span class="status status--wait">Opções em curadoria</span></td></tr>
-            <tr><td>Pista</td><td>Bistrôs altos em acrílico âmbar com base em inox</td><td><span class="status status--ok">No moodboard</span></td></tr>
-            <tr><td>Bar</td><td>Banquetas altas em inox escovado</td><td><span class="status status--wait">Opções em curadoria</span></td></tr>
-            <tr><td>Varanda</td><td>Lounge externo e bistrôs, conforme a setorização escolhida</td><td><span class="status status--wait">Aguarda setorização</span></td></tr>
+            <tr><td>Terraço · área interna</td><td>Banco estilo Paulistano (nova posição)</td><td><span class="status status--wait">Imagem a enviar</span></td></tr>
+            <tr><td>Lounge</td><td>Conforme o mobiliário definido</td><td><span class="status status--wait">Imagem a enviar</span></td></tr>
+            <tr><td>Pista</td><td>Conforme o mobiliário definido</td><td><span class="status status--wait">Imagem a enviar</span></td></tr>
+            <tr><td>Bar</td><td>Conforme o mobiliário definido</td><td><span class="status status--wait">Imagem a enviar</span></td></tr>
+            <tr><td>Varanda</td><td>Conforme o mobiliário definido e a setorização escolhida</td><td><span class="status status--wait">Imagem a enviar</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -989,63 +973,37 @@ REVEAL.spaces = [
     tags: ['Cromo escovado', 'Inox escovado', 'Logotipos Revolut', 'LED'],
     zones: ['terraco', 'backdrop'],
     imgs: [
-      ['espaco-03.jpg', 'Painéis de LED em diagonal refletidos no piso: profundidade e velocidade.', '628cfc8869e6813971bfbff4c7988dee.jpg'],
-      ['espaco-02.jpg', 'Linhas de luz cruzando o vão. Trajetória, pista e speed lines no espaço.', '595a655bbf371f311c8da7b1306e51b2.jpg'],
-      ['espaco-01.jpg', 'Tubos de luz em abóbada: ritmo, repetição, imersão em âmbar.', '3659ec3ac77eebf7aeff70674cb9cac1.jpg'],
-      ['espaco-05.jpg', 'Placas de vidro verde empilhadas: cor e transparência da paleta.', 'IMG_2297.PNG'],
-      ['espaco-07.jpg', 'Lâminas verticais com luz rasante e silhuetas. Linguagem da camada de luz interativa (em avaliação).', 'ba764468d2c15a5b91b0125f6a5cb276.jpg'],
-      ['espaco-08.jpg', 'Lâminas onduladas de acrílico com gradiente de luz. Cor em movimento.', 'f6ce0b5391466fb963cbcd5c0af57344.jpg'],
-      ['espaco-04.jpg', 'Corredor monocromático retroiluminado. Imersão total de cor (ler em laranja queimado).', '99b20f0e2295fc83e8af5a55fba44da5 (1).jpg']
+      [null, 'Recepção com acabamento em cromo escovado.'],
+      [null, 'Backdrop de check-in: painel de aço inox escovado com logotipos Revolut atrás dos balcões.'],
+      [null, 'Entrada com LED em primeiro plano.'],
+      [null, 'Atmosfera da entrada e do terraço.']
     ]
   },
   {
-    id: 'luz', bg: '#08130F', glow: '89,144,135', folder: 'Luz Formúla 1', n: '04.2', name: 'Luz · Fórmula 1',
-    t: 0.4,
-    text: 'Atmosfera imersiva conduzida pelos LEDs. Rigs circulares que remetem à roda e ao volante e feixes em leque como speed lines complementam a imagem do LED, sem excesso de efeitos. A mesma estrutura atravessa a noite do verde ao âmbar e se transforma inteira em ~30 s na revelação.',
-    tags: ['LED em primeiro plano', 'Rig circular', 'Moving heads beam', 'Haze', 'Timecode', 'Verde → âmbar'],
-    zones: ['palco', 'led', 'pista'],
-    imgs: [
-      ['luz-04.jpg', 'Anel de LED verde suspenso. Estado de chegada.', 'Captura de tela 2026-10-13 174303.png'],
-      ['luz-05.jpg', 'Feixes verdes em leque a partir de treliça curva.', 'Captura de tela 2026-10-13 174429.png'],
-      ['luz-07.jpg', 'Treliças em grade com feixes cruzados: speed lines no ar.', 'Captura de tela 2026-10-13 174953.png'],
-      ['luz-03.jpg', 'Rig de treliça circular sobre a pista. Geometria de roda.', '8641eacc993d3e3630ee89005ebb6d7b.jpg'],
-      ['luz-11.jpg', 'Anel de feixes descendo sobre o público.', 'd1def714a7f2f2d94e584531bd920416.jpg'],
-      ['luz-01.jpg', 'Arcos de feixes em anel, frios. Referência de forma (ler em teal).', '3afcd07b327f3434790942e54f5a0098.jpg'],
-      ['luz-10.jpg', 'Torre de luz com haze. Marco vertical no centro da pista.', 'c115dda01f0def4ada90fe6b2ce36f01.jpg'],
-      ['luz-08.jpg', 'Leque de feixes laranja a partir do palco: o amanhecer chegando.', 'Captura de tela 2026-10-13 175406.png'],
-      ['luz-09.jpg', 'Arco de feixes âmbar emoldurando o palco.', 'a0c3d03636ea2e1d2ba1c0c7516f1ab7.jpg'],
-      ['luz-06.jpg', 'Sol de luz âmbar com raios. Clímax pós-revelação.', 'Captura de tela 2026-10-13 174921.png'],
-      ['luz-02.jpg', 'Linha de luz âmbar no horizonte, contínua e baixa.', '56ec6484523937bf61560430e8521d8f.jpg']
-    ]
-  },
-  {
-    id: 'dj', bg: '#0E100C', glow: '220,209,177', folder: 'Dj', n: '04.3', name: 'DJ & Palco',
+    id: 'dj', bg: '#0E100C', glow: '220,209,177', folder: 'Dj', n: '04.2', name: 'DJ & Palco',
     t: 0.5,
-    text: 'Área do DJ de 3 × 6 m, com mais profundidade. A cabine é um objeto luminoso e escultórico, translúcida, que brilha por dentro e muda de cor com a noite. Fica fora do palco do carro: a nova posição entra na planta revisada, sem disputar a key light.',
-    tags: ['Área 3 × 6 m', 'Cabine-lightbox', 'Translúcido', 'Anel / sol'],
+    text: 'Área do DJ de 3 × 6 m, com mais profundidade. A cabine e a mesa do DJ são forradas de LED: o conteúdo acompanha o LED do palco e muda de cor com a noite. Fica fora do palco do carro: a nova posição entra na planta revisada, sem disputar a key light.',
+    tags: ['Área 3 × 6 m', 'Cabine forrada de LED', 'Mesa em LED', 'Anel / sol'],
     zones: ['pista'],
     imgs: [
-      ['dj-03.jpg', 'Cabine translúcida que brilha por dentro: leve e escultórica.', 'IMG_2295.PNG'],
-      ['dj-01.jpg', 'Cabine em grade retroiluminada sobre cortina de tecido.', '4c2101f2bba1ad8cf2496e1b176edace.jpg'],
+      [null, 'Cabine e mesa do DJ forradas de LED.'],
+      [null, 'Cabine em LED com o conteúdo do palco.'],
       ['dj-02.jpg', 'Palco em caixa suspensa: o DJ como objeto de luz (ler em laranja queimado).', '8ebaf62c35c51534e87cd90f6830e1f3.jpg'],
       ['dj-04.jpg', 'Anel-sol atrás do artista. Assinatura do pós-revelação.', 'a53f41ac46f1de7f0acb6b12bd1577c2.jpg']
     ]
   },
   {
-    id: 'expo', bg: '#0B1413', glow: '220,209,177', folder: 'expo', n: '04.4', name: 'Expo · Cartões',
+    id: 'expo', bg: '#0B1413', glow: '220,209,177', folder: 'expo', n: '04.3', name: 'Expo · Cartões',
     t: 0.62,
-    text: 'Instalação tridimensional para os cartões, com o produto como protagonista. Três alternativas de composição, com profundidade e volume: A, coluna de espelho infinito; B, pedestais-cubo de luz em alturas diferentes; C, volume escultórico com cartões suspensos. Em todas, o cartão parece flutuar dentro do volume.',
-    tags: ['A · Espelho infinito', 'B · Pedestais de luz', 'C · Volume escultórico', 'Profundidade'],
+    text: 'Instalação tridimensional para os cartões, com o produto como protagonista: profundidade e volume, e o cartão parece flutuar dentro da peça. Uma única direção, com a referência a confirmar em reunião.',
+    tags: ['Instalação 3D', 'Cartão protagonista', 'Profundidade', 'Referência a confirmar'],
     zones: ['totem', 'instalacao'],
     imgs: [
-      ['expo-02.jpg', 'Coluna de espelho infinito: totem para o cartão.', '8e02a04016b2cd21452703ed426fc0ed.jpg'],
-      ['expo-01.jpg', 'Espelho infinito em forma de letra: profundidade e mistério.', '6c919fe8968f4ab1323d9c3b8e105ad2.jpg'],
-      ['expo-04.jpg', 'Pedestais-cubo iluminados com redoma de acrílico.', 'IMG_2296.PNG'],
-      ['expo-03.jpg', 'Corredor de nichos retroiluminados (ler em âmbar).', '99b20f0e2295fc83e8af5a55fba44da5.jpg']
+      [null, 'Instalação dos cartões: referência a confirmar em reunião.']
     ]
   },
   {
-    id: 'bar', bg: '#140E07', glow: '255,182,42', folder: 'Bar', n: '04.5', name: 'Bar',
+    id: 'bar', bg: '#140E07', glow: '255,182,42', folder: 'Bar', n: '04.4', name: 'Bar',
     t: 0.72,
     text: 'Balcões-lightbox com frente translúcida e tampo em inox escovado, teto luminoso como marco aéreo. Os bares acompanham a luz cênica do verde ao âmbar. O layout dos bares está em revisão na planta v02, com circulação livre entre bar e VM. O bar atrás do backdrop de check-in saiu.',
     tags: ['Balcão-lightbox', 'Inox escovado', 'Teto luminoso', 'Layout em revisão'],
@@ -1059,23 +1017,25 @@ REVEAL.spaces = [
     ]
   },
   {
-    id: 'photo-op', bg: '#170D05', glow: '247,132,0', folder: 'Photo Op', n: '04.6', name: 'VM · Branding',
+    id: 'photo-op', bg: '#170D05', glow: '247,132,0', folder: 'Photo Op', n: '04.5', name: 'VM · Branding',
     t: 0.82,
     text: 'Área de visual merchandising (75 m²) para os produtos Adidas, em manequins ou em estrutura suspensa, distribuídos conforme o layout. As experiências fotográficas interativas saíram do projeto. Letras espelhadas Revolut podem entrar só como elemento cenográfico de branding, sujeitas a aprovação.',
     tags: ['Adidas', 'Manequins ou estrutura suspensa', 'Letras espelhadas · a aprovar', '75 m²'],
     zones: ['photo'],
     imgs: [
-      ['photo-op-01.jpg', 'Arcos de LED sobre a área: luz como marco do VM.', '28d0c702a4a054f153b61fe52c280c21.jpg']
+      [null, 'Visual merchandising e branding: nova referência.']
     ]
   },
   {
-    id: 'mobiliario', bg: '#1A1208', glow: '255,182,42', folder: 'Mobiliário', n: '04.7', name: 'Mobiliário',
+    id: 'mobiliario', bg: '#1A1208', glow: '255,182,42', folder: 'Mobiliário', n: '04.6', name: 'Mobiliário',
     t: 0.92,
-    text: 'Acrílico âmbar com inox escovado: peças que funcionam como luminárias. Bistrôs, bancos e lounges seguem a mesma matéria. O banco estilo Paulistano vai para a área interna do terraço ou outro local aprovado. As peças por ambiente estão na prancha de mobiliário.',
-    tags: ['Acrílico âmbar', 'Inox escovado', 'Banco Paulistano', 'Bistrôs', 'Lounge'],
+    text: 'Mobiliário definido. As imagens das peças entram assim que forem enviadas. O banco estilo Paulistano vai para a área interna do terraço ou outro local aprovado. As peças por ambiente estão na prancha de mobiliário.',
+    tags: ['Mobiliário definido', 'Banco Paulistano', 'Imagens a enviar'],
     zones: ['bancos', 'pista'],
     imgs: [
-      ['mobiliario-01.jpg', 'Mesas em acrílico laranja e base em inox sob teto luminoso.', 'e7003afa09bda2e59455d5e13b53a2ef.jpg']
+      [null, 'Mobiliário definido: lounge.'],
+      [null, 'Mobiliário definido: pista e bistrôs.'],
+      [null, 'Mobiliário definido: bar.']
     ]
   }
 ];
@@ -1108,11 +1068,11 @@ REVEAL.guides = [
     ans: 'Em avaliação. O check-in fica com o painel de aço inox escovado e logotipos Revolut. A interatividade, se mantida, é uma camada de luz desse painel (fita pixel com sensor de profundidade e TouchDesigner) que acompanha quem passa. Não é ativação fotográfica: essas saíram do projeto. Mova o cursor sobre o painel.',
     media: { type: 'fins' }, bg: '#071311', glow: '89,144,135', link: ['entrada', 'Ver o protótipo em tela cheia'] },
   { group: 'Cenografia e experiências interativas', ask: 'Instalação tridimensional para os cartões, com protagonismo e sem apresentação convencional.',
-    ans: 'Três alternativas com profundidade e volume: A, coluna de espelho infinito; B, pedestais-cubo de luz em alturas diferentes; C, volume escultórico com cartões suspensos em giro lento, cada um com luz própria. Totem cartão integrado ao bar.',
-    media: { type: 'img', src: 'assets/img/expo/expo-02.jpg', cap: 'Coluna de espelho infinito · expo / 01' }, bg: '#0D1514', glow: '220,209,177', link: ['space-expo', 'Ver referências de expo'] },
+    ans: 'Uma instalação tridimensional, com profundidade e volume, em que o cartão parece flutuar dentro da peça. A referência é confirmada em reunião. Totem cartão integrado ao bar.',
+    media: { type: 'ph', cap: 'Instalação dos cartões · referência a confirmar' }, bg: '#0D1514', glow: '220,209,177', link: ['space-expo', 'Ver referências de expo'] },
   { group: 'Cenografia e experiências interativas', ask: 'Cenografia externa de entrada de forte impacto, com policarbonato, volumes e arquitetura contemporânea.',
     ans: 'O pórtico saiu. A entrada ganha impacto pelos LEDs e pelos materiais: recepção em cromo escovado, check-in em aço inox escovado com logotipos Revolut, e iluminação e branding externos (gobos e projeções) integrados à narrativa da noite.',
-    media: { type: 'img', src: 'assets/img/espaco/espaco-03.jpg', cap: 'LED como protagonista da entrada · Espaço / 01' }, bg: '#0A1A18', glow: '89,144,135', link: ['space-espaco', 'Ver referências de entrada'] }
+    media: { type: 'ph', cap: 'Entrada · referências novas a enviar' }, bg: '#0A1A18', glow: '89,144,135', link: ['space-espaco', 'Ver referências de entrada'] }
 ];
 
 /* Zonas da planta (coordenadas no PDF a 100dpi; viewBox 40 40 1560 1012) */
@@ -1125,19 +1085,19 @@ REVEAL.zones = [
     tags: ['Aço inox escovado', 'Logotipos Revolut', 'Interativo · em avaliação'], space: 'espaco', light: [[440, 620, 110]], delay: 0.04 },
   { id: 'housemix', name: 'House técnica', dims: '5,00 m na v01 · 6,00 m em avaliação', rect: [450, 466, 30, 130],
     text: 'Operação de luz, som e vídeo. Visada direta para palco e carro, importante para o cue de 30 s. Posição revisada e medida a confirmar na planta v02.',
-    tags: ['Operação', 'Timecode'], space: 'luz', light: [], delay: 0.08 },
+    tags: ['Operação', 'Timecode'], space: '', light: [], delay: 0.08 },
   { id: 'led', name: 'Painéis de LED', dims: '4,00 + 12,00 + 4,00 m', rect: [535, 400, 514, 50],
     text: 'Três painéis: o central atrás do palco e dois laterais. Conteúdo em pixel mapping no gradiente amanhecer: speed lines na revelação, nascer do sol no pós. Os painéis transparentes da varanda repetem o conteúdo, em espelho.',
-    tags: ['Pixel mapping', 'Speed lines', 'Sunrise'], space: 'luz', light: [[587, 415, 80], [790, 440, 160], [995, 415, 80]], delay: 0.12 },
+    tags: ['Pixel mapping', 'Speed lines', 'Sunrise'], space: '', light: [[587, 415, 80], [790, 440, 160], [995, 415, 80]], delay: 0.12 },
   { id: 'palco', name: 'Palco · Carro', dims: 'Palco 12,00 × 5,00 m · altura 0,70 m (previsão) · carro 4,58 × 2,00 m a 23,6°', rect: [638, 450, 307, 130],
     text: 'Palco e carro centralizados; o carro a 23,6°, com key light branca dedicada (5600K, CRI ≥ 95). A cena colorida banha o fundo e o piso, nunca a pintura do carro. Retirada do tecido na revelação: sistema em definição. O DJ sai do palco.',
-    tags: ['Key light neutra', 'Giratório', 'Revelação'], space: 'luz', light: [[700, 560, 90]], car: true, delay: 0.14 },
+    tags: ['Key light neutra', 'Giratório', 'Revelação'], space: '', light: [[700, 560, 90]], car: true, delay: 0.14 },
   { id: 'pista', name: 'Pista de dança & bistrôs', dims: 'Salão principal', rect: [482, 590, 476, 182],
     text: 'Coração do evento. Rig circular suspenso e moving heads. Bistrôs em acrílico âmbar nas bordas.',
-    tags: ['Rig circular', 'Moving heads', 'Haze'], space: 'luz', light: [[620, 680, 150], [830, 650, 170]], delay: 0.18 },
+    tags: ['Rig circular', 'Moving heads', 'Haze'], space: 'dj', light: [[620, 680, 150], [830, 650, 170]], delay: 0.18 },
   { id: 'instalacao', name: 'Instalação dos cartões', dims: 'Proposta · volumes junto ao lounge', rect: [1005, 535, 150, 180],
-    text: 'Proposta de posição para a instalação 3D dos cartões, aproveitando os volumes angulares desenhados na planta: espelho infinito e pedestais de luz. A confirmar com a cenografia.',
-    tags: ['Espelho infinito', 'Cartão protagonista'], space: 'expo', light: [[1080, 620, 100]], delay: 0.22 },
+    text: 'Proposta de posição para a instalação 3D dos cartões, aproveitando os volumes angulares desenhados na planta. A referência da instalação é confirmada em reunião.',
+    tags: ['Instalação 3D', 'Cartão protagonista'], space: 'expo', light: [[1080, 620, 100]], delay: 0.22 },
   { id: 'bancos', name: 'Lounge · bancos', dims: 'Entre palco e VM', rect: [960, 470, 250, 255],
     text: 'Área de estar com bancos e bistrôs, com as novas opções de mobiliário. A luz ambiente quente é a principal aqui, para conversas.',
     tags: ['Estar', 'Luz ambiente', 'Mobiliário · opções'], space: 'mobiliario', light: [[1150, 520, 70]], delay: 0.24 },
@@ -1145,7 +1105,7 @@ REVEAL.zones = [
     text: 'Balcão-lightbox com tampo inox. A frente translúcida segue a cena, do verde ao âmbar. Posição revista na v02, com fluxo livre entre bar, VM e circulação.',
     tags: ['Balcão-lightbox', 'Inox'], space: 'bar', light: [[1044, 750, 90]], delay: 0.26 },
   { id: 'totem', name: 'Totem cartão', dims: '1,20 m', rect: [898, 762, 40, 26],
-    text: 'Totem de ativação do cartão ao lado do bar. Coluna de espelho infinito como linguagem.',
+    text: 'Totem de ativação do cartão ao lado do bar, na mesma linguagem da instalação dos cartões.',
     tags: ['Ativação', 'Espelho infinito'], space: 'expo', light: [[917, 775, 50]], delay: 0.27 },
   { id: 'photo', name: 'VM · Adidas + branding', dims: '75 m²', rect: [1213, 462, 197, 256],
     text: 'Visual merchandising dos produtos Adidas, em manequins ou em estrutura suspensa. Letras espelhadas Revolut só como branding, a aprovar. Sem ativações fotográficas interativas.',
@@ -1715,7 +1675,8 @@ lb.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') lbStep(-1); if 
 let tx0 = null; lb.addEventListener('touchstart', e => tx0 = e.touches[0].clientX, { passive: true });
 lb.addEventListener('touchend', e => { if (tx0 === null) return; const dx = e.changedTouches[0].clientX - tx0; if (Math.abs(dx) > 50) lbStep(dx < 0 ? 1 : -1); tx0 = null; });
 
-const itemsOf = sp => sp.imgs.map(([f, note, orig]) => ({ src: `assets/img/${sp.id}/${f}`, note, space: sp.name, path: `03_MOODBOARD/IMGS/${sp.folder}/${orig}` }));
+const itemsOf = sp => sp.imgs.map(([f, note, orig]) => f ? ({ src: `assets/img/${sp.id}/${f}`, note, space: sp.name, path: `03_MOODBOARD/IMGS/${sp.folder}/${orig}` }) : ({ ph: true, note, space: sp.name }));
+const realOf = items => items.filter(it => !it.ph);
 (function spaces() {
   const host = $('.spaces'), idx = $('.space-index');
   REVEAL.spaces.forEach(sp => {
@@ -1732,18 +1693,23 @@ const itemsOf = sp => sp.imgs.map(([f, note, orig]) => ({ src: `assets/img/${sp.
         <p class="body">${sp.text}</p>
         <div><div class="space__light"><i style="left:${sp.t * 100}%"></i></div><span class="space__lightlbl">Pico na noite: ${momentOf(sp.t)}</span></div>
         <ul class="space__tags">${sp.tags.map(t => `<li>${t}</li>`).join('')}</ul>
-        <p class="space__folder">${items.length} ${items.length > 1 ? 'referências' : 'referência'} · pasta ${sp.folder}</p>
+        <p class="space__folder">${(n => n ? `${n} ${n > 1 ? 'referências' : 'referência'}` : 'Referências')(realOf(items).length)}${items.some(it => it.ph) ? ` · ${items.filter(it => it.ph).length} a enviar` : ''} · pasta ${sp.folder}</p>
         <a class="space__plan" href="#planta" data-zone="${sp.zones[0]}">Ver na planta →</a>
       </div>
-      <div class="${cls}">${items.map((it, i) => `
-        <button class="tile reveal" data-i="${i}" type="button" aria-label="Ampliar: ${it.note}">
+      <div class="${cls}">${items.map((it, i) => it.ph ? `
+        <div class="tile tile--ph reveal">
+          <span class="frame frame--ph"><span class="ph__lbl">Imagem a enviar</span></span>
+          <span class="tile__note">${it.note}</span>
+          <span class="tile__src">${sp.folder} / ${String(i + 1).padStart(2, '0')} · em curadoria</span>
+        </div>` : `
+        <button class="tile reveal" data-i="${realOf(items).indexOf(it)}" type="button" aria-label="Ampliar: ${it.note}">
           <span class="frame"><img src="${it.src}" alt="${it.note}" loading="lazy"></span>
           <span class="tile__note">${it.note}</span>
           <span class="tile__src">${sp.folder} / ${String(i + 1).padStart(2, '0')}</span>
         </button>`).join('')}
       </div>`;
     host.appendChild(el);
-    $$('.tile', el).forEach(b => b.addEventListener('click', () => openLB(items, +b.dataset.i)));
+    $$('button.tile', el).forEach(b => b.addEventListener('click', () => openLB(realOf(items), +b.dataset.i)));
   });
   // índice ativo
   const links = $$('.space-index a');
@@ -1779,6 +1745,7 @@ const itemsOf = sp => sp.imgs.map(([f, note, orig]) => ({ src: `assets/img/${sp.
     list.appendChild(li);
     const m = document.createElement('div'); m.className = 'mm mm--' + g.media.type;
     if (g.media.type === 'img') m.innerHTML = `<img src="${g.media.src}" alt="" loading="lazy"><p class="mm__cap">${g.media.cap}</p>`;
+    else if (g.media.type === 'ph') m.innerHTML = `<div class="mm__ph"><span class="ph__lbl">Imagem a enviar</span></div><p class="mm__cap">${g.media.cap}</p>`;
     else if (g.media.type === 'dawn') m.innerHTML = `<div class="dawn__bar"><i></i></div><div class="dawn__ticks"><span>Chegada</span><span>Aquecimento</span><span>Revelação</span><span>Pós-revelação</span></div><p class="dawn__now">Chegada</p>`;
     else if (g.media.type === 'fins') m.innerHTML = `<canvas></canvas><p class="mm__cap">Protótipo: mova o cursor sobre o painel</p>`;
     else if (g.media.type === 'plan') {
@@ -1975,8 +1942,8 @@ const itemsOf = sp => sp.imgs.map(([f, note, orig]) => ({ src: `assets/img/${sp.
       const th = $('.zone-card__thumbs', card); th.innerHTML = '';
       const sp = REVEAL.spaces.find(s => s.id === z.space), go = $('.zone-card__go', card);
       if (sp) {
-        const items = itemsOf(sp);
-        items.slice(0, 4).forEach((it, i) => { const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Ampliar: ' + it.note); b.innerHTML = `<span class="frame"><img src="${it.src}" alt="" loading="lazy"></span>`; b.addEventListener('click', () => openLB(items, i)); th.appendChild(b); });
+        const all = itemsOf(sp), items = realOf(all);
+        all.slice(0, 4).forEach(it => { if (it.ph) { th.insertAdjacentHTML('beforeend', '<span class="frame frame--ph" title="Imagem a enviar"></span>'); return; } const i = items.indexOf(it); const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Ampliar: ' + it.note); b.innerHTML = `<span class="frame"><img src="${it.src}" alt="" loading="lazy"></span>`; b.addEventListener('click', () => openLB(items, i)); th.appendChild(b); });
         go.hidden = false; go.href = '#space-' + sp.id; go.textContent = `Ver ${sp.name} no moodboard →`;
       } else go.hidden = true;
       card.classList.remove('is-swap');

@@ -70,7 +70,7 @@ page({ cls: 'cover', foot: false, bleed: `<img class="bg" src="img/cover-hero.jp
   </div>` });
 
 const TOC = [
-  ['01', 'Conceito', 'Um novo amanhecer na cidade · quatro atos de luz', 'sec-conceito'],
+  ['01', 'Conceito', 'Um novo amanhecer na cidade · a luz da noite', 'sec-conceito'],
   ['02', 'Revelação do carro', 'O palco em 30 segundos · Opção 1 × Opção 2 · key light', 'sec-revelacao'],
   ['03', 'Espaços', 'Moodboard por espaço · referências originais e na paleta', 'sec-espacos'],
   ['04', 'Reunião com cliente', 'As 10 diretrizes de 13/10 e a nossa proposta', 'sec-reuniao'],
@@ -104,22 +104,6 @@ page({ sec: 'conceito', id: 'sec-conceito', bg: '#0A1D1A', bleed: `<img src="img
       </div>
     </div>
   </div>` });
-
-const ACTS = [
-  ['Chegada', 'loop ambiente', 'luz/luz-04.jpg', 'var(--petrol)', '#0A1D1A', '89,144,135', 'LEDs em verde petróleo e teal, luz baixa e silhuetas. O terraço recebe e a recepção em cromo escovado conduz ao check-in.'],
-  ['Revelação do carro', '~30 segundos', 'luz/luz-07.jpg', 'linear-gradient(90deg,var(--teal),var(--cream),var(--amber))', '#0B1311', '220,209,177', 'A transformação acontece nos LEDs: blackout, pulso verde, speed lines, beat drop e amanhecer em ~30 s. O carro fica sempre em luz branca neutra.'],
-  ['Revelação do cartão', 'instalação', 'expo/expo-02.jpg', 'var(--cream)', '#12110C', '220,209,177', 'O cartão como protagonista: volumes tridimensionais, profundidade infinita, nada de vitrine convencional.'],
-  ['Pós-revelação', 'loop ambiente', 'luz/luz-06.jpg', 'linear-gradient(90deg,var(--amber),var(--burnt))', '#170E05', '247,132,0', 'Âmbar dourado e laranja queimado. O LED do palco e os painéis da varanda mostram o mesmo nascer do sol.']
-];
-page({ sec: 'conceito', bg: '#0A1D1A', body: `
-  ${head('Narrativa', 'Quatro atos de luz', 'Os LEDs conduzem a noite: palco, laterais e painéis transparentes da varanda mudam juntos. Cada ato tem a sua cor.', false)}
-  <ol style="list-style:none;flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);gap:4mm;align-items:center">
-    ${ACTS.map(([n, s, img, sw, bg, gl, t], i) => `<li style="display:flex;flex-direction:column;gap:2.6mm;padding:3.4mm;border-radius:2mm;background:radial-gradient(90% 60% at 50% 0%, rgba(${gl},.28), transparent 75%), ${bg};border:.25mm solid var(--line);min-height:0">
-      <p class="lbl"><b>${pad2(i + 1)} · ${n}</b><span style="color:var(--t3)">${s}</span></p>
-      ${fig(A('img/' + img), 'aspect-ratio:4/5;flex:none')}
-      <span style="display:block;height:1.2mm;border-radius:1mm;background:${sw};flex:none"></span>
-      <p class="sm" style="flex:none">${tx(t)}</p></li>`).join('')}
-  </ol>` });
 
 /* =========================================================
    02 REVELAÇÃO
@@ -183,7 +167,7 @@ const SP = R.spaces;
 page({ sec: 'espacos', id: 'sec-espacos', bg: '#0B100E', glow: '220,209,177', bleed: `<img src="img/chapter-conceito.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scaleX(-1);filter:sepia(.5) saturate(1.4) hue-rotate(-12deg);opacity:.9"><div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.2) 70%)"></div>`, body: `
   <div style="flex:1;display:grid;grid-template-columns:1fr 104mm;gap:14mm;align-items:end">
     <div><p class="eyebrow">03 · Espaços</p><h2 class="display" style="font-size:52pt;letter-spacing:-.04em">Moodboard<br>por espaço</h2>
-      <p class="lead" style="margin-top:6mm;max-width:120mm">${tx('Sete espaços, na ordem do fluxo do convidado. Cada referência leva um número; a legenda fica ao lado das imagens.')}</p></div>
+      <p class="lead" style="margin-top:6mm;max-width:120mm">${tx('Seis espaços, na ordem do fluxo do convidado. Cada referência leva um número; a legenda fica ao lado das imagens.')}</p></div>
     <ol class="toc">${SP.map((s, i) => `<li><a href="#space-${s.id}"><span class="k">${pad2(i + 1)}</span><span class="t" style="font-size:11.5pt">${s.name}<small>${s.imgs.length} ${s.imgs.length > 1 ? 'referências' : 'referência'} · pico na noite: ${momentOf(s.t)}</small></span><span class="p" data-ref="space-${s.id}"></span></a></li>`).join('')}</ol>
   </div>` });
 
@@ -194,7 +178,7 @@ const spaceSide = (sp, i, imgs, part = '') => `
   <div><div class="bar" style="height:1.4mm;border-radius:1mm"><i style="position:absolute;top:50%;left:${sp.t * 100}%;width:3mm;height:3mm;border-radius:50%;background:#fff;transform:translate(-50%,-50%);box-shadow:0 0 0 .6mm #000,0 0 2mm rgba(${sp.glow},1)"></i></div><p class="cap" style="margin-top:1.6mm">Pico na noite: ${momentOf(sp.t)}</p></div>
   <div class="tags">${sp.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>`;
 const capList = (imgs, start = 0) => `<ol class="caplist">${imgs.map((im, k) => `<li><span class="num">${start + k + 1}</span><span>${tx(im[1])}</span></li>`).join('')}</ol>`;
-const jg = (sp, imgs, start = 0) => `<div class="jg" data-items='${JSON.stringify(imgs.map((im, k) => ({ src: A(`img/${sp.id}/${im[0]}`), n: start + k + 1 })))}'></div>`;
+const jg = (sp, imgs, start = 0) => `<div class="jg" data-items='${JSON.stringify(imgs.map((im, k) => im[0] ? { src: A(`img/${sp.id}/${im[0]}`), n: start + k + 1 } : { ph: 1, n: start + k + 1 }))}'></div>`;
 function spacePage(sp, i, imgs, start, part, id) {
   page({ sec: 'espacos', id, bg: sp.bg, glow: sp.glow, body: `
     <div style="flex:1;min-height:0;display:grid;grid-template-columns:78mm 1fr;gap:8mm">
@@ -218,7 +202,7 @@ SP.forEach((sp, i) => {
     </div>` });
 }
 // Original × na paleta (o botão de tratamento das imagens, congelado)
-const GR = [['luz', 'luz-04.jpg', 'Luz · Fórmula 1 / 01'], ['espaco', 'espaco-03.jpg', 'Entrada & Espaço / 01'], ['dj', 'dj-04.jpg', 'DJ & Palco / 04'], ['bar', 'bar-04.jpg', 'Bar / 01']];
+const GR = [['dj', 'dj-02.jpg', 'DJ & Palco / 03'], ['dj', 'dj-04.jpg', 'DJ & Palco / 04'], ['bar', 'bar-04.jpg', 'Bar / 01'], ['bar', 'bar-01.jpg', 'Bar / 04']];
 page({ sec: 'espacos', bg: '#0B100E', glow: '220,209,177', body: `
   ${head('03 · Espaços · tratamento das imagens', 'Original × na paleta', 'No site, um botão passa todas as referências para a paleta do cartão. Aqui, quatro delas nos dois estados.', false)}
   <div style="flex:1;min-height:0;display:grid;grid-template-columns:30mm repeat(4,1fr);grid-template-rows:auto 1fr 1fr;gap:3mm 5mm">
@@ -256,9 +240,10 @@ page({ sec: 'reuniao', id: 'sec-reuniao', bg: '#0A1D1A', body: `
   </div>` });
 
 const LINKID = { planta: 'sec-planta', revelacao: 'sec-revelacao', entrada: 'sec-espacos', 'space-bar': 'space-bar', 'space-expo': 'space-expo', 'space-espaco': 'space-espaco', 'space-photo-op': 'space-photo-op', 'space-mobiliario': 'space-mobiliario' };
-const LINKTXT = { planta: 'Planta', revelacao: 'Palco 3D', entrada: 'Espaços', 'space-bar': 'Referências de bar', 'space-expo': 'Referências de expo', 'space-espaco': 'Referências de entrada', 'space-photo-op': 'Photo Op', 'space-mobiliario': 'Mobiliário' };
+const LINKTXT = { planta: 'Planta', revelacao: 'Palco 3D', entrada: 'Espaços', 'space-bar': 'Referências de bar', 'space-expo': 'Referências de expo', 'space-espaco': 'Referências de entrada', 'space-photo-op': 'VM · Branding', 'space-mobiliario': 'Mobiliário' };
 function media(g) {
   const m = g.media;
+  if (m.type === 'ph') return `<figure class="fig fig--ph" style="flex:1;min-height:0"><span class="ph__lbl">Imagem a enviar</span></figure>`;
   if (m.type === 'img') return fig(A(m.src.replace('assets/', '')), 'flex:1;min-height:0');
   if (m.type === 'fins') return fig('img/meet-08.jpg', 'flex:1;min-height:0');
   if (m.type === 'plan') return `<figure class="fig" style="flex:1;min-height:0">${planSVG({ focus: m.zones, split: m.split, flow: m.flow, labels: true, aspect: 1.36, pad: m.flow ? 120 : 90 })}</figure>`;
@@ -378,7 +363,7 @@ await Promise.all([...document.images].map(im => im.decode().catch(() => {})));
 const natural = src => new Promise(r => { const im = new Image(); im.onload = () => r(im.naturalWidth / im.naturalHeight); im.onerror = () => r(1); im.src = src; });
 for (const box of document.querySelectorAll('.jg')) {
   const items = JSON.parse(box.dataset.items);
-  for (const it of items) it.ar = await natural(it.src);
+  for (const it of items) it.ar = it.ph ? 4 / 3 : await natural(it.src);
   const W = box.clientWidth, H = box.clientHeight, gap = 8;
   let best = null;
   for (let rows = 1; rows <= items.length; rows++) {
@@ -396,7 +381,7 @@ for (const box of document.querySelectorAll('.jg')) {
   y = Math.max(0, (H - blockH) / 2);
   parts.forEach((p, r) => {
     const h = hs[r] * s, rowW = p.reduce((a, it) => a + h * it.ar, 0) + gap * (p.length - 1); let x = Math.max(0, (W - rowW) / 2);
-    p.forEach(it => { const w = h * it.ar; box.insertAdjacentHTML('beforeend', `<figure class="fig" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"><img src="${it.src}" alt=""><span class="num">${it.n}</span></figure>`); x += w + gap; });
+    p.forEach(it => { const w = h * it.ar; box.insertAdjacentHTML('beforeend', it.ph ? `<figure class="fig fig--ph" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"><span class="ph__lbl">Imagem a enviar</span><span class="num">${it.n}</span></figure>` : `<figure class="fig" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"><img src="${it.src}" alt=""><span class="num">${it.n}</span></figure>`); x += w + gap; });
     y += h + gap;
   });
 }
